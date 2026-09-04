@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Goldendome | Property Portal</title><meta name="description" content="Explore quality residential properties and upcoming developments by Goldendome."><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="topbar"><div class="container nav"><a class="brand" href="#"><img src="images/Goldendomelogo.webp" alt="Goldendome"></a><nav><a href="#properties">Properties</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a></nav><a class="nav-cta" href="#contact">Enquire Now</a></div></header>
+<main>
+<section class="hero"><div class="container hero-content"><p class="eyebrow">HI, I'M KIMI</p><h1>Find a home<br><em>you'll love.</em></h1><p class="hero-copy">Explore quality homes, prime locations and residential opportunities across Brunei.</p><div class="hero-actions"><a class="button light" href="#properties">Explore Properties</a><a class="button ghost" href="#contact">Talk to Us</a></div></div></section>
+<section class="search-wrap">
+  <div class="container search-panel">
+
+    <div class="search-heading">
+      <span>PROPERTY SEARCH</span>
+      <strong>Find your next home</strong>
+    </div>
+
+    <select id="locationFilter">
+      <option value="">All locations</option>
+    </select>
+
+    <select id="typeFilter">
+      <option value="">All property types</option>
+    </select>
+
+    <select id="priceFilter">
+      <option value="">Any price</option>
+      <option value="150000">Up to $150k</option>
+      <option value="200000">Up to $200k</option>
+      <option value="250000">Up to $250k</option>
+      <option value="300000">Up to $300k</option>
+    </select>
+
+    <select id="sortFilter" onchange="renderProperties()">
+      <option value="available">Available First</option>
+      <option value="sold">Sold Out First</option>
+      <option value="price-low">Price: Low → High</option>
+      <option value="price-high">Price: High → Low</option>
+      <option value="name">Name: A → Z</option>
+    </select>
+
+    <button class="button dark" onclick="renderProperties()">
+      Search
+    </button>
+
+  </div>
+</section>
+<section id="properties" class="section"><div class="container"><div class="section-head"><div><p class="eyebrow">PROPERTY COLLECTION</p><h2>Featured properties</h2></div><span id="resultCount" class="result-count"></span></div><div id="propertyGrid" class="property-grid"></div></div></section>
+<section id="projects" class="section muted"><div class="container"><div class="section-head"><div><p class="eyebrow">DEVELOPMENTS</p><h2>Our projects</h2></div></div><div class="project-grid"><article class="project-card"><div class="project-number">01</div><h3>Mentiri</h3><p>Quality double-storey homes across Mentiri developments.</p><a href="#properties">Explore homes →</a></article><article class="project-card"><div class="project-number">02</div><h3>Lambak Kanan</h3><p>Detached double-storey homes designed for family living.</p><a href="#properties">Explore homes →</a></article><article class="project-card"><div class="project-number">03</div><h3>Brunei & Tutong</h3><p>Residential opportunities across selected locations in Brunei.</p><a href="#properties">Explore homes →</a></article></div></div></section>
+<section id="about" class="section about"><div class="container about-grid"><div><p class="eyebrow">WHY GOLDENDOME</p><h2>Property information made simple.</h2></div><div><p>One place to explore property details, pricing, availability, specifications and locations.</p><p>Contact KIMI directly for the latest availability and project information.</p></div></div></section>
+<section id="contact" class="contact"><div class="container contact-grid"><div><p class="eyebrow">LET'S TALK</p><h2>Looking for your next home?</h2><p>Send us a message and we'll help you find a property that fits your needs.</p></div><div class="contact-card"><div><span>WHATSAPP</span><strong>+673 821 1222</strong></div><a class="button light full" href="https://wa.me/6738211222?text=Hi%20Kimi,%20I'm%20interested%20in%20one%20of%20your%20properties." target="_blank">Message us on WhatsApp</a></div></div></section>
+</main>
+<footer><div class="container footer"><span>© 2026 GoldenDome</span><span>Property information subject to availability and change.</span></div></footer>
+<div id="modal" class="modal" aria-hidden="true"><div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="close" type="button" onclick="closeModal()" aria-label="Close property details">×</button><div id="modalContent"></div></div></div>
+<script src="properties.js"></script>
+</body></html>
