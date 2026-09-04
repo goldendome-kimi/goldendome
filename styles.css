@@ -89,7 +89,7 @@ a{
   min-height:680px;
   background:
     linear-gradient(90deg,rgba(20,23,19,.82),rgba(20,23,19,.28)),
-    url("./images/hero.webp") center/cover;
+    url("./hero.webp") center/cover;
   position:relative;
   color:#fff;
   display:flex;
