@@ -124,72 +124,130 @@ function renderProperties(){
   `).join("");
 }
 
-function openModal(id){
-  const p=properties.find(x=>x.id===id);
+
+function openModal(id) {
+  const p = properties.find(x => x.id === id);
+  if (!p) return;
+
   window.currentGallery = p.gallery || [p.image];
   galleryIndex = 0;
-  const maps=`https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`;
-  document.getElementById("modalContent").innerHTML=`
+
+  const maps = `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`;
+
+  document.getElementById("modalContent").innerHTML = `
     <div class="modal-grid">
+
+      <!-- LEFT: PROPERTY IMAGE GALLERY -->
       <div class="modal-gallery">
-        <img id="galleryImage" class="modal-photo" src="${(p.gallery||[p.image])[0]}" alt="${p.name}">
-        ${(p.gallery||[p.image]).length>1?`<button class="gallery-prev" onclick="changeGallery(-1)">‹</button><button class="gallery-next" onclick="changeGallery(1)">›</button><div class="gallery-count"><span id="galleryCount">1 / ${(p.gallery||[p.image]).length}</span></div>`:""}
-      ${p.floorPlans && p.floorPlans.length ? `
-  <section class="modal-floor-plan">
-    <h3>Floor Plans</h3>
+        <img
+          id="galleryImage"
+          class="modal-photo"
+          src="${(p.gallery || [p.image])[0]}"
+          alt="${p.name}"
+        >
 
-    <div class="floor-plan-grid">
-      ${p.floorPlans.map((plan, index) => `
-        <div class="floor-plan-item">
-          <h4>${index === 0 ? "Ground Floor" : index === 1 ? "First Floor" : `Floor ${index + 1}`}</h4>
+        ${(p.gallery || [p.image]).length > 1 ? `
+          <button class="gallery-prev" onclick="changeGallery(-1)">‹</button>
+          <button class="gallery-next" onclick="changeGallery(1)">›</button>
+          <div class="gallery-count">
+            <span id="galleryCount">1 / ${(p.gallery || [p.image]).length}</span>
+          </div>
+        ` : ""}
+      </div>
 
-          <a href="${plan}" target="_blank" rel="noopener">
-            <img
-              src="${plan}"
-              alt="${p.name} floor plan ${index + 1}"
-              loading="lazy"
-            >
-          </a>
+      <!-- RIGHT: PROPERTY DETAILS -->
+      <div class="modal-property-info">
+        <div class="location">
+          ${p.location.toUpperCase()} · ${p.type.toUpperCase()}
         </div>
-      `).join("")}
-    </div>
-  </section>
-` : ""}
-        <h2 id="modalTitle">${p.name}</h2><div class="price">${money(p.price)}</div>
+
+        <h2 id="modalTitle">${p.name}</h2>
+
+        <div class="price">${money(p.price)}</div>
+
         <p>${p.description}</p>
-        ${p.promo?`<p class="promo"><strong>PROMOTION:</strong> ${p.promo}</p>`:""}
-        <ul>${p.features.map(x=>`<li>${x}</li>`).join("")}</ul>
+
+        ${p.promo ? `
+          <p class="promo">
+            <strong>PROMOTION:</strong> ${p.promo}
+          </p>
+        ` : ""}
+
+        <ul>
+          ${p.features.map(x => `<li>${x}</li>`).join("")}
+        </ul>
+
         <div class="property-details">
           <div><b>Land Area</b><span>${p.landArea}</span></div>
           <div><b>Total Floor Area</b><span>${p.floorArea}</span></div>
           <div><b>Bedrooms</b><span>${p.bed}</span></div>
           <div><b>Bathrooms</b><span>${p.bath}</span></div>
-          <div><b>Car Porch</b><span>${p.carPorch} Cars</span></div>
+          <div><b>Car Porch</b><span>${p.carPorch ?? "N/A"} Cars</span></div>
           <div><b>Tenure</b><span>${p.tenure}</span></div>
           <div><b>Available Plots</b><span>${p.availablePlots}</span></div>
         </div>
-        <div class="property-status">
-  <p><strong>Status:</strong> ${p.detailStatus || p.status}</p>
-</div>
 
-${p.nextStage ? `
-<div class="property-next-stage">
-  <p><strong>Next Stage:</strong> ${p.nextStage}</p>
-</div>
-` : ""}
+        <div class="property-status">
+          <p><strong>Status:</strong> ${p.detailStatus || p.status}</p>
+        </div>
+
+        ${p.nextStage ? `
+          <div class="property-next-stage">
+            <p><strong>Next Stage:</strong> ${p.nextStage}</p>
+          </div>
+        ` : ""}
+
         <div class="modal-actions">
-          <a class="button dark" href="${maps}" target="_blank">📍 VIEW LOCATION</a>
-          <a class="button dark" href="https://wa.me/6738211222?text=${encodeURIComponent("Hi Kimi, I'm interested in "+p.name+". Please send me the latest details and availability.")}" target="_blank">ENQUIRE ON WHATSAPP</a>
+          <a class="button dark" href="${maps}" target="_blank" rel="noopener">
+            📍 VIEW LOCATION
+          </a>
+
+          <a
+            class="button dark"
+            href="https://wa.me/6738211222?text=${encodeURIComponent("Hi Kimi, I'm interested in " + p.name + ". Please send me the latest details and availability.")}"
+            target="_blank"
+            rel="noopener"
+          >
+            ENQUIRE ON WHATSAPP
+          </a>
         </div>
       </div>
-    </div>`;
+
+    </div>
+
+    <!-- FLOOR PLANS: BELOW BOTH COLUMNS -->
+    ${p.floorPlans && p.floorPlans.length ? `
+      <section class="modal-floor-plan">
+        <h3>Floor Plans</h3>
+
+        <div class="floor-plan-grid">
+          ${p.floorPlans.map((plan, index) => `
+            <div class="floor-plan-item">
+              <h4>${index === 0 ? "Ground Floor" : index === 1 ? "First Floor" : `Floor ${index + 1}`}</h4>
+
+              <a href="${plan}" target="_blank" rel="noopener">
+                <img
+                  src="${plan}"
+                  alt="${p.name} floor plan ${index + 1}"
+                  loading="lazy"
+                >
+              </a>
+            </div>
+          `).join("")}
+        </div>
+      </section>
+    ` : ""}
+  `;
+
   const modal = document.getElementById("modal");
   modal.classList.add("open");
-  modal.setAttribute("aria-hidden","false");
+  modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
+
   const closeBtn = modal.querySelector(".close");
-  if(closeBtn) closeBtn.focus();
+  if (closeBtn) closeBtn.focus();
 }
+
 function changeGallery(direction){
   if(!window.currentGallery || window.currentGallery.length<2) return;
   galleryIndex=(galleryIndex+direction+window.currentGallery.length)%window.currentGallery.length;
