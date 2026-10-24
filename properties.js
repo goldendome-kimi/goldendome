@@ -248,64 +248,6 @@ function openModal(id) {
   if (closeBtn) closeBtn.focus();
 }
 
-
-        ${p.nextStage ? `
-          <div class="property-next-stage">
-            <p><strong>Next Stage:</strong> ${p.nextStage}</p>
-          </div>
-        ` : ""}
-
-        <div class="modal-actions">
-          <a class="button dark" href="${maps}" target="_blank" rel="noopener">
-            📍 VIEW LOCATION
-          </a>
-
-          <a
-            class="button dark"
-            href="https://wa.me/6738211222?text=${encodeURIComponent("Hi Kimi, I'm interested in " + p.name + ". Please send me the latest details and availability.")}"
-            target="_blank"
-            rel="noopener"
-          >
-            ENQUIRE ON WHATSAPP
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- FLOOR PLANS: BELOW BOTH COLUMNS -->
-    ${p.floorPlans && p.floorPlans.length ? `
-      <section class="modal-floor-plan">
-        <h3>Floor Plans</h3>
-
-        <div class="floor-plan-grid">
-          ${p.floorPlans.map((plan, index) => `
-            <div class="floor-plan-item">
-              <h4>${index === 0 ? "Ground Floor" : index === 1 ? "First Floor" : `Floor ${index + 1}`}</h4>
-
-              <a href="${plan}" target="_blank" rel="noopener">
-                <img
-                  src="${plan}"
-                  alt="${p.name} floor plan ${index + 1}"
-                  loading="lazy"
-                >
-              </a>
-            </div>
-          `).join("")}
-        </div>
-      </section>
-    ` : ""}
-  `;
-
-  const modal = document.getElementById("modal");
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
-
-  const closeBtn = modal.querySelector(".close");
-  if (closeBtn) closeBtn.focus();
-}
-
 function changeGallery(direction){
   if(!window.currentGallery || window.currentGallery.length<2) return;
   galleryIndex=(galleryIndex+direction+window.currentGallery.length)%window.currentGallery.length;
