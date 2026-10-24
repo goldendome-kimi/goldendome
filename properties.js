@@ -134,9 +134,27 @@ function openModal(id){
       <div class="modal-gallery">
         <img id="galleryImage" class="modal-photo" src="${(p.gallery||[p.image])[0]}" alt="${p.name}">
         ${(p.gallery||[p.image]).length>1?`<button class="gallery-prev" onclick="changeGallery(-1)">‹</button><button class="gallery-next" onclick="changeGallery(1)">›</button><div class="gallery-count"><span id="galleryCount">1 / ${(p.gallery||[p.image]).length}</span></div>`:""}
-      </div>
-      <div>
-        <div class="location">${p.location.toUpperCase()} · ${p.type.toUpperCase()}</div>
+      ${p.floorPlans && p.floorPlans.length ? `
+  <section class="modal-floor-plan">
+    <h3>Floor Plans</h3>
+
+    <div class="floor-plan-grid">
+      ${p.floorPlans.map((plan, index) => `
+        <div class="floor-plan-item">
+          <h4>${index === 0 ? "Ground Floor" : index === 1 ? "First Floor" : `Floor ${index + 1}`}</h4>
+
+          <a href="${plan}" target="_blank" rel="noopener">
+            <img
+              src="${plan}"
+              alt="${p.name} floor plan ${index + 1}"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      `).join("")}
+    </div>
+  </section>
+` : ""}
         <h2 id="modalTitle">${p.name}</h2><div class="price">${money(p.price)}</div>
         <p>${p.description}</p>
         ${p.promo?`<p class="promo"><strong>PROMOTION:</strong> ${p.promo}</p>`:""}
