@@ -795,3 +795,49 @@ footer{
     overflow:hidden;
   }
 }
+
+/* FLOOR PLAN SECTION */
+.modal-floor-plan {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.modal-floor-plan h3 {
+  margin: 0 0 14px;
+  font: 500 25px "Playfair Display", serif;
+}
+
+.floor-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.floor-plan-item h4 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.floor-plan-item a {
+  display: block;
+  padding: 8px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.floor-plan-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* MOBILE FLOOR PLANS */
+@media (max-width: 600px) {
+  .floor-plan-grid {
+    grid-template-columns: 1fr;
+  }
+}
