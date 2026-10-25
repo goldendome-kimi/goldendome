@@ -54,10 +54,6 @@ function formatPlotAvailability(p) {
   return `${p.availablePlots ?? plots.length} Units${plotLabel ? ` (Plot ${plotLabel})` : ""}`;
 }
 
-
-  return `${p.availablePlots ?? plots.length} Units${plotLabel ? ` (Plot ${plotLabel})` : ""}`;
-}
-
 function populateFilters(){
   const loc=document.getElementById("locationFilter"), type=document.getElementById("typeFilter");
   [...new Set(properties.map(p=>p.location))].sort().forEach(v=>loc.insertAdjacentHTML("beforeend",`<option>${v}</option>`));
