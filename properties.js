@@ -30,10 +30,13 @@ const properties = [
 let galleryIndex = 0;
 
 const money = n => n ? "<small>STARTING FROM</small><strong>$" + n.toLocaleString("en-US") + "</strong>" : "<small>PRICE</small><strong>ENQUIRE</strong>";
+
 function formatPlotAvailability(p) {
-  const plots = (p.plotDetails || [])
-    .map(item => Number(item.plot))
+  const plots = (p.plotDetails || p.plotNumbers || [])
+    .map(item => Number(typeof item === "object" ? item.plot : item))
     .filter(Number.isFinite)
+    .sort((a, b) => a - b);
+
     .sort((a, b) => a - b);
 
   let plotLabel = p.plotRange || "";
