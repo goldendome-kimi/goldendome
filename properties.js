@@ -11,7 +11,29 @@ const properties = [
   {id:10,name:"Sengkarai 12898",location:"Tutong",type:"Detached Bungalow",price:160000,landArea:"0.087 - 0.096 AC",floorArea:"1,565.13 Sq. Ft",bed:3,bath:2,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Pending OP Earthwork Submission",availablePlots:1,lat:4.809389,lng:114.644854,image:"Sengkarai1.webp",gallery:["Sengkarai1.webp"],description:"Detached bungalow homes in Sengkarai, Tutong.",features:["3 bedrooms","2 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"],nextStage:"Borang C Building Submission"},
   {id:11,name:"Lambak Kanan 16470",location:"Brunei-Muara",type:"Detached Double Storey",price:295000,landArea:"0.094 - 0.096 AC",floorArea:"2,592.06 - 2,616.71 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"3 Units Left",detailStatus:"Pending TCP Submission",availablePlots:3,plotNumbers: [1, 5, 6],plotDetails: [{ plot: 1, landArea: "0.095 AC", floorArea: "2616.29 Sq. Ft" },{ plot: 5, landArea: "0.096 AC", floorArea: "2616.71 Sq. Ft" },{ plot: 6, landArea: "0.094 AC", floorArea: "2616.71 Sq. Ft" }],lat:4.974437,lng:114.955691,image:"LambakKanan1.webp",floorPlans:["LambakGF.webp","LambakFF.webp"],siteDevelopment: "LambakKananSDP.webp",gallery:["LambakKanan1.webp","LambakKanan2.webp","LambakKanan3.webp","LambakKanan4.webp"],description:"Detached double-storey homes in Lambak Kanan.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","3 units left"],nextStage:"Preparation for Borang A Submission"},
   {id:12,name:"Masin 12586",location:"Brunei-Muara",type:"Detached Double Storey",price:285000,landArea:"0.117 AC",floorArea:"2,941 Sq. Ft",bed:4,bath:4,carPorch:1,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Approved ABCi and Borang C",availablePlots:1,lat:4.831979,lng:114.842598,image:"Masin1.webp",gallery:["Masin1.webp","Masin2.webp"],description:"A spacious detached double-storey home in Masin.",features:["4 bedrooms","4 bathrooms","Carporch for 1 car","Tanah Kekal","Last unit"],nextStage:"Start Construction"},
-  {id:13,name:"Lumapas 11261",location:"Brunei-Muara",type:"Detached Double Storey",price:249000,landArea:"0.080 - 0.106 AC",floorArea:"2,335 - 2,395 Sq. Ft",bed:4,bath:3,carPorch:2,tenure:"Tanah Kekal",status:"3 Units Left",detailStatus:"Piling Done",availablePlots:3,lat:4.839613,lng:114.917051,image:"Lumapas1.webp",gallery:["Lumapas1.webp","Lumapas2.webp","Lumapas3.webp","Lumapas4.webp"],description:"Linked-Detached double-storey homes in Lumapas.",features:["4 bedrooms","3 bathrooms","Carporch for 2 cars","Tanah Kekal","3 units left"],nextStage:"Start Construction"},
+  {id:13,name:"Lumapas 11261",location:"Brunei-Muara",type:"Detached Double Storey",price:249000,landArea:"0.080 - 0.106 AC",floorArea:"2,335 - 2,395 Sq. Ft",bed:4,bath:3,carPorch:2,tenure:"Tanah Kekal",status:"3 Units Left",detailStatus:"Piling Done",availablePlots:3,lat:4.839613,lng:114.917051,image:"Lumapas1.webp",gallery:["Lumapas1.webp","Lumapas2.webp","Lumapas3.webp","Lumapas4.webp"],description:"Linked-Detached double-storey homes in Lumapas.",floorPlanGroups: [
+  {
+    title: "Unit 1",
+    plans: [
+      { label: "Ground Floor", image: "Lumapas11261Unit1GF.webp" },
+      { label: "First Floor", image: "Lumapas11261Unit1FF.webp" }
+    ]
+  },
+  {
+    title: "Unit 2",
+    plans: [
+      { label: "Ground Floor", image: "Lumapas11261Unit2GF.webp" },
+      { label: "First Floor", image: "Lumapas11261Unit2FF.webp" }
+    ]
+  },
+  {
+    title: "Unit 3",
+    plans: [
+      { label: "Ground Floor", image: "Lumapas11261Unit3GF.webp" },
+      { label: "First Floor", image: "Lumapas11261Unit3FF.webp" }
+    ]
+  }
+],features:["4 bedrooms","3 bathrooms","Carporch for 2 cars","Tanah Kekal","3 units left"],nextStage:"Start Construction"},
   {id:14,name:"Jangsak 26506",location:"Brunei-Muara",type:"Detached Double Storey",price:450000,landArea:"0.190 AC",floorArea:"Approx. 5000 Sq. Ft",bed:6,bath:7,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Ready To Move In",availablePlots:1,lat:4.886833,lng:114.867194,image:"Jangsak1.webp",gallery:["Jangsak1.webp","Jangsak2.webp","Jangsak3.webp","Jangsak4.webp","Jangsak5.webp"],description:"A spacious detached double-storey home in Jangsak, ready to move in.",features:["6 bedrooms","7 bathrooms","Carporch for 2 cars","Tanah Kekal","Ready to move in","Last unit"]},
   {id:15,name:"Sg. Tilong 4172",location:"Brunei-Muara",type:"Detached Double Storey",price:388000,landArea:"0.107 AC",floorArea:"3400 Sq. Ft",bed:6,bath:6,carPorch:2,tenure:"Tanah Kekal",status:"4 Units Left",detailStatus:"In Construction",availablePlots:4,plotNumbers: [5, 6, 14, 15],plotDetails: [{ plot: 5, landArea: "0.107 AC", floorArea: "3400 Sq. Ft" },{ plot: 6, landArea: "0.107 AC", floorArea: "3400 Sq. Ft" },{ plot: 14, landArea: "0.107 AC", floorArea: "3400 Sq. Ft" },{ plot: 15, landArea: "0.107 AC", floorArea: "3400 Sq. Ft" }],lat:4.959338,lng:114.969489,image:"SGTilong2.webp",floorPlans:["SgTilongAGF.webp","SgTilongAFF.webp"],siteDevelopment: "SgTilongSDP.webp",gallery:["SGTilong2.webp","SGTilong3.webp"],description:"Detached double-storey homes in Sg. Tilong.",features:["6 bedrooms","6 bathrooms","Carporch for 2 cars","Tanah Kekal","4 units left"]},
   {id:16,name:"Tanjung Bunut 1200",location:"Brunei-Muara",type:"Detached Double Storey",price:360000,landArea:"0.115 - 0.122 AC",floorArea:"Approx. 2610 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"2 Units Left",detailStatus:"Completed and Pending OP Submission",availablePlots:2,lat:4.8843056,lng:114.8596944,image:"TanjungBunutDetached1.webp",gallery:["TanjungBunutDetached1.webp","TanjungBunutDetached2.webp","TanjungBunutDetached3.webp","TanjungBunutDetached4.webp","TanjungBunutDetached5.webp","TanjungBunutDetached6.webp","TanjungBunutDetached7.webp","TanjungBunutDetached8.webp","TanjungBunutDetached9.webp","TanjungBunutDetached10.webp","TanjungBunutDetached11.webp"],description:"Detached double-storey homes in Tanjung Bunut.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Pending OP Submission","2 units left"]},
@@ -263,28 +285,59 @@ ${p.plotDetails && p.plotDetails.length ? `
 
     </div>
 
-    <!-- FLOOR PLANS: BELOW BOTH COLUMNS -->
-    ${p.floorPlans && p.floorPlans.length ? `
-      <section class="modal-floor-plan">
-        <h3>Floor Plans</h3>
+   <!-- FLOOR PLANS: BELOW BOTH COLUMNS -->
+${p.floorPlanGroups && p.floorPlanGroups.length ? `
+  <section class="modal-floor-plan">
+    <h3>Floor Plans</h3>
+
+    ${p.floorPlanGroups.map((unit, unitIndex) => `
+      <div class="floor-plan-unit">
+        <h4 class="floor-plan-unit-title">
+          ${unit.title || `Unit ${unitIndex + 1}`}
+        </h4>
 
         <div class="floor-plan-grid">
-          ${p.floorPlans.map((plan, index) => `
+          ${(unit.plans || []).map(plan => `
             <div class="floor-plan-item">
-              <h4>${index === 0 ? "Ground Floor" : index === 1 ? "First Floor" : `Floor ${index + 1}`}</h4>
+              <h4>${plan.label}</h4>
 
-              <a href="${plan}" target="_blank" rel="noopener">
+              <a href="${plan.image}" target="_blank" rel="noopener">
                 <img
-                  src="${plan}"
-                  alt="${p.name} floor plan ${index + 1}"
+                  src="${plan.image}"
+                  alt="${p.name} ${unit.title} ${plan.label}"
                   loading="lazy"
                 >
               </a>
             </div>
           `).join("")}
         </div>
-      </section>
-    ` : ""}
+      </div>
+    `).join("")}
+  </section>
+` : p.floorPlans && p.floorPlans.length ? `
+  <section class="modal-floor-plan">
+    <h3>Floor Plans</h3>
+
+    <div class="floor-plan-grid">
+      ${p.floorPlans.map((plan, index) => `
+        <div class="floor-plan-item">
+          <h4>
+            ${index === 0 ? "Ground Floor" :
+              index === 1 ? "First Floor" : `Floor ${index + 1}`}
+          </h4>
+
+          <a href="${plan}" target="_blank" rel="noopener">
+            <img
+              src="${plan}"
+              alt="${p.name} floor plan ${index + 1}"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      `).join("")}
+    </div>
+  </section>
+` : ""}
           ${p.siteDevelopment ? `
         <section class="modal-site-development">
           <h3>Site Development Plan</h3>
