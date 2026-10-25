@@ -186,23 +186,18 @@ function openModal(id) {
           <div><b>Car Porch</b><span>${p.carPorch ?? "N/A"} Cars</span></div>
           <div><b>Tenure</b><span>${p.tenure}</span></div>
           <div><b>Available Plots</b><span>${p.availablePlots} Units (Plot ${p.plotRange || "N/A"})</span></div>
-          ${p.plotDetails && p.plotDetails.length ? `
+         ${p.plotDetails && p.plotDetails.length ? `
   <div class="plot-details-table">
-    <h3>Individual Plot Details</h3>
     <div class="plot-table-scroll">
       <table>
-        <thead>
-          <tr>
-            ${p.plotDetails.map(x => `<th>Plot ${x.plot}</th>`).join("")}
-          </tr>
-        </thead>
         <tbody>
-          <tr>
-            ${p.plotDetails.map(x => `<td>${x.landArea}</td>`).join("")}
-          </tr>
-          <tr>
-            ${p.plotDetails.map(x => `<td>${x.floorArea}</td>`).join("")}
-          </tr>
+          ${p.plotDetails.map(x => `
+            <tr>
+              <td>Plot ${x.plot}</td>
+              <td>${x.landArea}</td>
+              <td>${x.floorArea}</td>
+            </tr>
+          `).join("")}
         </tbody>
       </table>
     </div>
