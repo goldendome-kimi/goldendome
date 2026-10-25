@@ -68,9 +68,12 @@ function formatPlotAvailability(p) {
     plotLabel = plots.join(", ");
   }
 
-  return `${p.availablePlots ?? plots.length} Units${
-    plotLabel ? ` (Plot ${plotLabel})` : ""
-  }`;
+  const units = p.availablePlots ?? plots.length;
+const unitLabel = units === 1 ? "Unit" : "Units";
+
+return `${units} ${unitLabel}${
+  plotLabel ? ` (Plot ${plotLabel})` : ""
+}`;
 }
 
 
