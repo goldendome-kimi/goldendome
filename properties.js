@@ -132,9 +132,15 @@ function renderProperties(){
       <div class="property-image"
         style="background-image:url('${p.image}')">
 
-        <span class="status ${p.status === "Sold Out" ? "sold" : ""}">
-          ${p.status}
-        </span>
+        
+<span class="status ${p.status === "Sold Out" ? "sold" : ""}">
+  ${p.status}${
+    p.plotDetails && p.plotDetails.length
+      ? ` · Plot ${p.plotDetails.map(x => x.plot).join(", ")}`
+      : ""
+  }
+</span>
+
 
       </div>
 
