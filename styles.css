@@ -862,3 +862,43 @@ footer{
   border: 1px solid var(--line);
   cursor: zoom-in;
 }
+/* INDIVIDUAL PLOT DETAILS TABLE */
+.plot-details-table {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  width: 100%;
+}
+
+.plot-details-table h3 {
+  font: 500 22px "Playfair Display", serif;
+  margin: 0 0 14px;
+}
+
+.plot-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.plot-details-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: center;
+}
+
+.plot-details-table th,
+.plot-details-table td {
+  padding: 12px 10px;
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.plot-details-table th {
+  background: var(--paper);
+  font-weight: 700;
+}
+
+.plot-details-table td {
+  color: var(--muted);
+}
