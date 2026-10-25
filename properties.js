@@ -53,28 +53,26 @@ let galleryIndex = 0;
 
 const money = n => n ? "<small>STARTING FROM</small><strong>$" + n.toLocaleString("en-US") + "</strong>" : "<small>PRICE</small><strong>ENQUIRE</strong>";
 
+
 function formatPlotAvailability(p) {
   const plots = (p.plotDetails || p.plotNumbers || [])
-    .map(item => Number(typeof item === "object" ? item.plot : item))
-    .filter(Number.isFinite)
-    .sort((a, b) => a - b);
+    .map(item => String(typeof item === "object" ? item.plot : item))
+    .filter(Boolean)
+    .sort((a, b) => a.localeCompare(b, undefined, {
+      numeric: true
+    }));
 
   let plotLabel = p.plotRange || "";
 
   if (plots.length > 0) {
-    const isConsecutive = plots.every((plot, index) =>
-      index === 0 || plot === plots[index - 1] + 1
-    );
-
-    plotLabel = isConsecutive
-      ? (plots.length === 1
-          ? String(plots[0])
-          : `${plots[0]}–${plots[plots.length - 1]}`)
-      : plots.join(", ");
+    plotLabel = plots.join(", ");
   }
 
-  return `${p.availablePlots ?? plots.length} Units${plotLabel ? ` (Plot ${plotLabel})` : ""}`;
+  return `${p.availablePlots ?? plots.length} Units${
+    plotLabel ? ` (Plot ${plotLabel})` : ""
+  }`;
 }
+
 
 function populateFilters(){
   const loc=document.getElementById("locationFilter"), type=document.getElementById("typeFilter");
