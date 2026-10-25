@@ -186,7 +186,8 @@ function openModal(id) {
           <div><b>Car Porch</b><span>${p.carPorch ?? "N/A"} Cars</span></div>
           <div><b>Tenure</b><span>${p.tenure}</span></div>
           <div><b>Available Plots</b><span>${p.availablePlots} Units (Plot ${p.plotRange || "N/A"})</span></div>
-         ${p.plotDetails && p.plotDetails.length ? `
+        
+${p.plotDetails && p.plotDetails.length ? `
   <div class="plot-details-table">
     <div class="plot-table-scroll">
       <table>
@@ -203,6 +204,7 @@ function openModal(id) {
     </div>
   </div>
 ` : ""}
+
         </div>
 
         <div class="property-status">
