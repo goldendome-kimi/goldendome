@@ -863,6 +863,7 @@ footer{
   cursor: zoom-in;
 }
 
+
 /* INDIVIDUAL PLOT DETAILS TABLE */
 .plot-details-table {
   margin-top: 12px;
@@ -890,4 +891,6 @@ footer{
 
 .plot-details-table td:first-child {
   font-weight: 500;
+}
+
 }
