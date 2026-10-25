@@ -841,3 +841,24 @@ footer{
     grid-template-columns: 1fr;
   }
 }
+/* SITE DEVELOPMENT PLAN */
+.modal-site-development {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.modal-site-development h3 {
+  margin: 0 0 14px;
+  font: 500 25px "Playfair Display", serif;
+}
+
+.modal-site-development img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  cursor: zoom-in;
+}
