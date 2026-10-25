@@ -30,6 +30,28 @@ const properties = [
 let galleryIndex = 0;
 
 const money = n => n ? "<small>STARTING FROM</small><strong>$" + n.toLocaleString("en-US") + "</strong>" : "<small>PRICE</small><strong>ENQUIRE</strong>";
+function formatPlotAvailability(p) {
+  const plots = (p.plotDetails || [])
+    .map(item => Number(item.plot))
+    .filter(Number.isFinite)
+    .sort((a, b) => a - b);
+
+  let plotLabel = p.plotRange || "";
+
+  if (plots.length) {
+    const isConsecutive = plots.every((plot, index) =>
+      index === 0 || plot === plots[index - 1] + 1
+    );
+
+    plotLabel = isConsecutive
+      ? (plots.length === 1
+          ? String(plots[0])
+          : `${plots[0]}–${plots[plots.length - 1]}`)
+      : plots.join(", ");
+  }
+
+  return `${p.availablePlots ?? plots.length} Units${plotLabel ? ` (Plot ${plotLabel})` : ""}`;
+}
 
 function populateFilters(){
   const loc=document.getElementById("locationFilter"), type=document.getElementById("typeFilter");
@@ -185,27 +207,26 @@ function openModal(id) {
           <div><b>Bathrooms</b><span>${p.bath}</span></div>
           <div><b>Car Porch</b><span>${p.carPorch ?? "N/A"} Cars</span></div>
           <div><b>Tenure</b><span>${p.tenure}</span></div>
-          <div>
-  <b>Available Plots</b>
-  <span>
-    ${p.availablePlots} Units
-    (Plot ${(p.plotNumbers || []).join(", ") || "N/A"})
-  </span>
-</div>
+          <div><b>Available Plots</b><span>${formatPlotAvailability(p)}</span></div>
         
 ${p.plotDetails && p.plotDetails.length ? `
   <div class="plot-details-table">
     <div class="plot-table-scroll">
       <table>
         <tbody>
-          ${p.plotDetails.map(x => `
-            <tr>
-              <td>Plot ${x.plot}</td>
-              <td>${x.landArea}</td>
-              <td>${x.floorArea}</td>
-            </tr>
-          `).join("")}
-        </tbody>
+  <tr>
+    <th>Plot</th>
+    <th>Land Area</th>
+    <th>Floor Area</th>
+  </tr>
+  ${p.plotDetails.map(x => `
+    <tr>
+      <td>Plot ${x.plot}</td>
+      <td>${x.landArea}</td>
+      <td>${x.floorArea}</td>
+    </tr>
+  `).join("")}
+</tbody>
       </table>
     </div>
   </div>
