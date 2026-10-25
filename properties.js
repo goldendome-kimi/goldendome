@@ -37,11 +37,9 @@ function formatPlotAvailability(p) {
     .filter(Number.isFinite)
     .sort((a, b) => a - b);
 
-    .sort((a, b) => a - b);
-
   let plotLabel = p.plotRange || "";
 
-  if (plots.length) {
+  if (plots.length > 0) {
     const isConsecutive = plots.every((plot, index) =>
       index === 0 || plot === plots[index - 1] + 1
     );
@@ -52,6 +50,10 @@ function formatPlotAvailability(p) {
           : `${plots[0]}–${plots[plots.length - 1]}`)
       : plots.join(", ");
   }
+
+  return `${p.availablePlots ?? plots.length} Units${plotLabel ? ` (Plot ${plotLabel})` : ""}`;
+}
+
 
   return `${p.availablePlots ?? plots.length} Units${plotLabel ? ` (Plot ${plotLabel})` : ""}`;
 }
