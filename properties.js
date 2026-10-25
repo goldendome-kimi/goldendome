@@ -234,7 +234,14 @@ function openModal(id) {
           <div><b>Bathrooms</b><span>${p.bath}</span></div>
           <div><b>Car Porch</b><span>${p.carPorch ?? "N/A"} Cars</span></div>
           <div><b>Tenure</b><span>${p.tenure}</span></div>
-          <div><b>Available Plots</b><span>${formatPlotAvailability(p)}</span></div>
+          <div>
+  <b>Available Plots</b>
+  <span>
+    ${p.plotDetails && p.plotDetails.length
+      ? `${p.availablePlots ?? p.plotDetails.length} Units (Plot ${p.plotDetails.map(x => x.plot).join(", ")})`
+      : formatPlotAvailability(p)}
+  </span>
+</div>
         
 ${p.plotDetails && p.plotDetails.length ? `
   <div class="plot-details-table">
