@@ -15,22 +15,22 @@ const properties = [
   {
     title: "Unit 1",
     plans: [
-      { label: "Ground Floor", image: "Lumapas11261Unit1GF.webp" },
-      { label: "First Floor", image: "Lumapas11261Unit1FF.webp" }
+      { label: "Ground Floor", image: "LumapasPlotAGF.webp" },
+      { label: "First Floor", image: "LumapasPlotAFF.webp" }
     ]
   },
   {
     title: "Unit 2",
     plans: [
-      { label: "Ground Floor", image: "Lumapas11261Unit2GF.webp" },
-      { label: "First Floor", image: "Lumapas11261Unit2FF.webp" }
+      { label: "Ground Floor", image: "LumapasPlotBGFGF.webp" },
+      { label: "First Floor", image: "LumapasPlotBFF.webp" }
     ]
   },
   {
     title: "Unit 3",
     plans: [
-      { label: "Ground Floor", image: "Lumapas11261Unit3GF.webp" },
-      { label: "First Floor", image: "Lumapas11261Unit3FF.webp" }
+      { label: "Ground Floor", image: "LumapasPlotCGF.webp" },
+      { label: "First Floor", image: "LumapasPlotCFF.webp" }
     ]
   }
 ],features:["4 bedrooms","3 bathrooms","Carporch for 2 cars","Tanah Kekal","3 units left"],nextStage:"Start Construction"},
