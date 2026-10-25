@@ -54,6 +54,7 @@ let galleryIndex = 0;
 const money = n => n ? "<small>STARTING FROM</small><strong>$" + n.toLocaleString("en-US") + "</strong>" : "<small>PRICE</small><strong>ENQUIRE</strong>";
 
 
+
 function formatPlotAvailability(p) {
   const plots = (p.plotDetails || p.plotNumbers || [])
     .map(item => String(typeof item === "object" ? item.plot : item))
@@ -68,12 +69,12 @@ function formatPlotAvailability(p) {
     plotLabel = plots.join(", ");
   }
 
-  const units = p.availablePlots ?? plots.length;
-const unitLabel = units === 1 ? "Unit" : "Units";
+  const units = Number(p.availablePlots ?? plots.length);
+  const unitLabel = units === 1 ? "Unit" : "Units";
 
-return `${units} ${unitLabel}${
-  plotLabel ? ` (Plot ${plotLabel})` : ""
-}`;
+  return `${units} ${unitLabel}${
+    plotLabel ? ` (Plot ${plotLabel})` : ""
+  }`;
 }
 
 
@@ -237,14 +238,16 @@ function openModal(id) {
           <div><b>Bathrooms</b><span>${p.bath}</span></div>
           <div><b>Car Porch</b><span>${p.carPorch ?? "N/A"} Cars</span></div>
           <div><b>Tenure</b><span>${p.tenure}</span></div>
-          <div>
+         
+<div>
   <b>Available Plots</b>
   <span>
     ${p.plotDetails && p.plotDetails.length
-      ? `${p.availablePlots ?? p.plotDetails.length} Units (Plot ${p.plotDetails.map(x => x.plot).join(", ")})`
+      ? formatPlotAvailability(p)
       : formatPlotAvailability(p)}
   </span>
 </div>
+
         
 ${p.plotDetails && p.plotDetails.length ? `
   <div class="plot-details-table">
