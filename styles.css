@@ -892,5 +892,22 @@ footer{
 .plot-details-table td:first-child {
   font-weight: 500;
 }
+/* GROUPED FLOOR PLANS FOR MULTI-UNIT DEVELOPMENTS */
 
+.floor-plan-unit {
+  margin-top: 24px;
+}
+
+.floor-plan-unit:first-of-type {
+  margin-top: 0;
+}
+
+.floor-plan-unit-title {
+  margin: 0 0 14px;
+  font: 500 19px "Playfair Display", serif;
+}
+
+.floor-plan-unit .floor-plan-item h4 {
+  font-size: 12px;
+}
 }
