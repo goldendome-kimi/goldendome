@@ -185,7 +185,13 @@ function openModal(id) {
           <div><b>Bathrooms</b><span>${p.bath}</span></div>
           <div><b>Car Porch</b><span>${p.carPorch ?? "N/A"} Cars</span></div>
           <div><b>Tenure</b><span>${p.tenure}</span></div>
-          <div><b>Available Plots</b><span>${p.availablePlots} Units (Plot ${p.plotRange || "N/A"})</span></div>
+          <div>
+  <b>Available Plots</b>
+  <span>
+    ${p.availablePlots} Units
+    (Plot ${(p.plotNumbers || []).join(", ") || "N/A"})
+  </span>
+</div>
         
 ${p.plotDetails && p.plotDetails.length ? `
   <div class="plot-details-table">
