@@ -3,3 +3,50 @@
 @media(max-width:700px){.container{width:min(100% - 30px,560px)}.nav{height:70px;gap:12px}.brand img{width:128px;max-height:48px}.menu-toggle{display:block;margin-left:auto}.nav nav{display:none;position:absolute;top:70px;left:0;right:0;padding:15px 22px 20px;background:var(--forest);border-bottom:1px solid rgba(216,191,140,.22);box-shadow:0 12px 22px rgba(0,0,0,.18);align-items:stretch;gap:0;flex-direction:column}.nav nav.nav-open{display:flex}.nav nav a{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12)}.nav nav a:last-child{border-bottom:0}.nav-cta{font-size:10px;padding:10px 11px}.hero{min-height:580px;background-position:58% center}.hero-shade{background:linear-gradient(90deg,rgba(12,24,18,.86),rgba(15,28,21,.5)),linear-gradient(0deg,rgba(13,24,18,.35),transparent 45%)}.hero-content{padding-top:55px;padding-bottom:66px}.hero-eyebrow{font-size:8px;letter-spacing:1.5px}.hero-copy{font-size:14px;max-width:400px}.hero-note{margin-top:37px;max-width:300px}.hero-index{font-size:7px;letter-spacing:1px}.search-wrap{padding:15px 0}.search-panel{grid-template-columns:1fr 1fr;gap:12px;padding:17px}.search-heading{grid-column:1/-1;padding-bottom:5px}.filter-field select{font-size:10px}.search-button{grid-column:1/-1}.section{padding:62px 0}.section-head{align-items:flex-start;flex-direction:column;gap:15px;margin-bottom:24px}.section-head h2,.about-heading h2{font-size:34px}.listing-count{padding:0}.property-grid{gap:14px}.property-image{height:180px}.card-body{padding:14px}.card-body h3{font-size:20px;margin:8px 0 13px}.specs{gap:7px 5px}.specs span{font-size:9px}.price-row{align-items:flex-start;flex-direction:column;gap:11px}.price{font-size:21px}.details{font-size:8px}.location-grid{gap:11px}.location-tile{min-height:200px;padding:16px}.tile-title{font-size:21px}.about-grid{gap:25px 18px}.about-heading,.about-copy{grid-column:1/-1}.value-card{padding-top:12px}.value-number{margin-bottom:13px}.value-card strong{font-size:16px}.value-card p{font-size:10px}.contact-section{padding:60px 0}.contact-grid{grid-template-columns:1fr;gap:28px}.contact-section h2{font-size:42px}.contact-card{padding:21px}.footer-inner{align-items:flex-start;flex-direction:column;gap:15px}.footer p{order:3}.modal{padding:12px}.modal-box{padding:54px 16px 20px}.modal-grid{grid-template-columns:1fr;gap:20px}.modal-photo{height:250px}.modal-property-info h2{font-size:29px}.property-details{grid-template-columns:1fr 1fr}.floor-plan-grid{grid-template-columns:1fr}.modal-actions .button{flex:1 1 100%}}
 @media(max-width:390px){.nav-cta{display:none}.property-grid{grid-template-columns:1fr}.property-image{height:220px}.price-row{flex-direction:row;align-items:flex-end}.search-panel{padding:13px}.filter-field select{padding:0 7px}.location-grid{grid-template-columns:1fr 1fr}.location-tile{min-height:175px;padding:13px}.tile-title{font-size:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* MOBILE HEADER FIX */
+@media (max-width: 700px) {
+  .nav {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .brand {
+    order: 0;
+    margin-right: auto;
+    flex-shrink: 0;
+  }
+
+  .brand img {
+    display: block;
+    width: 128px;
+    max-height: 48px;
+    object-fit: contain;
+    mix-blend-mode: normal;
+    filter: none;
+  }
+
+  /* Make the mobile menu button visible */
+  .menu-toggle {
+    order: 1;
+    margin-left: 0;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    background: transparent;
+  }
+
+  /* Keep Enquire Now visible */
+  .nav-cta {
+    order: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: var(--gold);
+    color: var(--forest);
+    padding: 10px 11px;
+    font-size: 10px;
+  }
+}
+
