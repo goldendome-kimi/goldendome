@@ -50,3 +50,65 @@
   }
 }
 
+/* GOLD ARROWS */
+.arrow {
+  display: inline-block;
+  color: #8a6a2d;
+  font-weight: 800;
+  transition: transform 0.2s ease;
+}
+
+.nav-cta:hover .arrow,
+.button:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+/* EQUAL PROPERTY CARD HEIGHTS */
+.property-grid {
+  align-items: stretch;
+}
+
+.property-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.property-image {
+  flex-shrink: 0;
+  height: 238px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-body h3 {
+  min-height: 2.4em;
+}
+
+.specs {
+  flex: 1;
+  align-content: start;
+}
+
+.price-row {
+  margin-top: auto;
+}
+
+/* Consistent image height on mobile */
+@media (max-width: 700px) {
+  .property-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 390px) {
+  .property-image {
+    height: 220px;
+  }
+}
+
+
