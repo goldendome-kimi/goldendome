@@ -172,7 +172,7 @@ function renderProperties(){
           <span>🏠 Total Floor Area: ${p.floorArea}</span>
           <span>🛏 Bedrooms: ${p.bed ?? "Contact us"}</span>
           <span>🛁 Bathrooms: ${p.bath ?? "Contact us"}</span>
-          <span>🚗 Car Porch: ${p.carPorch ?? "Contact us"} ${p.carPorch === 1 ? "car" : "cars"}</span>
+          ${p.carPorch != null ? `<span>🚗 Car Porch: ${p.carPorch} ${p.carPorch === 1 ? "car" : "cars"}</span>` : ""}
         </div>
 
         <div class="price-row">

@@ -561,3 +561,37 @@
   .property-card .price { font-size: 18px; }
   .property-card .details { font-size: 8px; }
 }
+
+
+/* PRICE ABOVE VIEW DETAILS: keep the card footer in two rows */
+.property-card .price-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+  min-height: 76px;
+}
+.property-card .price-row .price {
+  display: block;
+  align-self: flex-start;
+  width: 100%;
+}
+.property-card .price-row .details {
+  display: flex;
+  align-self: flex-end !important;
+  justify-content: flex-end;
+  width: 100%;
+  margin-left: 0 !important;
+  text-align: right;
+}
+@media (max-width: 700px) {
+  .property-card .price-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    min-height: 76px;
+  }
+  .property-card .price-row .price { font-size: 18px; }
+  .property-card .price-row .details { align-self: flex-end !important; }
+}
