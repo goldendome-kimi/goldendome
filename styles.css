@@ -98,12 +98,123 @@
   margin-top: auto;
 }
 
-/* Consistent image height on mobile */
-@media (max-width: 700px) {
-  .property-image {
-    height: 180px;
+
+/* CONSISTENT PROPERTY CARD SIZES */
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.property-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+}
+
+.property-image {
+  width: 100%;
+  height: 220px;
+  flex: 0 0 220px;
+  background-position: center;
+  background-size: cover;
+}
+
+.card-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.card-body h3 {
+  min-height: 2.4em;
+  margin-bottom: 16px;
+}
+
+.specs {
+  flex: 1 0 auto;
+  align-content: start;
+  min-height: 76px;
+}
+
+.price-row {
+  margin-top: auto;
+  min-height: 65px;
+  align-items: flex-end;
+}
+
+/* TABLET */
+@media (max-width: 1000px) {
+  .property-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .property-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .property-image {
+    height: 160px;
+    flex-basis: 160px;
+  }
+
+  .card-body {
+    padding: 14px;
+  }
+
+  .card-body h3 {
+    min-height: 3em;
+    font-size: 18px;
+  }
+
+  .specs {
+    min-height: 100px;
+    gap: 7px 5px;
+  }
+
+  .price-row {
+    min-height: 85px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+
+/* VERY SMALL PHONES */
+@media (max-width: 390px) {
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .property-image {
+    height: 220px;
+    flex-basis: 220px;
+  }
+
+  .card-body h3 {
+    min-height: 0;
+  }
+
+  .specs {
+    min-height: 0;
+  }
+
+  .price-row {
+    min-height: 0;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
 
 @media (max-width: 390px) {
   .nav-cta {
@@ -202,5 +313,31 @@
     margin: 0;
   }
 }
+
+/* DRAW ARROWS WITH CSS — NO EMOJI */
+.arrow {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 5px;
+  border-top: 2px solid #8a6a2d;
+  border-right: 2px solid #8a6a2d;
+  font-size: 0;
+  line-height: 0;
+  transform: rotate(45deg);
+  vertical-align: middle;
+  flex: 0 0 auto;
+}
+
+.nav-cta .arrow,
+.button.gold .arrow {
+  border-color: #8a6a2d;
+}
+
+.nav-cta:hover .arrow,
+.button:hover .arrow {
+  transform: translate(2px, -2px) rotate(45deg);
+}
+
 
 
