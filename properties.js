@@ -175,7 +175,7 @@ function renderProperties(){
           <a class="details"
             href="#"
             onclick="openModal(${p.id});return false;">
-            VIEW DETAILS →
+            VIEW DETAILS <span class="arrow" aria-hidden="true"></span>
           </a>
         </div>
 
