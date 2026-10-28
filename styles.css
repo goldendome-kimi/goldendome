@@ -341,3 +341,140 @@
 
 
 
+
+
+/* FINAL FIXES: mobile header, CSS-drawn gold arrows, equal listing cards */
+@media (max-width: 700px) {
+  .topbar { width: 100%; }
+  .topbar .nav.container,
+  .nav.container {
+    width: calc(100% - 24px);
+    max-width: none;
+    height: 70px;
+    margin: 0 12px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .nav .brand {
+    order: 0;
+    flex: 0 1 auto;
+    min-width: 0;
+    margin: 0 auto 0 0;
+    padding: 0;
+  }
+  .nav .brand img {
+    display: block;
+    width: 125px;
+    height: 48px;
+    max-height: 48px;
+    object-fit: contain;
+    object-position: left center;
+  }
+  .nav .menu-toggle {
+    order: 1;
+    display: block;
+    flex: 0 0 auto;
+    margin: 0;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    background: transparent;
+  }
+  .nav .nav-cta {
+    order: 2;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 0;
+    padding: 9px 10px;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+}
+
+/* A real CSS arrow: no emoji or text arrow character needed */
+.arrow {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 5px;
+  border-top: 2px solid var(--gold-dark);
+  border-right: 2px solid var(--gold-dark);
+  font-size: 0;
+  line-height: 0;
+  transform: rotate(45deg);
+  vertical-align: middle;
+  flex: 0 0 8px;
+}
+.nav-cta .arrow,
+.button.gold .arrow,
+.details .arrow {
+  border-color: var(--gold-dark);
+}
+.nav-cta:hover .arrow,
+.button:hover .arrow,
+.details:hover .arrow {
+  transform: translate(2px, -2px) rotate(45deg);
+}
+
+/* Equal-height property cards, including rows with long property details */
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 24px;
+}
+.property-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+}
+.property-image {
+  width: 100%;
+  height: 220px;
+  flex: 0 0 220px;
+}
+.card-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+.card-body h3 {
+  min-height: 2.4em;
+}
+.specs {
+  flex: 1 0 auto;
+  align-content: start;
+  min-height: 76px;
+}
+.price-row {
+  margin-top: auto;
+  min-height: 65px;
+  align-items: flex-end;
+}
+@media (max-width: 1000px) {
+  .property-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .property-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .property-image { height: 160px; flex-basis: 160px; }
+  .card-body { padding: 14px; }
+  .card-body h3 { min-height: 3em; font-size: 18px; }
+  .specs { min-height: 100px; gap: 7px 5px; }
+  .specs span { overflow-wrap: anywhere; }
+  .price-row { min-height: 85px; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 10px; }
+}
+@media (max-width: 390px) {
+  .property-grid { grid-template-columns: 1fr; }
+  .property-image { height: 220px; flex-basis: 220px; }
+  .card-body h3 { min-height: 0; }
+  .specs { min-height: 0; }
+  .price-row { min-height: 0; flex-direction: row; align-items: flex-end; justify-content: space-between; }
+}
