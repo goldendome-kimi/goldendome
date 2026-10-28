@@ -151,6 +151,7 @@ function renderProperties(){
   }
 </span>
 
+        ${p.promo ? `<span class="promo-badge"><strong>PROMOTION</strong><span>${p.promo}</span></span>` : ""}
 
       </div>
 

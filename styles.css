@@ -824,3 +824,43 @@
     border-width: 3px;
   }
 }
+
+
+/* PROMOTION BADGE ON PROPERTY CARDS */
+.property-card .property-image {
+  position: relative;
+}
+.property-card .promo-badge {
+  position: absolute;
+  z-index: 2;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-width: calc(100% - 28px);
+  padding: 9px 11px;
+  border-left: 3px solid #d8bf8c;
+  border-radius: 3px;
+  background: rgba(23, 37, 31, 0.94);
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(0,0,0,.22);
+  line-height: 1.35;
+}
+.property-card .promo-badge strong {
+  color: #e4d0a6;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+}
+.property-card .promo-badge span {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .property-card .promo-badge { left: 8px; bottom: 8px; max-width: calc(100% - 16px); padding: 7px 8px; }
+  .property-card .promo-badge strong { font-size: 8px; }
+  .property-card .promo-badge span { font-size: 9px; }
+}
