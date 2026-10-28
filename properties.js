@@ -51,7 +51,13 @@ const properties = [
 
 let galleryIndex = 0;
 
-const money = n => n ? "<small>STARTING FROM</small><strong>$" + n.toLocaleString("en-US") + "</strong>" : "<small>PRICE</small><strong>ENQUIRE</strong>";
+
+const money = n =>
+  n
+    ? "<small>STARTING FROM</small><strong>$" +
+      Number(n).toLocaleString("en-US") +
+      "</strong>"
+    : "<small>PRICE</small><strong>ENQUIRE</strong>";
 
 
 
