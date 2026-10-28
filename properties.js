@@ -160,13 +160,19 @@ function renderProperties(){
           ${p.location.toUpperCase()} · ${p.type.toUpperCase()}
         </div>
 
-        <h3>${p.name}</h3>
+        <h3 class="property-name">${(() => {
+          const match = p.name.match(/^(.*?)(?:\s+)([A-Za-z]?\d+[A-Za-z]?)$/);
+          return match
+            ? `<span class="property-kampong">${match[1]}</span><span class="property-lot-number">${match[2]}</span>`
+            : `<span class="property-kampong">${p.name}</span>`;
+        })()}</h3>
 
         <div class="specs">
-          <span>🛏 ${p.bed} Bed</span>
-          <span>🛁 ${p.bath} Bath</span>
-          <span>📐 Land: ${p.landArea}</span>
-          <span>🏠 Total Floor: ${p.floorArea}</span>
+          <span>📐 Land Area: ${p.landArea}</span>
+          <span>🏠 Total Floor Area: ${p.floorArea}</span>
+          <span>🛏 Bedrooms: ${p.bed ?? "Contact us"}</span>
+          <span>🛁 Bathrooms: ${p.bath ?? "Contact us"}</span>
+          <span>🚗 Car Porch: ${p.carPorch ?? "Contact us"} ${p.carPorch === 1 ? "car" : "cars"}</span>
         </div>
 
         <div class="price-row">
