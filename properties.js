@@ -248,7 +248,7 @@ function openModal(id) {
           <div><b>Total Floor Area</b><span>${p.floorArea}</span></div>
           <div><b>Bedrooms</b><span>${p.bed}</span></div>
           <div><b>Bathrooms</b><span>${p.bath}</span></div>
-          <div><b>Car Porch</b><span>${p.carPorch ?? "N/A"} Cars</span></div>
+          ${p.carPorch != null ? `<div><b>Car Porch</b><span>${p.carPorch} ${p.carPorch === 1 ? "Car" : "Cars"}</span></div>` : ""}
           <div><b>Tenure</b><span>${p.tenure}</span></div>
          
 <div>

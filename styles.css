@@ -595,3 +595,27 @@
   .property-card .price-row .price { font-size: 18px; }
   .property-card .price-row .details { align-self: flex-end !important; }
 }
+
+
+/* Goldendome card footer: price on first row, View Details on second row */
+.property-card .price-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+  min-height: 76px !important;
+}
+.property-card .price-row .price {
+  display: block !important;
+  width: 100% !important;
+  align-self: flex-start !important;
+}
+.property-card .price-row .details {
+  display: flex !important;
+  width: 100% !important;
+  align-self: stretch !important;
+  justify-content: flex-end !important;
+  margin-left: 0 !important;
+  text-align: right !important;
+}
