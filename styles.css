@@ -665,3 +665,31 @@
   transform: rotate(45deg) !important;
   vertical-align: middle !important;
 }
+
+/* FINAL FIX: keep VIEW DETAILS and arrow together on the right */
+.property-card .price-row .details {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  align-self: flex-end !important;
+  width: auto !important;
+  max-width: 100%;
+  gap: 8px !important;
+  margin-left: auto !important;
+  white-space: nowrap !important;
+  line-height: 1.2 !important;
+  padding-bottom: 4px !important;
+}
+
+.property-card .price-row .details .arrow {
+  display: inline-block !important;
+  flex: 0 0 8px !important;
+  width: 8px !important;
+  height: 8px !important;
+  margin: 0 2px 0 0 !important;
+  position: static !important;
+  transform: rotate(45deg) !important;
+  vertical-align: middle !important;
+}
+
