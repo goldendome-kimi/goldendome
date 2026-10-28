@@ -176,7 +176,7 @@ function renderProperties(){
         </div>
 
         <div class="price-row">
-          <span class="price"><small>STARTING FROM</small>${money(p.price)}</span>
+          <span class="price">${money(p.price)}</span>
 
           <a class="details"
             href="#"
