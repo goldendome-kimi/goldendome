@@ -106,9 +106,49 @@
 }
 
 @media (max-width: 390px) {
+  .nav-cta {
+    display: inline-flex;
+    font-size: 9px;
+    padding: 9px 8px;
+    gap: 5px;
+  }
+
+  .brand img {
+    width: 105px;
+  }
+
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
+
   .property-image {
     height: 220px;
   }
-}
 
+  .price-row {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .search-panel {
+    padding: 13px;
+  }
+
+  .filter-field select {
+    padding: 0 7px;
+  }
+
+  .location-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .location-tile {
+    min-height: 175px;
+    padding: 13px;
+  }
+
+  .tile-title {
+    font-size: 18px;
+  }
+}
 
