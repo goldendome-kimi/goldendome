@@ -152,3 +152,55 @@
   }
 }
 
+/* MOBILE: LOGO LEFT, MENU RIGHT */
+@media (max-width: 700px) {
+  .nav {
+    width: calc(100% - 30px);
+    height: 70px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto 0 0;
+    padding: 0;
+    flex: 0 1 auto;
+  }
+
+  .brand img {
+    display: block;
+    width: 125px;
+    height: 48px;
+    object-fit: contain;
+    object-position: left center;
+    mix-blend-mode: normal;
+    filter: none;
+  }
+
+  .menu-toggle {
+    display: block;
+    flex: 0 0 auto;
+    margin: 0;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+  }
+
+  .nav-cta {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    margin: 0;
+  }
+}
+
+
