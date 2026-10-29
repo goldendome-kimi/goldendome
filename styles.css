@@ -868,3 +868,76 @@
 .property-image .status.available {
   color: #17251f !important;
 }
+/* GALLERY CONTROLS: arrows and page counter below image */
+.modal-gallery {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* Keep the property image on its own full-width row */
+.modal-gallery .modal-photo {
+  display: block !important;
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  order: 0 !important;
+}
+
+/* Smaller circular navigation arrows */
+.modal-gallery .gallery-prev,
+.modal-gallery .gallery-next {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  order: 1 !important;
+  flex: 0 0 28px !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  margin: 10px 0 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Page counter in the middle, matching arrow height */
+.modal-gallery .gallery-count {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  order: 2 !important;
+  align-self: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  height: 28px !important;
+  box-sizing: border-box !important;
+  margin: 10px 0 0 !important;
+  padding: 0 10px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+/* Keep the arrow circles compact on mobile too */
+@media (max-width: 700px) {
+  .modal-gallery .gallery-prev,
+  .modal-gallery .gallery-next {
+    top: auto !important;
+    width: 28px !important;
+    height: 28px !important;
+    flex-basis: 28px !important;
+  }
+}
