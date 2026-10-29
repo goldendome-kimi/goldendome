@@ -118,6 +118,7 @@ function renderProperties(){
     <article class="property-card">
 
       <div class="property-image"
+        onclick="expandPromoOnPropertyImage(event)"
         style="background-image:url('${p.image}')">
 
         
@@ -129,7 +130,7 @@ function renderProperties(){
   }
 </span>
 
-        ${p.promo ? `<span class="promo-badge"><strong>PROMOTION</strong><span>${p.promo}</span></span>` : ""}
+        ${p.promo ? `<span class="promo-badge" role="button" tabindex="0" aria-expanded="true" onclick="togglePromo(event, this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePromo(event,this)}"><strong>PROMOTION</strong><span>${p.promo}</span></span>` : ""}
 
       </div>
 
@@ -167,6 +168,38 @@ function renderProperties(){
       </div>
     </article>
   `).join("");
+
+  // Let customers read promotions first, then minimize them after 5 seconds.
+  document.querySelectorAll(".property-card .promo-badge").forEach(badge => {
+    badge.classList.remove("is-minimized");
+    badge.setAttribute("aria-expanded", "true");
+    window.setTimeout(() => {
+      if (badge.isConnected && !badge.classList.contains("is-expanded-by-user")) {
+        badge.classList.add("is-minimized");
+        badge.setAttribute("aria-expanded", "false");
+      }
+    }, 5000);
+  });
+}
+
+
+// Tap/click the promotion badge to expand or minimize it.
+// Tapping the property image restores the full promotion message.
+function togglePromo(event, badge) {
+  event.stopPropagation();
+  const willExpand = badge.classList.contains("is-minimized");
+  badge.classList.toggle("is-minimized", !willExpand);
+  badge.classList.toggle("is-expanded-by-user", willExpand);
+  badge.setAttribute("aria-expanded", String(willExpand));
+}
+
+function expandPromoOnPropertyImage(event) {
+  const image = event.currentTarget;
+  const badge = image.querySelector(".promo-badge");
+  if (!badge) return;
+  badge.classList.remove("is-minimized");
+  badge.classList.add("is-expanded-by-user");
+  badge.setAttribute("aria-expanded", "true");
 }
 
 

@@ -905,3 +905,47 @@
   }
 }
 
+
+
+/* PROMOTION BADGE: auto-minimize after 5 seconds; tap to expand */
+.property-card .promo-badge {
+  cursor: pointer;
+  transition: padding .25s ease, max-width .25s ease, min-height .25s ease,
+              background-color .25s ease, border-radius .25s ease;
+}
+
+.property-card .promo-badge.is-minimized {
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: 92px !important;
+  min-height: 30px !important;
+  padding: 7px 10px !important;
+  gap: 0 !important;
+  border-left-width: 3px !important;
+  border-radius: 4px !important;
+}
+
+.property-card .promo-badge.is-minimized strong {
+  display: block !important;
+  font-size: 9px !important;
+  line-height: 1.2 !important;
+  letter-spacing: 1px !important;
+  white-space: nowrap !important;
+}
+
+.property-card .promo-badge.is-minimized span {
+  display: none !important;
+}
+
+.property-card .promo-badge:focus-visible {
+  outline: 2px solid #d8bf8c;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .property-card .promo-badge {
+    transition: none !important;
+  }
+}
