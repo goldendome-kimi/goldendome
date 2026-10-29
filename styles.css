@@ -864,3 +864,7 @@
   .property-card .promo-badge strong { font-size: 8px; }
   .property-card .promo-badge span { font-size: 9px; }
 }
+/* Change text color of available units and plot numbers only */
+.property-image .status.available {
+  color: #17251f !important;
+}
