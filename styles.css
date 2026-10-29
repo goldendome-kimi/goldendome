@@ -729,21 +729,29 @@
   font-weight: 600;
   overflow-wrap: anywhere;
 }
-@media (max-width: 700px) {
-  .property-card .promo-badge { left: 8px; bottom: 8px; max-width: calc(100% - 16px); padding: 7px 8px; }
-  .property-card .promo-badge strong { font-size: 8px; }
-  .property-card .promo-badge span { font-size: 9px; }
-}
+
 /* Change text color of available units and plot numbers only */
 .property-image .status.available {
   color: #17251f !important;
 }
 
-}
-/* MOBILE: Make promotion badge smaller */
+/* MOBILE ONLY: Align property card badges to the same left edge */
 @media (max-width: 600px) {
-  .property-card .promo-badge {
+  .property-card .property-image .status,
+  .property-card .property-image .promo-badge {
     left: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Available-plots badge */
+  .property-card .property-image .status {
+    right: auto !important;
+    max-width: calc(100% - 16px) !important;
+  }
+
+  /* Promotion badge */
+  .property-card .property-image .promo-badge {
+    right: auto !important;
     bottom: 8px !important;
     max-width: 65% !important;
     padding: 6px 8px !important;
@@ -751,12 +759,12 @@
     border-radius: 5px !important;
   }
 
-  .property-card .promo-badge strong {
+  .property-card .property-image .promo-badge strong {
     font-size: 9px !important;
     line-height: 1.2 !important;
   }
 
-  .property-card .promo-badge span {
+  .property-card .property-image .promo-badge span {
     font-size: 10px !important;
     line-height: 1.3 !important;
   }
@@ -993,23 +1001,3 @@
   }
 }
 
-/* MOBILE: ALIGN PROPERTY STATUS AND PROMOTION BADGES */
-@media (max-width: 600px) {
-  .property-card .property-image .status {
-    left: 8px !important;
-    top: 8px !important;
-    right: auto !important;
-    max-width: calc(100% - 16px) !important;
-    box-sizing: border-box !important;
-    text-align: left !important;
-    justify-content: flex-start !important;
-  }
-
-  .property-card .property-image .promo-badge {
-    left: 8px !important;
-    bottom: 8px !important;
-    right: auto !important;
-    max-width: calc(100% - 16px) !important;
-    box-sizing: border-box !important;
-  }
-}
