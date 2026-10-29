@@ -907,45 +907,109 @@
 
 
 
-/* PROMOTION BADGE: auto-minimize after 5 seconds; tap to expand */
+
+/* GOLDENDOME PROMOTION — SMOOTH COLLAPSE AND EXPANSION */
 .property-card .promo-badge {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: fit-content !important;
+  max-width: calc(100% - 28px) !important;
+  overflow: hidden !important;
   cursor: pointer;
-  transition: padding .25s ease, max-width .25s ease, min-height .25s ease,
-              background-color .25s ease, border-radius .25s ease;
+  transform-origin: bottom left;
+  transition:
+    max-width 0.45s cubic-bezier(.22, 1, .36, 1),
+    padding 0.4s cubic-bezier(.22, 1, .36, 1),
+    gap 0.35s ease,
+    background-color 0.35s ease,
+    border-radius 0.35s ease,
+    box-shadow 0.35s ease !important;
+}
+
+.property-card .promo-badge strong {
+  flex: 0 0 auto;
+  opacity: 1;
+  transition:
+    opacity 0.25s ease,
+    letter-spacing 0.35s ease !important;
+}
+
+.property-card .promo-badge span {
+  display: block !important;
+  max-height: 80px;
+  opacity: 1;
+  overflow: hidden;
+  transform: translateY(0);
+  transition:
+    max-height 0.4s cubic-bezier(.22, 1, .36, 1),
+    opacity 0.25s ease,
+    transform 0.35s ease !important;
 }
 
 .property-card .promo-badge.is-minimized {
-  flex-direction: row !important;
-  align-items: center !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
   justify-content: center !important;
-  width: auto !important;
-  max-width: 92px !important;
-  min-height: 30px !important;
+  width: fit-content !important;
+  max-width: 105px !important;
   padding: 7px 10px !important;
   gap: 0 !important;
-  border-left-width: 3px !important;
   border-radius: 4px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .2) !important;
 }
 
 .property-card .promo-badge.is-minimized strong {
-  display: block !important;
+  opacity: 1 !important;
   font-size: 9px !important;
   line-height: 1.2 !important;
-  letter-spacing: 1px !important;
+  letter-spacing: 0.8px !important;
   white-space: nowrap !important;
 }
 
 .property-card .promo-badge.is-minimized span {
-  display: none !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  transform: translateY(-5px) !important;
+  pointer-events: none;
 }
 
-.property-card .promo-badge:focus-visible {
-  outline: 2px solid #d8bf8c;
-  outline-offset: 3px;
+@media (max-width: 600px) {
+  .property-card .promo-badge {
+    max-width: calc(100% - 16px) !important;
+  }
+
+  .property-card .promo-badge.is-minimized {
+    max-width: 105px !important;
+    padding: 7px 9px !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .property-card .promo-badge {
+  .property-card .promo-badge,
+  .property-card .promo-badge strong,
+  .property-card .promo-badge span {
     transition: none !important;
+  }
+}
+
+/* MOBILE: ALIGN PROPERTY STATUS AND PROMOTION BADGES */
+@media (max-width: 600px) {
+  .property-card .property-image .status {
+    left: 8px !important;
+    top: 8px !important;
+    right: auto !important;
+    max-width: calc(100% - 16px) !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+
+  .property-card .property-image .promo-badge {
+    left: 8px !important;
+    bottom: 8px !important;
+    right: auto !important;
+    max-width: calc(100% - 16px) !important;
+    box-sizing: border-box !important;
   }
 }
