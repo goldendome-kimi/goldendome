@@ -943,16 +943,22 @@
     margin 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Minimized badge */
 .property-card .promo-badge.is-minimized {
   flex-direction: column !important;
   align-items: flex-start !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
   max-width: 92px !important;
   min-height: 30px !important;
   padding: 7px 10px !important;
   gap: 0 !important;
   border-radius: 4px !important;
+}
+.property-card .promo-badge strong {
+  display: block !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  transform: none !important;
 }
 
 /* Keep PROMOTION label visible */
