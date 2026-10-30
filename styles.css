@@ -1114,94 +1114,41 @@
   border-left: 3px solid #d8bf8c !important;
   border-radius: 4px !important;
   box-shadow: 0 3px 12px rgba(0, 0, 0, .22) !important;
-
-  clip-path: inset(0 0 0 0);
-
-  transition:
-    max-height .55s cubic-bezier(.22, 1, .36, 1),
-    clip-path .55s cubic-bezier(.22, 1, .36, 1) !important;
-}
-
-.property-card .promo-badge strong {
-  display: block !important;
-  width: 100% !important;
-  flex: 0 0 auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-
-  color: #e4d0a6 !important;
-  font-size: 9px !important;
-  font-weight: 700 !important;
-  letter-spacing: 1.2px !important;
-  line-height: 1.2 !important;
-  white-space: nowrap !important;
-}
-
-.property-card .promo-badge span {
-  display: block !important;
-  width: 100% !important;
-  max-height: 150px !important;
-  flex: 0 0 auto !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-
-  color: #fff !important;
-  font-size: 10px !important;
-  font-weight: 600 !important;
-  line-height: 1.4 !important;
-  overflow-wrap: anywhere !important;
-
-  opacity: 1;
-
-  transition:
-    max-height .45s ease,
-    opacity .3s ease !important;
-}
-
-/* COLLAPSED */
-.property-card .promo-badge.is-minimized {
-  max-height: 36px !important;
-  min-height: 36px !important;
-
-  /* Hide the right side without changing text width */
-  clip-path: inset(0 calc(100% - 116px) 0 0);
-}
-
-.property-card .promo-badge.is-minimized span {
-  max-height: 0 !important;
-  opacity: 0 !important;
-}
-
-/* MOBILE */
+/* MOBILE — PROMOTION BADGE ALIGNMENT */
 @media (max-width: 700px) {
   .property-card .promo-badge {
     left: 8px !important;
     bottom: 8px !important;
-
     width: 220px !important;
     max-width: calc(100% - 16px) !important;
-
     min-height: 32px !important;
     padding: 7px 8px !important;
   }
 
+  /* COLLAPSED BADGE */
   .property-card .promo-badge.is-minimized {
     max-height: 32px !important;
     min-height: 32px !important;
     clip-path: inset(0 calc(100% - 116px) 0 0);
-    display: flex !important;
-flex-direction: column !important;
-align-items: flex-start !important;
-justify-content: center !important;
-text-align: left !important;
   }
 
-  .property-card .promo-badge strong {
-    position: relative !important;
-  top: 5px !important;
-}
+  /* Centre PROMOTION only when collapsed */
+  .property-card .promo-badge.is-minimized strong {
+    position: absolute !important;
+    top: 50% !important;
+    left: 11px !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Restore normal heading when expanded */
+  .property-card .promo-badge:not(.is-minimized) strong {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
 
   .property-card .promo-badge span {
     font-size: 10px !important;
