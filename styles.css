@@ -932,16 +932,17 @@ transition:
     padding 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* PROMOTION LABEL */
+/* PROMOTION LABEL — CENTERED */
 .property-card .promo-badge strong {
   position: relative !important;
   top: auto !important;
   left: auto !important;
   display: block !important;
   flex: 0 0 auto !important;
-  width: auto !important;
+  width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
+  text-align: center !important;
   font-size: 9px !important;
   line-height: 1.2 !important;
   letter-spacing: 1.2px !important;
