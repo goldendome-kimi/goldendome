@@ -907,7 +907,8 @@
 
 
 
-/* PROMOTION BADGE — PREMIUM SMOOTH ANIMATION */
+
+/* GOLDENDOME PROMOTION BADGE — SMOOTH TWO-WAY ANIMATION */
 
 .property-card .promo-badge {
   cursor: pointer;
@@ -916,26 +917,30 @@
   align-items: flex-start;
   overflow: hidden;
   width: fit-content;
-  will-change: max-width, padding;
+  max-width: calc(100% - 28px);
+
   transition:
-    max-width 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
-    padding 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
-    gap 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+    max-width 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    gap 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Expanded promotion text */
 .property-card .promo-badge span {
   display: block !important;
-  width: auto;
+  flex: 0 1 auto;
+  width: max-content;
   max-width: 500px;
   max-height: 200px;
   opacity: 1;
-  visibility: visible;
   overflow: hidden;
-  transform: translateY(0);
+
   transition:
-    opacity 0.4s ease 0.25s,
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+    flex-basis 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    max-width 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    max-height 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.55s ease,
+    margin 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Minimized badge */
@@ -950,7 +955,7 @@
   border-radius: 4px !important;
 }
 
-/* PROMOTION label */
+/* Keep PROMOTION label visible */
 .property-card .promo-badge.is-minimized strong {
   display: block !important;
   font-size: 9px !important;
@@ -959,41 +964,26 @@
   white-space: nowrap !important;
 }
 
-/* Smooth text fade and collapse */
+/* Collapse promotion text smoothly */
 .property-card .promo-badge.is-minimized span {
-  width: 0 !important;
+  flex: 0 1 0px !important;
   max-width: 0 !important;
   max-height: 0 !important;
-  flex: 0 0 0 !important;
   opacity: 0 !important;
-  visibility: hidden !important;
-  overflow: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
-  transform: translateY(-4px);
-  transition:
-    opacity 0.25s ease,
-    transform 0.3s ease,
-    width 0s linear 0.25s,
-    max-width 0s linear 0.25s,
-    max-height 0s linear 0.25s;
 }
 
-/* Expand without delay when clicked */
-.property-card .promo-badge:not(.is-minimized) {
-  transition-delay: 0s;
-}
-
+/* Keyboard accessibility */
 .property-card .promo-badge:focus-visible {
   outline: 2px solid #d8bf8c;
   outline-offset: 3px;
 }
 
-/* Respect reduced-motion settings */
+/* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   .property-card .promo-badge,
   .property-card .promo-badge span {
     transition: none !important;
-    transform: none !important;
   }
 }
