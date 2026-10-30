@@ -28,6 +28,8 @@ const properties = [
 ]
 
 let galleryIndex = 0;
+const selectedCompareIds = new Set();
+const MAX_COMPARE_PROPERTIES = 3;
 
 
 const money = n =>
@@ -59,6 +61,162 @@ function formatPlotAvailability(p) {
   return `${units} ${unitLabel}${
     plotLabel ? ` (Plot ${plotLabel})` : ""
   }`;
+}
+
+
+
+function ensureCompareUI() {
+  if (!document.getElementById("compareDock")) {
+    const dock = document.createElement("div");
+    dock.id = "compareDock";
+    dock.className = "compare-dock";
+    dock.setAttribute("aria-live", "polite");
+    dock.innerHTML = `
+      <div class="compare-dock-copy">
+        <strong><span id="compareCount">0</span> properties selected</strong>
+        <span id="compareNames">Choose up to 3 properties to compare</span>
+      </div>
+      <div class="compare-dock-actions">
+        <button type="button" class="compare-clear" onclick="clearCompare()">Clear</button>
+        <button type="button" class="button gold compare-open" onclick="openCompareModal()" disabled>Compare Properties</button>
+      </div>`;
+    document.body.appendChild(dock);
+  }
+
+  if (!document.getElementById("compareModal")) {
+    const modal = document.createElement("div");
+    modal.id = "compareModal";
+    modal.className = "compare-modal";
+    modal.setAttribute("aria-hidden", "true");
+    modal.innerHTML = `
+      <div class="compare-modal-box" role="dialog" aria-modal="true" aria-labelledby="compareModalTitle">
+        <button class="compare-close" type="button" onclick="closeCompareModal()" aria-label="Close comparison">×</button>
+        <div class="compare-modal-heading">
+          <p class="eyebrow">PROPERTY COMPARISON</p>
+          <h2 id="compareModalTitle">Compare your options</h2>
+          <p>Review key details side by side before deciding which property suits you.</p>
+        </div>
+        <div id="compareContent"></div>
+      </div>`;
+    document.body.appendChild(modal);
+    modal.addEventListener("click", event => {
+      if (event.target === modal) closeCompareModal();
+    });
+  }
+}
+
+function syncCompareButtons() {
+  document.querySelectorAll(".compare-toggle").forEach(button => {
+    const id = Number(button.dataset.propertyId);
+    const selected = selectedCompareIds.has(id);
+    button.classList.toggle("is-selected", selected);
+    button.setAttribute("aria-pressed", String(selected));
+    button.textContent = selected ? "✓ ADDED" : "+ COMPARE";
+  });
+}
+
+function updateCompareDock() {
+  ensureCompareUI();
+  const selected = properties.filter(property => selectedCompareIds.has(property.id));
+  const dock = document.getElementById("compareDock");
+  dock.querySelector("#compareCount").textContent = String(selected.length);
+  dock.querySelector("#compareNames").textContent = selected.length
+    ? selected.map(property => property.name).join(" · ")
+    : "Choose up to 3 properties to compare";
+  dock.querySelector(".compare-open").disabled = selected.length < 2;
+  dock.classList.toggle("is-visible", selected.length > 0);
+}
+
+function toggleCompare(id) {
+  if (!properties.some(property => property.id === id)) return;
+  if (selectedCompareIds.has(id)) {
+    selectedCompareIds.delete(id);
+  } else {
+    if (selectedCompareIds.size >= MAX_COMPARE_PROPERTIES) {
+      alert("You can compare up to 3 properties at a time.");
+      return;
+    }
+    selectedCompareIds.add(id);
+  }
+  syncCompareButtons();
+  updateCompareDock();
+}
+
+function clearCompare() {
+  selectedCompareIds.clear();
+  syncCompareButtons();
+  updateCompareDock();
+}
+
+function compareEscape(value) {
+  return String(value ?? "Not specified").replace(/[&<>"']/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[char]));
+}
+
+function openCompareModal() {
+  const selected = properties.filter(property => selectedCompareIds.has(property.id));
+  if (selected.length < 2) return;
+
+  const rows = [
+    ["Price", p => p.price ? "$" + Number(p.price).toLocaleString("en-US") : "Contact us"],
+    ["Location", p => p.location],
+    ["Property type", p => p.type],
+    ["Land area", p => p.landArea],
+    ["Floor area", p => p.floorArea],
+    ["Bedrooms", p => p.bed ?? "Not specified"],
+    ["Bathrooms", p => p.bath ?? "Not specified"],
+    ["Car porch", p => p.carPorch != null ? `${p.carPorch} ${p.carPorch === 1 ? "car" : "cars"}` : "Not specified"],
+    ["Tenure", p => p.tenure || "Not specified"],
+    ["Availability", p => p.status || "Contact us"],
+    ["Available plots", p => p.availablePlots != null ? formatPlotAvailability(p) : "Not specified"],
+    ["Promotion", p => p.promo || "No current promotion"],
+    ["Development status", p => p.detailStatus || p.status || "Not specified"]
+  ];
+
+  document.getElementById("compareContent").innerHTML = `
+    <div class="compare-table-scroll">
+      <table class="compare-table">
+        <thead><tr>
+          <th class="compare-label-cell">Property details</th>
+          ${selected.map(p => `<th>
+            <img src="${compareEscape(p.image)}" alt="${compareEscape(p.name)}">
+            <strong>${compareEscape(p.name)}</strong>
+            <span>${compareEscape(p.type)}</span>
+            <button type="button" class="compare-remove" onclick="removeComparedProperty(${p.id})">Remove</button>
+          </th>`).join("")}
+        </tr></thead>
+        <tbody>
+          ${rows.map(([label, getter]) => `<tr>
+            <th scope="row">${compareEscape(label)}</th>
+            ${selected.map(p => `<td>${compareEscape(getter(p))}</td>`).join("")}
+          </tr>`).join("")}
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note">Property information and availability are subject to change. Please contact Goldendome to confirm the latest details.</p>`;
+  const modal = document.getElementById("compareModal");
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function removeComparedProperty(id) {
+  selectedCompareIds.delete(id);
+  syncCompareButtons();
+  updateCompareDock();
+  if (selectedCompareIds.size < 2) closeCompareModal();
+  else openCompareModal();
+}
+
+function closeCompareModal() {
+  const modal = document.getElementById("compareModal");
+  if (!modal) return;
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+  if (!document.getElementById("modal")?.classList.contains("open")) {
+    document.body.classList.remove("modal-open");
+  }
 }
 
 
@@ -130,6 +288,13 @@ function renderProperties(){
   }
 </span>
 
+        <button class="compare-toggle${selectedCompareIds.has(p.id) ? " is-selected" : ""}"
+          type="button" data-property-id="${p.id}"
+          onclick="event.stopPropagation();toggleCompare(${p.id})"
+          aria-pressed="${selectedCompareIds.has(p.id)}">
+          ${selectedCompareIds.has(p.id) ? "✓ ADDED" : "+ COMPARE"}
+  </button>
+
         ${p.promo ? `<span class="promo-badge" role="button" tabindex="0" aria-expanded="true" onclick="togglePromo(event, this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePromo(event,this)}"><strong>PROMOTION</strong><span>${p.promo}</span></span>` : ""}
 
       </div>
@@ -168,6 +333,9 @@ function renderProperties(){
       </div>
     </article>
   `).join("");
+
+  syncCompareButtons();
+  updateCompareDock();
 
   // Let customers read promotions first, then minimize them after 5 seconds.
   document.querySelectorAll(".property-card .promo-badge").forEach(badge => {
@@ -321,6 +489,17 @@ ${p.plotDetails && p.plotDetails.length ? `
           >
             ENQUIRE ON WHATSAPP
           </a>
+
+          ${Number(p.availablePlots ?? 0) > 0 ? `
+            <a
+              class="button gold"
+              href="https://wa.me/6738211222?text=${encodeURIComponent("Hi Kimi, I would like to arrange a viewing for " + p.name + " in " + p.location + ". Could you please let me know the available dates and times?")}"
+              target="_blank"
+              rel="noopener"
+            >
+              ARRANGE A VIEWING
+            </a>
+          ` : ""}
         </div>
       </div>
 
@@ -419,6 +598,8 @@ document.getElementById("modal").addEventListener("click",e=>{
   if(e.target.id==="modal") closeModal();
 });
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape") closeModal();
+  if(e.key==="Escape"){ closeCompareModal(); closeModal(); }
 });
-populateFilters();renderProperties();
+ensureCompareUI();
+populateFilters();
+renderProperties();
