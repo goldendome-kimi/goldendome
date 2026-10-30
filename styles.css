@@ -1012,6 +1012,7 @@
     max-height: 42px !important;
     padding: 7px 8px !important;
     gap: 0 !important;
+    border-radius: 8px !important;
 
     /* Visually shrink without changing text width */
     clip-path: inset(0 calc(100% - 116px) 0 0);
