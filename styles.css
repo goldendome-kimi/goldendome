@@ -1015,7 +1015,7 @@
     border-radius: 8px !important;
 
     /* Visually shrink without changing text width */
-    clip-path: inset(0 calc(100% - 116px) 0 0);
+    clip-path: inset(0 calc(100% - 116px) 0 0 round 8px);
   }
 
   .property-card .promo-badge strong {
