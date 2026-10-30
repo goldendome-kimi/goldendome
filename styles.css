@@ -910,7 +910,8 @@
 
 
 
-/* GOLDENDOME PROMOTION BADGE — SMOOTH TWO-WAY ANIMATION */
+
+/* GOLDENDOME PROMOTION BADGE — SMOOTH ANIMATION */
 
 .property-card .promo-badge {
   box-sizing: border-box !important;
@@ -938,7 +939,6 @@
     gap 0.65s ease;
 }
 
-/* PROMOTION LABEL */
 .property-card .promo-badge strong {
   display: block !important;
   flex: 0 0 auto !important;
@@ -952,7 +952,6 @@
   white-space: nowrap !important;
 }
 
-/* PROMOTION DESCRIPTION */
 .property-card .promo-badge span {
   display: block !important;
   flex: 0 1 auto !important;
@@ -972,7 +971,6 @@
     opacity 0.4s ease;
 }
 
-/* MINIMIZED STATE */
 .property-card .promo-badge.is-minimized {
   width: 116px !important;
   min-width: 116px !important;
@@ -984,26 +982,39 @@
   border-radius: 4px !important;
 }
 
-/* HIDE DESCRIPTION */
 .property-card .promo-badge.is-minimized span {
   max-height: 0 !important;
   opacity: 0 !important;
 }
 
-/* MOBILE */
+/* MOBILE — PREVENT TEXT REFLOW JUMPING */
+
 @media (max-width: 700px) {
   .property-card .promo-badge {
     width: 220px !important;
+    min-width: 0 !important;
     max-width: calc(100% - 16px) !important;
-    padding: 7px 8px !important;
+
+    transition:
+      max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      padding 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      gap 0.65s ease,
+      clip-path 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+
+    clip-path: inset(0 0 0 0);
   }
 
   .property-card .promo-badge.is-minimized {
-    width: 116px !important;
-    min-width: 116px !important;
-    max-width: 116px !important;
+    width: 220px !important;
+    min-width: 0 !important;
+    max-width: calc(100% - 16px) !important;
+    min-height: 30px !important;
     max-height: 42px !important;
     padding: 7px 8px !important;
+    gap: 0 !important;
+
+    /* Visually shrink without changing text width */
+    clip-path: inset(0 calc(100% - 116px) 0 0);
   }
 
   .property-card .promo-badge strong {
@@ -1017,12 +1028,14 @@
 }
 
 /* KEYBOARD ACCESSIBILITY */
+
 .property-card .promo-badge:focus-visible {
   outline: 2px solid #d8bf8c;
   outline-offset: 3px;
 }
 
 /* REDUCED MOTION */
+
 @media (prefers-reduced-motion: reduce) {
   .property-card .promo-badge,
   .property-card .promo-badge span {
