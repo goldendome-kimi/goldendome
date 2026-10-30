@@ -1,0 +1,625 @@
+const properties = [
+  {id:1,name:"Junjongan 79684",location:"Brunei-Muara",type:"Detached Bungalow",price:160000,landArea:"0.091 - 0.117 AC",floorArea:"1,628.65 Sq. Ft",bed:3,bath:2,carPorch:2,tenure:"Tanah Kekal",status:"Sold Out",availablePlots:0,lat:4.813619,lng:114.880655,image:"Junjongan2.webp",gallery:["Junjongan2.webp","Junjongan1.webp","Junjongan3.webp"],description:"Detached bungalow homes in Junjongan designed for comfortable family living.",features:["3 bedrooms","2 bathrooms","Carporch for 2 cars","Tanah Kekal"],notes:"Sold Out. Price shown is the previous starting price."},
+  {id:2,name:"Danau 23163",location:"Tutong",type:"Detached Bungalow",price:175000,landArea:"0.110 - 0.142 AC",floorArea:"1,652 - 1,776 Sq. Ft",bed:3,bath:2,carPorch:2,tenure:"Tanah Kekal",status:"Sold Out",availablePlots:0,lat:4.747467,lng:114.570454,image:"Danau1.webp",gallery:["Danau1.webp","Danau2.webp"],description:"Detached bungalow homes in Danau, Tutong.",features:["3 bedrooms","2 bathrooms","Carporch for 2 cars","Tanah Kekal"],notes:"Sold Out. Price shown is the previous starting price."},
+  {id:3,name:"Kasat 23735",location:"Brunei-Muara",type:"Detached Bungalow",price:149900,landArea:"0.100 - 0.115 AC",floorArea:"1,348.93 - 1,390.94 Sq. Ft",bed:3,bath:2,carPorch:2,tenure:"Tanah Kekal",status:"Sold Out",availablePlots:0,lat:4.827175,lng:114.947002,image:"Kasat1.webp",gallery:["Kasat1.webp","Kasat2.webp"],description:"Detached bungalow homes in Kasat.",features:["3 bedrooms","2 bathrooms","Carporch for 2 cars","Tanah Kekal"],notes:"Sold Out. Price shown is the previous starting price."},
+  {id:4,name:"Kasat 23737",location:"Brunei-Muara",type:"Detached Bungalow",price:149900,landArea:"0.100 - 0.115 AC",floorArea:"1,348.93 - 1,390.94 Sq. Ft",bed:3,bath:2,carPorch:2,tenure:"Tanah Kekal",status:"Sold Out",availablePlots:0,lat:4.827175,lng:114.947002,image:"Kasat2.webp",gallery:["Kasat2.webp","Kasat1.webp"],description:"Detached bungalow homes in Kasat.",features:["3 bedrooms","2 bathrooms","Carporch for 2 cars","Tanah Kekal"],notes:"Sold Out. Price shown is the previous starting price."},
+  {id:5,name:"Mentiri 5230",location:"Brunei-Muara",type:"Semi-Detached Double Storey",price:237000,landArea:"0.067 - 0.076 AC",floorArea:"2,219.74 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"6 Units Left",detailStatus:"Pending Borang C Submission",availablePlots:6,plotRange:"3-8",plotDetails: [{ plot: 3, landArea: "0.074 AC", floorArea: "2,219.74 Sq. Ft" },{ plot: 4, landArea: "0.072 AC", floorArea: "2,219.74 Sq. Ft" },{ plot: 5, landArea: "0.072 AC", floorArea: "2,219.74 Sq. Ft" },{ plot: 6, landArea: "0.072 AC", floorArea: "2,219.74 Sq. Ft" },{ plot: 7, landArea: "0.076 AC", floorArea: "2,219.74 Sq. Ft" },{ plot: 8, landArea: "0.067 AC", floorArea: "2,219.74 Sq. Ft" }],lat:4.976681,lng:115.018974,image:"Mentiri5230SemiD2.webp",floorPlans:["Mentiri5230SemiDGF.webp","Mentiri5230SemiDFF.webp"],siteDevelopment: "Mentiri5230SDP.webp",gallery:["Mentiri5230SemiD2.webp","Mentiri5230SemiD1.webp","Mentiri5230SemiD3.webp","Mentiri5230SemiD4.webp"],description:"Semi-detached double-storey homes in Mentiri with generous family living spaces.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","6 units available"],nextStage:"Start Construction"},
+  {id:6,name:"Mentiri 5230",location:"Brunei-Muara",type:"Detached Double Storey",price:278000,landArea:"0.112 AC",floorArea:"2,555.67 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Pending Borang C Submission",availablePlots:1,plotNumbers: [12],plotDetails: [{ plot: 12, landArea: "0.112 AC", floorArea: "2487.32 Sq. Ft" }],lat:4.976681,lng:115.018974,image:"Mentiri5230Detached2.webp",gallery:["Mentiri5230Detached2.webp","Mentiri5230Detached1.webp"],description:"The detached double-storey option at Mentiri 5230.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"],nextStage:"Start Construction"},
+  {id:7,name:"Mentiri 6469",location:"Brunei-Muara",type:"Detached Double Storey",price:249900,landArea:"0.107 AC",floorArea:"2,490.12 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Sold Out",availablePlots:0,lat:4.960988,lng:115.020595,image:"Mentiri64691.webp",gallery:["Mentiri64691.webp","Mentiri64692.webp"],description:"Detached double-storey homes in Mentiri 6469.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal"],notes:"Sold Out. Price shown is the previous starting price."},
+  {id:8,name:"Mentiri 6469",location:"Brunei-Muara",type:"Semi-Detached Double Storey",price:239000,landArea:"0.080 AC",floorArea:"2,487.32 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Start Piling",availablePlots:1,promo:"Free water tank and water pump",plotNumbers: [2],plotDetails: [{ plot: 2, landArea: "0.080 AC", floorArea: "2487.32 Sq. Ft" }],lat:4.960988,lng:115.020595,image:"Mentiri64693.webp",floorPlans:["Mentiri6469SemiDGF.webp","Mentiri6469SemiDFF.webp"],siteDevelopment: "Mentiri6469SDP.webp",gallery:["Mentiri64693.webp","Mentiri64694.webp"],description:"The last semi-detached double-storey unit at Mentiri 6469.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Free water tank and water pump.","Last unit"],nextStage:"Start Construction"},
+  {id:9,name:"Mentiri 6470",location:"Brunei-Muara",type:"Detached Double Storey",price:245000,landArea:"0.085 AC",floorArea:"2,424.19 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Pending Borang C Submission",availablePlots:1,promo:"Free water tank and water pump",plotNumbers: ["C"],plotDetails: [{ plot: "C", landArea: "0.085 AC", floorArea: "2424.19 Sq. Ft" }],lat:4.960988,lng:115.020595,image:"Mentiri64702.webp",floorPlans:["Mentiri6470GF.webp","Mentiri6470FF.webp"],siteDevelopment: "Mentiri6470SDP.webp",gallery:["Mentiri64702.webp","Mentiri64701.webp"],description:"Detached double-storey homes at Mentiri 6470.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Free water tank and water pump.","Last unit"],nextStage:"Start Construction"},
+  {id:10,name:"Sengkarai 12898",location:"Tutong",type:"Detached Bungalow",price:160000,landArea:"0.096 AC",floorArea:"1,565.13 Sq. Ft",bed:3,bath:2,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Pending OP Earthwork Submission",availablePlots:1,plotNumbers: [1],plotDetails: [{ plot: 1, landArea: "0.096 AC", floorArea: "1565.13 Sq. Ft" }],lat:4.809389,lng:114.644854,image:"Sengkarai1.webp",floorPlans:["SengkaraiFP.webp"],siteDevelopment: "SengkaraiSDP.webp",gallery:["Sengkarai1.webp"],description:"Detached bungalow homes in Sengkarai, Tutong.",features:["3 bedrooms","2 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"],nextStage:"Borang C Building Submission"},
+  {id:11,name:"Lambak Kanan 16470",location:"Brunei-Muara",type:"Detached Double Storey",price:295000,landArea:"0.094 - 0.096 AC",floorArea:"2,592.06 - 2,616.71 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"3 Units Left",detailStatus:"Pending TCP Submission",availablePlots:3,promo:"Free water tank, water pump, water and electric meter",plotNumbers: [1, 5, 6],plotDetails: [{ plot: 1, landArea: "0.095 AC", floorArea: "2616.29 Sq. Ft" },{ plot: 5, landArea: "0.096 AC", floorArea: "2616.71 Sq. Ft" },{ plot: 6, landArea: "0.094 AC", floorArea: "2616.71 Sq. Ft" }],lat:4.974437,lng:114.955691,image:"LambakKanan1.webp",floorPlans:["LambakGF.webp","LambakFF.webp"],siteDevelopment: "LambakKananSDP.webp",gallery:["LambakKanan1.webp","LambakKanan2.webp","LambakKanan3.webp","LambakKanan4.webp"],description:"Detached double-storey homes in Lambak Kanan.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","3 units left"],nextStage:"Preparation for Borang A Submission"},
+  {id:12,name:"Masin 12586",location:"Brunei-Muara",type:"Detached Double Storey",price:285000,landArea:"0.117 AC",floorArea:"2,941 Sq. Ft",bed:4,bath:4,carPorch:1,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Approved ABCi and Borang C",availablePlots:1,plotNumbers: ["B"],plotDetails: [{ plot: "B", landArea: "0.117 AC", floorArea: "2941 Sq. Ft" }],lat:4.831979,lng:114.842598,image:"Masin1.webp",gallery:["Masin1.webp","Masin2.webp"],description:"A spacious detached double-storey home in Masin.",features:["4 bedrooms","4 bathrooms","Carporch for 1 car","Tanah Kekal","Last unit"],nextStage:"Start Construction"},
+  {id:13,name:"Lumapas 11261",location:"Brunei-Muara",type:"Detached Double Storey",price:249000,landArea:"0.080 - 0.106 AC",floorArea:"2,335 - 2,395 Sq. Ft",bed:4,bath:3,carPorch:2,tenure:"Tanah Kekal",status:"3 Units Left",detailStatus:"Piling Done",availablePlots:3,plotNumbers: ["A", "B", "C"],plotDetails: [{ plot: "A", landArea: "0.106 AC", floorArea: "2335 Sq. Ft" },{ plot: "B", landArea: "0.086 AC", floorArea: "2335 Sq. Ft" },{ plot: "C", landArea: "0.080 AC", floorArea: "2395 Sq. Ft" }],lat:4.839613,lng:114.917051,image:"Lumapas1.webp",siteDevelopment: "LumapasSDP.webp",gallery:["Lumapas1.webp","Lumapas2.webp","Lumapas3.webp","Lumapas4.webp"],description:"Linked-Detached double-storey homes in Lumapas.",floorPlanGroups: [{title: "Plot A",plans: [{ label: "Ground Floor", image: "LumapasPlotAGF.webp" },{ label: "First Floor", image: "LumapasPlotAFF.webp" }]}, {title: "Plot B",plans: [{ label: "Ground Floor", image: "LumapasPlotBGF.webp" },{ label: "First Floor", image: "LumapasPlotBFF.webp" }]},{title: "Plot C",plans: [{ label: "Ground Floor", image: "LumapasPlotCGF.webp" },{ label: "First Floor", image: "LumapasPlotCFF.webp" }]}],features:["4 bedrooms","3 bathrooms","Carporch for 2 cars","Tanah Kekal","3 units left"],nextStage:"Start Construction"},
+  {id:14,name:"Jangsak 26506",location:"Brunei-Muara",type:"Detached Double Storey",price:450000,landArea:"0.190 AC",floorArea:"Approx. 5000 Sq. Ft",bed:6,bath:7,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Ready To Move In",availablePlots:1,plotNumbers: ["F"],plotDetails: [{ plot: "F", landArea: "0.190 AC", floorArea: "5000 Sq. Ft" }],lat:4.886833,lng:114.867194,image:"Jangsak1.webp",gallery:["Jangsak1.webp","Jangsak2.webp","Jangsak3.webp","Jangsak4.webp","Jangsak5.webp"],description:"A spacious detached double-storey home in Jangsak, ready to move in.",features:["6 bedrooms","7 bathrooms","Carporch for 2 cars","Tanah Kekal","Ready to move in","Last unit"]},
+  {id:15,name:"Sg. Tilong 4172",location:"Brunei-Muara",type:"Detached Double Storey",price:388000,landArea:"0.107 AC",floorArea:"3400 Sq. Ft",bed:6,bath:6,carPorch:2,tenure:"Tanah Kekal",status:"4 Units Left",detailStatus:"In Construction",availablePlots:4,plotNumbers: [5, 6, 14, 15],plotDetails: [{ plot: 5, landArea: "0.107 AC", floorArea: "3400 Sq. Ft" },{ plot: 6, landArea: "0.107 AC", floorArea: "3400 Sq. Ft" },{ plot: 14, landArea: "0.107 AC", floorArea: "3400 Sq. Ft" },{ plot: 15, landArea: "0.107 AC", floorArea: "3400 Sq. Ft" }],lat:4.959338,lng:114.969489,image:"SGTilong2.webp",floorPlans:["SgTilongAGF.webp","SgTilongAFF.webp"],siteDevelopment: "SgTilongSDP.webp",gallery:["SGTilong2.webp","SGTilong3.webp"],description:"Detached double-storey homes in Sg. Tilong.",features:["6 bedrooms","6 bathrooms","Carporch for 2 cars","Tanah Kekal","4 units left"]},
+  {id:16,name:"Tanjung Bunut 1200",location:"Brunei-Muara",type:"Detached Double Storey",price:360000,landArea:"0.115 - 0.122 AC",floorArea:"Approx. 2610 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"2 Units Left",detailStatus:"Completed and Pending OP Submission",availablePlots:2,plotRange:"26-27",plotDetails: [{ plot: 26, landArea: "0.122 AC", floorArea: "2610 Sq. Ft" },{ plot: 27, landArea: "0.115 AC", floorArea: "2610 Sq. Ft" }],lat:4.8843056,lng:114.8596944,image:"TanjungBunutDetached1.webp",floorPlans:["TanjungBunutDetachedGF.webp","TanjungBunutDetachedFF.webp"],siteDevelopment: "TanjungBunutSDP.webp",gallery:["TanjungBunutDetached1.webp","TanjungBunutDetached2.webp","TanjungBunutDetached3.webp","TanjungBunutDetached4.webp","TanjungBunutDetached5.webp","TanjungBunutDetached6.webp","TanjungBunutDetached7.webp","TanjungBunutDetached8.webp","TanjungBunutDetached9.webp","TanjungBunutDetached10.webp","TanjungBunutDetached11.webp"],description:"Detached double-storey homes in Tanjung Bunut.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Pending OP Submission","2 units left"]},
+  {id:17,name:"Tanjung Bunut 1200",location:"Brunei-Muara",type:"Terrace Double Storey",price:198000,landArea:"0.04 AC",floorArea:"Approx. 1995.5 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"5 Units Left",detailStatus:"Completed and Pending OP Submission",availablePlots:5,plotRange:"3-7",plotDetails: [{ plot: 3, landArea: "0.04 AC", floorArea: "1995.5 Sq. Ft" },{ plot: 4, landArea: "0.04 AC", floorArea: "1995.5 Sq. Ft" },{ plot: 5, landArea: "0.04 AC", floorArea: "1995.5 Sq. Ft" },{ plot: 6, landArea: "0.04 AC", floorArea: "1995.5 Sq. Ft" },{ plot: 7, landArea: "0.04 AC", floorArea: "1995.5 Sq. Ft" }],lat:4.8843056,lng:114.8596944,image:"TanjungBunutTerrace1.webp",floorPlans:["TanjungBunutTerraceGF.webp","TanjungBunutTerraceFF.webp"],siteDevelopment: "TanjungBunutSDP.webp",gallery:["TanjungBunutTerrace1.webp","TanjungBunutTerrace2.webp","TanjungBunutTerrace3.webp","TanjungBunutTerrace4.webp","TanjungBunutTerrace5.webp","TanjungBunutTerrace6.webp","TanjungBunutTerrace7.webp","TanjungBunutTerrace8.webp","TanjungBunutTerrace9.webp","TanjungBunutTerrace10.webp","TanjungBunutTerrace11.webp","TanjungBunutTerrace12.webp","TanjungBunutTerrace13.webp"],description:"2-Storey Terrace in Tanjung Bunut.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Pending OP Submission","5 units left"]},
+  {id:18,name:"Jerudong 77994",location:"Brunei-Muara",type:"Semi-Detached Double Storey",price:288000,landArea:"0.071 AC",floorArea:"Approx. 2611 Sq. Ft",bed:4,bath:3,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Ready To Move In",availablePlots:1,lat:4.918528,lng:114.837472,image:"JerudongSemiD1.webp",gallery:["JerudongSemiD1.webp","JerudongSemiD2.webp","JerudongSemiD3.webp","JerudongSemiD4.webp","JerudongSemiD5.webp","JerudongSemiD6.webp","JerudongSemiD7.webp","JerudongSemiD8.webp","JerudongSemiD9.webp","JerudongSemiD10.webp","JerudongSemiD11.webp","JerudongSemiD12.webp","JerudongSemiD13.webp","JerudongSemiD14.webp","JerudongSemiD15.webp","JerudongSemiD16.webp"],description:"Discover comfortable living in a beautiful double-storey semi-detached home in Jerudong.",features:["4 bedrooms","3 bathrooms","Carporch for 2 cars","Tanah Kekal","Ready to move in","Last unit"]},
+  {id:19,name:"Jerudong 77994",location:"Brunei-Muara",type:"Detached Double Storey",price:320000,landArea:"0.092 AC",floorArea:"Approx. 2503 Sq. Ft",bed:5,bath:5,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"In Construction",availablePlots:1,plotNumbers: [11],plotDetails: [{ plot: 11, landArea: "0.092 AC", floorArea: "2503 Sq. Ft" }],lat:4.918528,lng:114.837472,image:"JerudongDetached1.webp",gallery:["JerudongDetached1.webp","JerudongDetached2.webp"],description:"Discover comfortable living in a beautiful double-storey detached home in Jerudong.",features:["5 bedrooms","5 bathrooms","Tanah Kekal","Last unit"]},
+  {id:20,name:"Subok 20691",location:"Brunei-Muara",type:"Semi-Detached Double Storey",price:270000,landArea:"0.089 AC",floorArea:"Approx. 2510.88 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Ready To Move In",availablePlots:1,plotNumbers: [5],plotDetails: [{ plot: 5, landArea: "0.089 AC", floorArea: "2510.88 Sq. Ft" }],lat:4.909472,lng:114.983333,image:"SubokSemiD1.webp",floorPlans:["SubokGF.webp","SubokFF.webp"],siteDevelopment: "SubokSDP.webp",gallery:["SubokSemiD1.webp","SubokSemiD2.webp","SubokSemiD3.webp"],description:"Discover spacious living with this elegant 2-storey semi-detached home in Subok.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Ready to move in","Last unit"]},
+  {id:21,name:"Lumapas 43756",location:"Brunei-Muara",type:"Semi-Detached Double Storey",price:175000,landArea:"0.047 - 0.067 AC",floorArea:"Approx. 1603 Sq. Ft",bed:3,bath:3,carPorch:2,tenure:"Tanah Kekal",status:"3 Units Left",detailStatus:"Pending OP Earthwork Submission",availablePlots:3,promo:"Free water tank and water pump",plotNumbers: ["A", "B", "C"],plotDetails: [{ plot: "A", landArea: "0.067 AC", floorArea: "1603 Sq. Ft" },{ plot: "B", landArea: "0.047 AC", floorArea: "1603 Sq. Ft" },{ plot: "C", landArea: "0.047 AC", floorArea: "1603 Sq. Ft" }],lat:4.827361,lng:114.909639,image:"Lumapas43756SemiD1.webp",floorPlans:["Lumapas43756GF.webp","Lumapas43756FF.webp"],siteDevelopment: "Lumapas43756SDP.webp",gallery:["Lumapas43756SemiD1.webp","Lumapas43756SemiD2.webp","Lumapas43756SemiD3.webp","Lumapas43756SemiD4.webp","Lumapas43756SemiD5.webp"],description:"Spacious double-storey semi-detached house in Lumapas, offering comfortable family living in a peaceful residential area.",features:["3 bedrooms","3 bathrooms","Carporch for 2 cars","Tanah Kekal","3 units left"],nextStage:"Borang C Building Submission"},
+  {id:22,name:"Beribi 1127",location:"Brunei-Muara",type:"Detached 4-Storey",price:558000,landArea:"0.156 - 0.161 AC",floorArea:"4400 - 4800 Sq. Ft",bed:6,bath:7,carPorch:2,tenure:"Tanah Kekal",status:"5 Units Left",detailStatus:"In Construction",availablePlots:5,plotNumbers: [4, 6, 8, 10, 11],plotDetails: [{ plot: 4, landArea: "0.156 AC", floorArea: "4400 Sq. Ft" },{ plot: 6, landArea: "0.156 AC", floorArea: "4400 Sq. Ft" },{ plot: 8, landArea: "0.156 AC", floorArea: "4800 Sq. Ft" },{ plot: 10, landArea: "0.156 AC", floorArea: "4800 Sq. Ft" },{ plot: 11, landArea: "0.161 AC", floorArea: "4800 Sq. Ft" }],lat:4.889139,lng:114.894472,image:"Beribi2.webp",gallery:["Beribi2.webp","Beribi1.webp","Beribi3.webp","Beribi4.webp"],description:"A spacious 4-storey detached property located in Beribi, offering excellent potential for residential or commercial use in a strategic and accessible location.",features:["6 bedrooms","7 bathrooms","Carporch for 2 cars","Tanah Kekal","5 units available"]},
+  {id:23,name:"Tanjung Bunut 1200",location:"Brunei-Muara",type:"Detached Double Storey",price:380000,landArea:"0.148 AC",floorArea:"Approx. 2610 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Completed and Pending OP Submission",availablePlots:1,plotNumbers: [25],plotDetails: [{ plot: 25, landArea: "0.148 AC", floorArea: "2610 Sq. Ft" }],lat:4.8843056,lng:114.8596944,image:"TanjungBunutUnit25.webp",floorPlans:["TanjungBunutDetachedGF.webp","TanjungBunutDetachedFF.webp"],siteDevelopment: "TanjungBunutSDP.webp",gallery:["TanjungBunutUnit25.webp"],description:"Detached double-storey homes in Tanjung Bunut.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Pending OP Submission","Last Unit"]},
+  {id:24,name:"Tanjung Bunut 1200",location:"Brunei-Muara",type:"Detached Double Storey",price:430000,landArea:"0.184 AC",floorArea:"Approx. 2610 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Completed and Pending OP Submission",availablePlots:1,plotNumbers: [1],plotDetails: [{ plot: 1, landArea: "0.184 AC", floorArea: "2610 Sq. Ft" }],lat:4.8843056,lng:114.8596944,image:"TanjungBunutUnit1.webp",floorPlans:["TanjungBunutDetachedGF.webp","TanjungBunutDetachedFF.webp"],siteDevelopment: "TanjungBunutSDP.webp",gallery:["TanjungBunutUnit1.webp","TanjungBunutUnit1-1.webp"],description:"Spacious double-storey detached house in Tanjung Bunut, offering generous living areas and a comfortable layout—ideal for families seeking space, privacy, and convenience.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Pending OP Submission","Last Unit"]},
+  {id:25,name:"Sg. Tilong 4172",location:"Brunei-Muara",type:"Detached Double Storey",price:368000,landArea:"0.096 AC",floorArea:"3000 Sq. Ft",bed:6,bath:6,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"In Construction",availablePlots:1,plotNumbers: [12],plotDetails: [{ plot: 12, landArea: "0.096 AC", floorArea: "3000 Sq. Ft" }],lat:4.959338,lng:114.969489,image:"SGTilong1.webp",floorPlans:["SgTilongBGF.webp","SgTilongBFF.webp"],siteDevelopment: "SgTilongSDP.webp",gallery:["SGTilong1.webp"],description:"Detached double-storey homes in Sg. Tilong.",features:["6 bedrooms","6 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"]},
+
+]
+
+let galleryIndex = 0;
+
+// PROPERTY COMPARISON
+const selectedCompareIds = new Set();
+const MAX_COMPARE_PROPERTIES = 3;
+
+
+
+const money = n =>
+  n
+    ? "<small>STARTING FROM</small><strong>$" +
+      Number(n).toLocaleString("en-US") +
+      "</strong>"
+    : "<small>PRICE</small><strong>ENQUIRE</strong>";
+
+
+
+function formatPlotAvailability(p) {
+  const plots = (p.plotDetails || p.plotNumbers || [])
+    .map(item => String(typeof item === "object" ? item.plot : item))
+    .filter(Boolean)
+    .sort((a, b) => a.localeCompare(b, undefined, {
+      numeric: true
+    }));
+
+  let plotLabel = p.plotRange || "";
+
+  if (plots.length > 0) {
+    plotLabel = plots.join(", ");
+  }
+
+  const units = Number(p.availablePlots ?? plots.length);
+  const unitLabel = units === 1 ? "Unit" : "Units";
+
+  return `${units} ${unitLabel}${
+    plotLabel ? ` (Plot ${plotLabel})` : ""
+  }`;
+}
+
+
+function populateFilters(){
+  const loc=document.getElementById("locationFilter"), type=document.getElementById("typeFilter");
+  [...new Set(properties.map(p=>p.location))].sort().forEach(v=>loc.insertAdjacentHTML("beforeend",`<option>${v}</option>`));
+  [...new Set(properties.map(p=>p.type))].sort().forEach(v=>type.insertAdjacentHTML("beforeend",`<option>${v}</option>`));
+}
+
+function renderProperties(){
+  const loc = document.getElementById("locationFilter").value;
+  const type = document.getElementById("typeFilter").value;
+  const max = Number(document.getElementById("priceFilter").value || 0);
+  const sort = document.getElementById("sortFilter")?.value || "available";
+
+  let filtered = properties.filter(p =>
+    (!loc || p.location === loc) &&
+    (!type || p.type === type) &&
+    (!max || !p.price || p.price <= max)
+  );
+
+  // SORT PROPERTIES
+  if(sort === "available"){
+    filtered.sort((a,b) =>
+      (b.availablePlots || 0) - (a.availablePlots || 0)
+    );
+  }
+
+  if(sort === "sold"){
+    filtered.sort((a,b) =>
+      (a.availablePlots || 0) - (b.availablePlots || 0)
+    );
+  }
+
+  if(sort === "price-low"){
+    filtered.sort((a,b) =>
+      (a.price || 0) - (b.price || 0)
+    );
+  }
+
+  if(sort === "price-high"){
+    filtered.sort((a,b) =>
+      (b.price || 0) - (a.price || 0)
+    );
+  }
+
+  if(sort === "name"){
+    filtered.sort((a,b) =>
+      a.name.localeCompare(b.name)
+    );
+  }
+
+  document.getElementById("resultCount").textContent =
+    `${filtered.length} listing${filtered.length !== 1 ? "s" : ""}`;
+
+  document.getElementById("propertyGrid").innerHTML = filtered.map(p => `
+    <article class="property-card">
+
+      <div class="property-image"
+        onclick="expandPromoOnPropertyImage(event)"
+        style="background-image:url('${p.image}')">
+
+        
+<span class="status ${p.status === "Sold Out" ? "sold" : "available"}">
+  ${p.status}${
+    p.plotDetails && p.plotDetails.length
+      ? ` · Plot ${p.plotDetails.map(x => x.plot).join(", ")}`
+      : ""
+  }
+</span>
+
+        ${p.promo ? `<span class="promo-badge" role="button" tabindex="0" aria-expanded="true" onclick="togglePromo(event, this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePromo(event,this)}"><strong>PROMOTION</strong><span>${p.promo}</span></span>` : ""}
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="location">
+          ${p.location.toUpperCase()} · ${p.type.toUpperCase()}
+        </div>
+
+        <h3 class="property-name">${(() => {
+          const match = p.name.match(/^(.*?)(?:\s+)([A-Za-z]?\d+[A-Za-z]?)$/);
+          return match
+            ? `<span class="property-kampong">${match[1]}</span><span class="property-lot-number">${match[2]}</span>`
+            : `<span class="property-kampong">${p.name}</span>`;
+        })()}</h3>
+
+        <div class="specs">
+          <span>📐 Land Area: ${p.landArea}</span>
+          <span>🏠 Total Floor Area: ${p.floorArea}</span>
+          <span>🛏 Bedrooms: ${p.bed ?? "Contact us"}</span>
+          <span>🛁 Bathrooms: ${p.bath ?? "Contact us"}</span>
+          ${p.carPorch != null ? `<span>🚗 Car Porch: ${p.carPorch} ${p.carPorch === 1 ? "car" : "cars"}</span>` : ""}
+        </div>
+
+        <div class="price-row">
+          <span class="price">${money(p.price)}</span>
+
+          <a class="details"
+            href="#"
+            onclick="openModal(${p.id});return false;">
+            VIEW DETAILS <span class="arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+
+      </div>
+    </article>
+  `).join("");
+
+  // Measure each expanded badge so short and long messages animate at the same pace.
+  document.querySelectorAll(".property-card .promo-badge").forEach(badge => {
+    badge.classList.remove("is-minimized");
+    badge.style.setProperty("--promo-height", `${badge.scrollHeight}px`);
+    badge.setAttribute("aria-expanded", "true");
+    window.setTimeout(() => {
+      if (badge.isConnected && !badge.classList.contains("is-expanded-by-user")) {
+        badge.classList.add("is-minimized");
+        badge.style.setProperty("--promo-height", "42px");
+        badge.setAttribute("aria-expanded", "false");
+      }
+    }, 5000);
+  });
+}
+
+
+// Tap/click the promotion badge to expand or minimize it.
+// Tapping the property image restores the full promotion message.
+function togglePromo(event, badge) {
+  event.stopPropagation();
+  const willExpand = badge.classList.contains("is-minimized");
+
+  if (willExpand) {
+    badge.classList.remove("is-minimized");
+    badge.style.setProperty("--promo-height", `${badge.scrollHeight}px`);
+  } else {
+    badge.classList.add("is-minimized");
+    badge.style.setProperty("--promo-height", "42px");
+  }
+
+  badge.classList.toggle("is-expanded-by-user", willExpand);
+  badge.setAttribute("aria-expanded", String(willExpand));
+}
+
+function expandPromoOnPropertyImage(event) {
+  const image = event.currentTarget;
+  const badge = image.querySelector(".promo-badge");
+  if (!badge) return;
+  badge.classList.remove("is-minimized");
+  badge.style.setProperty("--promo-height", `${badge.scrollHeight}px`);
+  badge.classList.add("is-expanded-by-user");
+  badge.setAttribute("aria-expanded", "true");
+}
+
+
+function openModal(id) {
+  const p = properties.find(x => x.id === id);
+  if (!p) return;
+
+  window.currentGallery = p.gallery || [p.image];
+  galleryIndex = 0;
+
+  const maps = `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`;
+
+  document.getElementById("modalContent").innerHTML = `
+    <div class="modal-grid">
+
+      <!-- LEFT: PROPERTY IMAGE GALLERY -->
+      <div class="modal-gallery">
+        <img
+          id="galleryImage"
+          class="modal-photo"
+          src="${(p.gallery || [p.image])[0]}"
+          alt="${p.name}"
+        >
+
+        ${(p.gallery || [p.image]).length > 1 ? `
+          <button class="gallery-prev" onclick="changeGallery(-1)">‹</button>
+          <button class="gallery-next" onclick="changeGallery(1)">›</button>
+          <div class="gallery-count">
+            <span id="galleryCount">1 / ${(p.gallery || [p.image]).length}</span>
+          </div>
+        ` : ""}
+      </div>
+
+      <!-- RIGHT: PROPERTY DETAILS -->
+      <div class="modal-property-info">
+        <div class="location">
+          ${p.location.toUpperCase()} · ${p.type.toUpperCase()}
+        </div>
+
+        <h2 id="modalTitle">${p.name}</h2>
+
+        <div class="price">${money(p.price)}</div>
+
+        <p>${p.description}</p>
+
+        ${p.promo ? `
+          <p class="promo">
+            <strong>PROMOTION:</strong> ${p.promo}
+          </p>
+        ` : ""}
+
+        <ul>
+          ${p.features.map(x => `<li>${x}</li>`).join("")}
+        </ul>
+
+        <div class="property-details">
+          <div><b>Land Area</b><span>${p.landArea}</span></div>
+          <div><b>Total Floor Area</b><span>${p.floorArea}</span></div>
+          <div><b>Bedrooms</b><span>${p.bed}</span></div>
+          <div><b>Bathrooms</b><span>${p.bath}</span></div>
+          ${p.carPorch != null ? `<div><b>Car Porch</b><span>${p.carPorch} ${p.carPorch === 1 ? "Car" : "Cars"}</span></div>` : ""}
+          <div><b>Tenure</b><span>${p.tenure}</span></div>
+         
+<div>
+  <b>Available Plots</b>
+  <span>
+    ${p.plotDetails && p.plotDetails.length
+      ? formatPlotAvailability(p)
+      : formatPlotAvailability(p)}
+  </span>
+</div>
+
+        
+${p.plotDetails && p.plotDetails.length ? `
+  <div class="plot-details-table">
+    <div class="plot-table-scroll">
+      <table>
+        <tbody>
+  <tr>
+    <th>Plot</th>
+    <th>Land Area</th>
+    <th>Floor Area</th>
+  </tr>
+  ${p.plotDetails.map(x => `
+    <tr>
+      <td>Plot ${x.plot}</td>
+      <td>${x.landArea}</td>
+      <td>${x.floorArea}</td>
+    </tr>
+  `).join("")}
+</tbody>
+      </table>
+    </div>
+  </div>
+` : ""}
+
+        </div>
+
+        <div class="property-status">
+          <p><strong>Status:</strong> ${p.detailStatus || p.status}</p>
+        </div>
+
+        ${p.nextStage ? `
+          <div class="property-next-stage">
+            <p><strong>Next Stage:</strong> ${p.nextStage}</p>
+          </div>
+        ` : ""}
+
+        <div class="modal-actions">
+          <a class="button dark" href="${maps}" target="_blank" rel="noopener">
+            📍 VIEW LOCATION
+          </a>
+
+          <a
+            class="button dark"
+            href="https://wa.me/6738211222?text=${encodeURIComponent("Hi Kimi, I'm interested in " + p.name + ". Please send me the latest details and availability.")}"
+            target="_blank"
+            rel="noopener"
+          >
+            ENQUIRE ON WHATSAPP
+          </a>
+
+          <button
+            type="button"
+            class="button compare-modal-button"
+            onclick="toggleCompare(${p.id})"
+            id="modalCompareButton"
+          >
+            ${selectedCompareIds.has(p.id) ? "✓ ADDED TO COMPARE" : "+ ADD TO COMPARE"}
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+   <!-- FLOOR PLANS: BELOW BOTH COLUMNS -->
+${p.floorPlanGroups && p.floorPlanGroups.length ? `
+  <section class="modal-floor-plan">
+    <h3>Floor Plans</h3>
+
+    ${p.floorPlanGroups.map((unit, unitIndex) => `
+      <div class="floor-plan-unit">
+        <h4 class="floor-plan-unit-title">
+          ${unit.title || `Unit ${unitIndex + 1}`}
+        </h4>
+
+        <div class="floor-plan-grid">
+          ${(unit.plans || []).map(plan => `
+            <div class="floor-plan-item">
+              <h4>${plan.label}</h4>
+
+              <a href="${plan.image}" target="_blank" rel="noopener">
+                <img
+                  src="${plan.image}"
+                  alt="${p.name} ${unit.title} ${plan.label}"
+                  loading="lazy"
+                >
+              </a>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `).join("")}
+  </section>
+` : p.floorPlans && p.floorPlans.length ? `
+  <section class="modal-floor-plan">
+    <h3>Floor Plans</h3>
+
+    <div class="floor-plan-grid">
+      ${p.floorPlans.map((plan, index) => `
+        <div class="floor-plan-item">
+          <h4>
+            ${index === 0 ? "Ground Floor" :
+              index === 1 ? "First Floor" : `Floor ${index + 1}`}
+          </h4>
+
+          <a href="${plan}" target="_blank" rel="noopener">
+            <img
+              src="${plan}"
+              alt="${p.name} floor plan ${index + 1}"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      `).join("")}
+    </div>
+  </section>
+` : ""}
+          ${p.siteDevelopment ? `
+        <section class="modal-site-development">
+          <h3>Site Development Plan</h3>
+          <a href="${p.siteDevelopment}" target="_blank" rel="noopener">
+            <img
+              src="${p.siteDevelopment}"
+              alt="Site development plan for ${p.name}"
+              loading="lazy"
+            >
+          </a>
+        </section>
+      ` : ""}
+  `;
+
+  const modal = document.getElementById("modal");
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  const closeBtn = modal.querySelector(".close");
+  if (closeBtn) closeBtn.focus();
+}
+
+
+function ensureCompareUI() {
+  if (!document.getElementById("compareDock")) {
+    const dock = document.createElement("div");
+    dock.id = "compareDock";
+    dock.className = "compare-dock";
+    dock.innerHTML = `
+      <div class="compare-dock-info">
+        <strong><span id="compareCount">0</span> properties selected</strong>
+        <span id="compareNames">Add properties to compare</span>
+      </div>
+      <div class="compare-dock-actions">
+        <button type="button" onclick="clearCompare()">Clear</button>
+        <button type="button" class="compare-now" onclick="openCompareModal()" id="compareNowButton" disabled>Compare Now</button>
+      </div>
+    `;
+    document.body.appendChild(dock);
+  }
+
+  if (!document.getElementById("compareModal")) {
+    const overlay = document.createElement("div");
+    overlay.id = "compareModal";
+    overlay.className = "compare-modal";
+    overlay.setAttribute("aria-hidden", "true");
+    overlay.innerHTML = `
+      <div class="compare-modal-box" role="dialog" aria-modal="true" aria-labelledby="compareTitle">
+        <button type="button" class="compare-close" onclick="closeCompareModal()" aria-label="Close comparison">×</button>
+        <p class="eyebrow">PROPERTY COMPARISON</p>
+        <h2 id="compareTitle">Compare Properties</h2>
+        <div id="compareContent"></div>
+      </div>
+    `;
+    overlay.addEventListener("click", event => {
+      if (event.target === overlay) closeCompareModal();
+    });
+    document.body.appendChild(overlay);
+  }
+}
+
+function updateCompareDock() {
+  const dock = document.getElementById("compareDock");
+  if (!dock) return;
+
+  const selected = properties.filter(p => selectedCompareIds.has(p.id));
+  document.getElementById("compareCount").textContent = selected.length;
+  document.getElementById("compareNames").textContent = selected.length
+    ? selected.map(p => p.name + " · " + p.type).join("  |  ")
+    : "Add properties to compare";
+
+  const compareButton = document.getElementById("compareNowButton");
+  compareButton.disabled = selected.length < 2;
+  compareButton.textContent = selected.length < 2
+    ? "Select 2 properties"
+    : `Compare Now (${selected.length})`;
+
+  dock.classList.toggle("visible", selected.length > 0);
+}
+
+function toggleCompare(id) {
+  const property = properties.find(p => p.id === id);
+  if (!property) return;
+
+  if (selectedCompareIds.has(id)) {
+    selectedCompareIds.delete(id);
+  } else {
+    if (selectedCompareIds.size >= MAX_COMPARE_PROPERTIES) {
+      alert("You can compare up to 3 properties at a time.");
+      return;
+    }
+    selectedCompareIds.add(id);
+  }
+
+  updateCompareDock();
+
+  const modalButton = document.getElementById("modalCompareButton");
+  if (modalButton) {
+    const currentId = Number(modalButton.getAttribute("onclick").match(/\d+/)?.[0]);
+    if (currentId === id) {
+      modalButton.textContent = selectedCompareIds.has(id)
+        ? "✓ ADDED TO COMPARE"
+        : "+ ADD TO COMPARE";
+      modalButton.classList.toggle("selected", selectedCompareIds.has(id));
+    }
+  }
+}
+
+function clearCompare() {
+  selectedCompareIds.clear();
+  updateCompareDock();
+  const modalButton = document.getElementById("modalCompareButton");
+  if (modalButton) {
+    modalButton.textContent = "+ ADD TO COMPARE";
+    modalButton.classList.remove("selected");
+  }
+}
+
+function compareValue(value) {
+  return value === undefined || value === null || value === "" ? "—" : value;
+}
+
+function openCompareModal() {
+  const selected = properties.filter(p => selectedCompareIds.has(p.id));
+  if (selected.length < 2) return;
+
+  const rows = [
+    ["Starting Price", p => p.price ? "$" + Number(p.price).toLocaleString("en-US") : "Enquire"],
+    ["Location", p => p.location],
+    ["Property Type", p => p.type],
+    ["Land Area", p => p.landArea],
+    ["Total Floor Area", p => p.floorArea],
+    ["Bedrooms", p => p.bed],
+    ["Bathrooms", p => p.bath],
+    ["Car Porch", p => p.carPorch == null ? "—" : `${p.carPorch} ${p.carPorch === 1 ? "Car" : "Cars"}`],
+    ["Tenure", p => p.tenure],
+    ["Availability", p => p.status],
+    ["Available Plots", p => p.plotDetails?.length ? formatPlotAvailability(p) : (p.availablePlots ?? "—")],
+    ["Promotion", p => p.promo || "—"],
+    ["Development Status", p => p.detailStatus || p.status],
+    ["Next Stage", p => p.nextStage || "—"]
+  ];
+
+  document.getElementById("compareContent").innerHTML = `
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Property Details</th>
+            ${selected.map(p => `
+              <th>
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                <strong>${p.name}</strong>
+                <span>${p.type}</span>
+                <button type="button" onclick="removeComparedProperty(${p.id})">Remove</button>
+              </th>
+            `).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map(([label, getter]) => `
+            <tr>
+              <th>${label}</th>
+              ${selected.map(p => `<td>${compareValue(getter(p))}</td>`).join("")}
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  const modal = document.getElementById("compareModal");
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function removeComparedProperty(id) {
+  selectedCompareIds.delete(id);
+  updateCompareDock();
+  if (selectedCompareIds.size < 2) {
+    closeCompareModal();
+  } else {
+    openCompareModal();
+  }
+}
+
+function closeCompareModal() {
+  const modal = document.getElementById("compareModal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+function changeGallery(direction){
+  if(!window.currentGallery || window.currentGallery.length<2) return;
+  galleryIndex=(galleryIndex+direction+window.currentGallery.length)%window.currentGallery.length;
+  document.getElementById("galleryImage").src=window.currentGallery[galleryIndex];
+  const count=document.getElementById("galleryCount");
+  if(count) count.textContent=`${galleryIndex+1} / ${window.currentGallery.length}`;
+}
+function closeModal(){
+  const modal = document.getElementById("modal");
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("modal-open");
+}
+document.getElementById("modal").addEventListener("click",e=>{
+  if(e.target.id==="modal") closeModal();
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape") {
+    closeCompareModal();
+    closeModal();
+  }
+});
+ensureCompareUI();
+updateCompareDock();
+populateFilters();renderProperties();

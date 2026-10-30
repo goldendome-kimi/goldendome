@@ -924,7 +924,7 @@
   min-width: 0 !important;
   max-width: calc(100% - 28px) !important;
 
-  height: auto !important;
+  height: var(--promo-height, auto) !important;
   min-height: 30px !important;
   max-height: 220px !important;
 
@@ -934,6 +934,7 @@
 
   transition:
     width 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
     max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
     padding 0.65s cubic-bezier(0.22, 1, 0.36, 1),
     gap 0.65s ease;
@@ -996,6 +997,7 @@
     max-width: calc(100% - 16px) !important;
 
     transition:
+      height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
       max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
       padding 0.65s cubic-bezier(0.22, 1, 0.36, 1),
       gap 0.65s ease,
