@@ -1690,4 +1690,40 @@
   -webkit-appearance: none !important;
   appearance: none !important;
 }
+/* TRUE GEOMETRIC CENTER — PROPERTY DETAILS CLOSE ICON
+   Replace earlier #modal .modal-box > .close centering overrides with this,
+   or paste this at the absolute end of styles.css. */
+
+#modal .modal-box > .close {
+  position: absolute !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  text-align: center !important;
+  overflow: hidden !important;
+}
+
+#modal .modal-box > .close::before {
+  content: "×" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+  text-align: center !important;
+}
 
