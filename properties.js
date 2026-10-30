@@ -203,13 +203,21 @@ function collapsePromo(badge) {
 
 function expandPromo(badge) {
   const currentHeight = badge.getBoundingClientRect().height;
+
+  // Set the current height as the animation starting point.
   badge.style.setProperty("--promo-height", `${currentHeight}px`);
-  badge.getBoundingClientRect(); // Commit the collapsed height before measuring full text.
+  badge.getBoundingClientRect();
+
+  // Reveal the full promotion text.
   badge.classList.remove("is-minimized");
+
+  // Measure the natural height of the expanded badge.
   badge.style.setProperty("--promo-height", "auto");
-  const expandedHeight = badge.getBoundingClientRect().height;
+  const expandedHeight = badge.scrollHeight;
+
+  // Animate from the current height to the full height.
   badge.style.setProperty("--promo-height", `${currentHeight}px`);
-  badge.getBoundingClientRect(); // Establish the start point for the transition.
+  badge.getBoundingClientRect();
   badge.style.setProperty("--promo-height", `${expandedHeight}px`);
 }
 
