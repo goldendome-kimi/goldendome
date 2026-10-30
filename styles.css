@@ -1210,3 +1210,87 @@
   margin: auto;
   padding: 42px 38px 36px;
   border: 1px solid rgba(185, 155, 97, .32);
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+#compareModal table.compare-table {
+  display: table !important;
+  width: 100% !important;
+  min-width: 650px !important;
+  max-width: none !important;
+  table-layout: fixed !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+#compareModal .compare-table thead th:first-child,
+#compareModal .compare-table tbody th {
+  width: 145px !important;
+  min-width: 145px !important;
+  max-width: 145px !important;
+}
+
+#compareModal .compare-table thead th:not(:first-child) {
+  width: 250px !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+}
+
+#compareModal .compare-table thead th img {
+  display: block !important;
+  position: static !important;
+  float: none !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 125px !important;
+  min-height: 0 !important;
+  max-height: 125px !important;
+  margin: 0 0 12px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+#compareModal .compare-table th,
+#compareModal .compare-table td {
+  box-sizing: border-box !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+#compareModal .compare-table thead th strong,
+#compareModal .compare-table thead th span {
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+}
+
+@media (max-width: 700px) {
+  #compareModal.compare-modal {
+    align-items: flex-start !important;
+    padding: 10px !important;
+  }
+
+  #compareModal .compare-modal-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: calc(100vh - 20px) !important;
+    padding: 48px 14px 20px !important;
+  }
+
+  #compareModal .compare-table {
+    min-width: 645px !important;
+  }
+
+  #compareModal .compare-table thead th:not(:first-child) {
+    width: 235px !important;
+    min-width: 235px !important;
+    max-width: 235px !important;
+  }
+
+  #compareModal .compare-table thead th img {
+    height: 110px !important;
+    max-height: 110px !important;
+  }
+}
