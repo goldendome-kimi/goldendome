@@ -1536,4 +1536,98 @@
     max-height: 100px !important;
   }
 }
+/* GOLDENDOME — FINAL COMPARISON HEADER + BACKGROUND REFINEMENT
+   Add at the absolute end of styles.css. */
+
+/* A clean, consistent dark backdrop behind the comparison panel. */
+#compareModal.compare-modal {
+  background: rgba(13, 25, 19, .78) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+/* Give the WHOLE panel one continuous warm ivory background. */
+#compareModal .compare-modal-box {
+  position: relative !important;
+  box-sizing: border-box !important;
+  background: #fbfaf6 !important;
+  background-color: #fbfaf6 !important;
+  color: #26352d !important;
+  border: 1px solid rgba(190, 160, 105, .5) !important;
+  border-radius: 8px !important;
+  padding: 34px !important;
+  isolation: isolate !important;
+}
+
+/* Remove the redundant "Compare Properties" heading.
+   The small eyebrow becomes the main heading instead. */
+#compareModal .compare-modal-box > .eyebrow {
+  display: block !important;
+  margin: 0 0 24px !important;
+  color: #9b7b47 !important;
+  font-family: "DM Sans", Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2.4px !important;
+  line-height: 1.3 !important;
+}
+
+#compareModal .compare-modal-box > h2 {
+  display: none !important;
+}
+
+/* Close control: top-right, refined and unobtrusive. */
+#compareModal .compare-modal-box > .compare-close {
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  bottom: auto !important;
+  z-index: 20 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid #d9c9a8 !important;
+  border-radius: 50% !important;
+  background: #f4f0e7 !important;
+  color: #26352d !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+
+#compareModal .compare-modal-box > .compare-close:hover {
+  background: #1c2c23 !important;
+  color: #e6d2aa !important;
+  border-color: #c7aa72 !important;
+}
+
+/* Keep the table and header on the same panel background. */
+#compareModal #compareContent,
+#compareModal .compare-table-wrap {
+  background: #fbfaf6 !important;
+}
+
+@media (max-width: 700px) {
+  #compareModal .compare-modal-box {
+    padding: 30px 14px 18px !important;
+  }
+
+  #compareModal .compare-modal-box > .eyebrow {
+    max-width: calc(100% - 52px) !important;
+    margin-bottom: 20px !important;
+    font-size: 12px !important;
+    letter-spacing: 1.8px !important;
+  }
+
+  #compareModal .compare-modal-box > .compare-close {
+    top: 13px !important;
+    right: 13px !important;
+  }
+}
 
