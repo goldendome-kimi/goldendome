@@ -1674,4 +1674,20 @@
     right: 13px !important;
   }
 }
+/* OPTICAL ALIGNMENT FIX — PROPERTY DETAILS CLOSE X */
+#modal .modal-box > .close {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  padding: 0 0 2px !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  text-indent: 0 !important;
+  text-align: center !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
 
