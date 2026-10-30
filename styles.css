@@ -909,7 +909,8 @@
 
 
 
-/* PROMOTION BADGE: sequenced expand and collapse animation */
+
+/* PROMOTION BADGE: smooth, sequenced animation */
 
 .property-card .promo-badge {
   cursor: pointer;
@@ -919,29 +920,31 @@
     max-width 0.45s ease,
     padding 0.45s ease,
     min-height 0.45s ease,
+    gap 0.45s ease,
     background-color 0.3s ease,
     border-radius 0.3s ease;
 }
 
-/* Promotion text - fade in after box opens */
+/* Expanded promotion text */
 .property-card .promo-badge span {
   display: block !important;
+  width: auto;
   max-width: 500px;
   max-height: 200px;
-  overflow: hidden;
   opacity: 1;
+  overflow: hidden;
   transition:
     opacity 0.35s ease 0.45s,
-    max-width 0.45s ease,
-    max-height 0.45s ease;
+    max-width 0.35s ease,
+    max-height 0.35s ease;
 }
-
 
 /* Minimized badge */
 .property-card .promo-badge.is-minimized {
   flex-direction: row !important;
   align-items: center !important;
   justify-content: center !important;
+  width: fit-content !important;
   max-width: 92px !important;
   min-height: 30px !important;
   padding: 7px 10px !important;
@@ -949,11 +952,11 @@
   border-left-width: 3px !important;
   border-radius: 4px !important;
 
-  /* Shrink only after text fades out */
+  /* Wait for text to fade before shrinking */
   transition-delay: 0.3s;
 }
 
-/* Minimized label */
+/* PROMOTION label */
 .property-card .promo-badge.is-minimized strong {
   display: block !important;
   font-size: 9px !important;
@@ -962,23 +965,27 @@
   white-space: nowrap !important;
 }
 
-/* Fade out text before shrinking */
+/* Text fades out, then loses its width */
 .property-card .promo-badge.is-minimized span {
+  width: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  flex: 0 0 0 !important;
   opacity: 0 !important;
-  max-width: 500px !important;
-  max-height: 200px !important;
-  visibility: visible !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden;
   transition:
     opacity 0.3s ease,
+    width 0s linear 0.3s,
     max-width 0s linear 0.3s,
     max-height 0s linear 0.3s;
 }
 
-/* Restore normal timing when expanded */
+/* Restore immediate box expansion */
 .property-card .promo-badge:not(.is-minimized) {
   transition-delay: 0s;
-}
-
 }
 
 .property-card .promo-badge:focus-visible {
@@ -986,11 +993,10 @@
   outline-offset: 3px;
 }
 
+/* Respect reduced-motion settings */
 @media (prefers-reduced-motion: reduce) {
   .property-card .promo-badge,
   .property-card .promo-badge span {
     transition: none !important;
   }
 }
-
-
