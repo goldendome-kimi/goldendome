@@ -926,7 +926,7 @@
 
   height: var(--promo-height, auto) !important;
   min-height: 30px !important;
-  max-height: 220px !important;
+ max-height: 1000px !important;
 
   overflow: hidden !important;
   padding: 9px 11px !important;
@@ -958,7 +958,7 @@
   flex: 0 1 auto !important;
   width: 100% !important;
   max-width: 100% !important;
-  max-height: 150px !important;
+ max-height: 1000px !important;
   margin: 0 !important;
   padding: 0 !important;
   overflow: hidden !important;
