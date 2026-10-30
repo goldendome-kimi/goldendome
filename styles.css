@@ -906,7 +906,8 @@
 }
 
 
-/* PROMOTION BADGE: smooth minimize animation */
+
+/* PROMOTION BADGE — PREMIUM SMOOTH ANIMATION */
 
 .property-card .promo-badge {
   cursor: pointer;
@@ -915,10 +916,11 @@
   align-items: flex-start;
   overflow: hidden;
   width: fit-content;
+  will-change: max-width, padding;
   transition:
-    max-width 0.35s ease 0.3s,
-    padding 0.35s ease 0.3s,
-    gap 0.35s ease 0.3s;
+    max-width 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+    padding 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+    gap 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
 }
 
 /* Expanded promotion text */
@@ -930,7 +932,10 @@
   opacity: 1;
   visibility: visible;
   overflow: hidden;
-  transition: opacity 0.3s ease 0.4s;
+  transform: translateY(0);
+  transition:
+    opacity 0.4s ease 0.25s,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
 }
 
 /* Minimized badge */
@@ -945,7 +950,7 @@
   border-radius: 4px !important;
 }
 
-/* Keep PROMOTION label visible */
+/* PROMOTION label */
 .property-card .promo-badge.is-minimized strong {
   display: block !important;
   font-size: 9px !important;
@@ -954,7 +959,7 @@
   white-space: nowrap !important;
 }
 
-/* Fade out and collapse promotion text */
+/* Smooth text fade and collapse */
 .property-card .promo-badge.is-minimized span {
   width: 0 !important;
   max-width: 0 !important;
@@ -965,14 +970,16 @@
   overflow: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
+  transform: translateY(-4px);
   transition:
-    opacity 0.3s ease,
-    width 0s linear 0.3s,
-    max-width 0s linear 0.3s,
-    max-height 0s linear 0.3s;
+    opacity 0.25s ease,
+    transform 0.3s ease,
+    width 0s linear 0.25s,
+    max-width 0s linear 0.25s,
+    max-height 0s linear 0.25s;
 }
 
-/* Expand immediately when clicked */
+/* Expand without delay when clicked */
 .property-card .promo-badge:not(.is-minimized) {
   transition-delay: 0s;
 }
@@ -987,5 +994,6 @@
   .property-card .promo-badge,
   .property-card .promo-badge span {
     transition: none !important;
+    transform: none !important;
   }
 }
