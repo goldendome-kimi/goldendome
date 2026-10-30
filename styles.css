@@ -1029,3 +1029,56 @@
     transition: none !important;
   }
 }
+
+
+/* GOLDENDOME — requested promotion and compare-button refinements */
+
+/* Gold + dark text for the Add to Compare button in the property modal. */
+.compare-modal-button {
+  background: var(--gold) !important;
+  border: 1px solid var(--gold-dark) !important;
+  color: var(--forest) !important;
+}
+.compare-modal-button:hover {
+  background: #e6d2aa !important;
+  border-color: #c5a875 !important;
+}
+.compare-modal-button.selected {
+  background: var(--forest) !important;
+  border-color: var(--gold) !important;
+  color: var(--gold) !important;
+}
+
+/* Let the promotion panel finish expanding before its message fades in.
+   When it closes, fade the message out first, then shrink the panel. */
+.property-card .promo-badge span {
+  opacity: 1 !important;
+  transition:
+    max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease 0.65s !important;
+}
+.property-card .promo-badge.is-minimized span {
+  opacity: 0 !important;
+  transition:
+    max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease 0s !important;
+}
+
+/* Keep the minimized promotion compact on narrow mobile cards. */
+@media (max-width: 700px) {
+  .property-card .promo-badge.is-minimized {
+    width: 100px !important;
+    min-width: 100px !important;
+    max-width: 100px !important;
+    min-height: 28px !important;
+    max-height: 34px !important;
+    padding: 6px 8px !important;
+    gap: 0 !important;
+  }
+
+  .property-card .promo-badge.is-minimized strong {
+    font-size: 8px !important;
+    line-height: 1.15 !important;
+    letter-spacing: 1px !important;
+  }
+}
