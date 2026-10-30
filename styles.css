@@ -1294,3 +1294,125 @@
     max-height: 110px !important;
   }
 }
+
+#compareModal #compareContent,
+#compareModal .compare-table-wrap {
+  background: #fffefa !important;
+  color: #26342c !important;
+  opacity: 1 !important;
+}
+
+#compareModal .compare-table-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  border: 1px solid #e4dccd !important;
+  border-radius: 6px !important;
+}
+
+#compareModal table.compare-table {
+  display: table !important;
+  width: 100% !important;
+  min-width: 650px !important;
+  table-layout: fixed !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  background: #fffefa !important;
+  color: #26342c !important;
+  opacity: 1 !important;
+}
+
+#compareModal .compare-table th,
+#compareModal .compare-table td {
+  padding: 13px 15px !important;
+  color: #26342c !important;
+  background-color: #fffefa !important;
+  border-right: 1px solid #e9e2d6 !important;
+  border-bottom: 1px solid #e9e2d6 !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#compareModal .compare-table thead th {
+  background-color: #f3eee3 !important;
+  color: #17251f !important;
+  vertical-align: top !important;
+}
+
+#compareModal .compare-table thead th:first-child,
+#compareModal .compare-table tbody th {
+  width: 145px !important;
+  min-width: 145px !important;
+  max-width: 145px !important;
+}
+
+#compareModal .compare-table thead th:not(:first-child) {
+  width: 250px !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+}
+
+#compareModal .compare-table tbody th {
+  background-color: #f8f5ee !important;
+  color: #536057 !important;
+  font-weight: 700 !important;
+}
+
+#compareModal .compare-table thead th img {
+  display: block !important;
+  width: 100% !important;
+  height: 125px !important;
+  max-height: 125px !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+  margin: 0 0 12px !important;
+  opacity: 1 !important;
+}
+
+#compareModal .compare-table thead th strong {
+  display: block !important;
+  color: #17251f !important;
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+#compareModal .compare-table thead th span {
+  display: block !important;
+  color: #667168 !important;
+  opacity: 1 !important;
+}
+
+#compareModal .compare-table thead th button {
+  background: #17251f !important;
+  border: 1px solid #d8bf8c !important;
+  color: #e6d2aa !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 700px) {
+  #compareModal.compare-modal {
+    align-items: flex-start !important;
+    padding: 10px !important;
+  }
+
+  #compareModal .compare-modal-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: calc(100vh - 20px) !important;
+    padding: 48px 14px 20px !important;
+  }
+
+  #compareModal .compare-table {
+    min-width: 645px !important;
+  }
+
+  #compareModal .compare-table thead th img {
+    height: 110px !important;
+    max-height: 110px !important;
+  }
+}
