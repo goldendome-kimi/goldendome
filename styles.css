@@ -908,7 +908,9 @@
 
 
 
-/* PROMOTION BADGE: smooth auto-minimize and expand animation */
+
+/* PROMOTION BADGE: sequenced expand and collapse animation */
+
 .property-card .promo-badge {
   cursor: pointer;
   overflow: hidden;
@@ -921,7 +923,7 @@
     border-radius 0.3s ease;
 }
 
-/* Promotion text: smoothly fade and collapse */
+/* Promotion text - fade in after box opens */
 .property-card .promo-badge span {
   display: block !important;
   max-width: 500px;
@@ -929,9 +931,9 @@
   overflow: hidden;
   opacity: 1;
   transition:
-    max-width 0.4s ease,
-    max-height 0.4s ease,
-    opacity 0.25s ease;
+    opacity 0.35s ease 0.45s,
+    max-width 0.45s ease,
+    max-height 0.45s ease;
 }
 
 /* Minimized badge */
@@ -945,8 +947,10 @@
   gap: 0 !important;
   border-left-width: 3px !important;
   border-radius: 4px !important;
+  transition-delay: 0.35s;
 }
 
+/* Minimized label */
 .property-card .promo-badge.is-minimized strong {
   display: block !important;
   font-size: 9px !important;
@@ -955,7 +959,7 @@
   white-space: nowrap !important;
 }
 
-/* Hide the promotion message smoothly */
+/* Fade out text BEFORE the box shrinks */
 .property-card .promo-badge.is-minimized span {
   max-width: 0 !important;
   max-height: 0 !important;
@@ -963,6 +967,10 @@
   margin: 0 !important;
   padding: 0 !important;
   visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    max-width 0.35s ease 0.3s,
+    max-height 0.35s ease 0.3s;
 }
 
 .property-card .promo-badge:focus-visible {
@@ -970,11 +978,11 @@
   outline-offset: 3px;
 }
 
-/* Respect reduced-motion settings */
 @media (prefers-reduced-motion: reduce) {
   .property-card .promo-badge,
   .property-card .promo-badge span {
     transition: none !important;
   }
 }
+
 
