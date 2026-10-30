@@ -1114,7 +1114,7 @@
   border-left: 3px solid #d8bf8c !important;
   border-radius: 4px !important;
   box-shadow: 0 3px 12px rgba(0, 0, 0, .22) !important;
-/* MOBILE — PROMOTION BADGE ALIGNMENT */
+/* MOBILE */
 @media (max-width: 700px) {
   .property-card .promo-badge {
     left: 8px !important;
@@ -1125,46 +1125,18 @@
     padding: 7px 8px !important;
   }
 
-  /* COLLAPSED BADGE */
   .property-card .promo-badge.is-minimized {
     max-height: 32px !important;
     min-height: 32px !important;
     clip-path: inset(0 calc(100% - 116px) 0 0);
   }
 
-  /* Centre PROMOTION only when collapsed */
-  .property-card .promo-badge.is-minimized strong {
-    position: absolute !important;
-    top: 50% !important;
-    left: 11px !important;
-    transform: translateY(-50%) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1.2 !important;
-  }
-
-  /* Restore normal heading when expanded */
-  .property-card .promo-badge:not(.is-minimized) strong {
-    position: static !important;
-    transform: none !important;
-    margin: 0 !important;
+  .property-card .promo-badge strong {
+    font-size: 9px !important;
   }
 
   .property-card .promo-badge span {
     font-size: 10px !important;
     line-height: 1.3 !important;
-  }
-}
-
-/* ACCESSIBILITY */
-.property-card .promo-badge:focus-visible {
-  outline: 2px solid #d8bf8c;
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .property-card .promo-badge,
-  .property-card .promo-badge span {
-    transition: none !important;
   }
 }
