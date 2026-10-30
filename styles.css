@@ -936,6 +936,7 @@
     max-height 0.45s ease;
 }
 
+
 /* Minimized badge */
 .property-card .promo-badge.is-minimized {
   flex-direction: row !important;
@@ -947,7 +948,9 @@
   gap: 0 !important;
   border-left-width: 3px !important;
   border-radius: 4px !important;
-  transition-delay: 0.35s;
+
+  /* Shrink only after text fades out */
+  transition-delay: 0.3s;
 }
 
 /* Minimized label */
@@ -959,18 +962,23 @@
   white-space: nowrap !important;
 }
 
-/* Fade out text BEFORE the box shrinks */
+/* Fade out text before shrinking */
 .property-card .promo-badge.is-minimized span {
-  max-width: 0 !important;
-  max-height: 0 !important;
   opacity: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  visibility: hidden;
+  max-width: 500px !important;
+  max-height: 200px !important;
+  visibility: visible !important;
   transition:
     opacity 0.3s ease,
-    max-width 0.35s ease 0.3s,
-    max-height 0.35s ease 0.3s;
+    max-width 0s linear 0.3s,
+    max-height 0s linear 0.3s;
+}
+
+/* Restore normal timing when expanded */
+.property-card .promo-badge:not(.is-minimized) {
+  transition-delay: 0s;
+}
+
 }
 
 .property-card .promo-badge:focus-visible {
