@@ -174,57 +174,26 @@ function renderProperties(){
     </article>
   `).join("");
 
-  // Measure the natural height of every promotion and animate the badge itself.
+  // Let customers read promotions first, then minimize them after 5 seconds.
   document.querySelectorAll(".property-card .promo-badge").forEach(badge => {
     badge.classList.remove("is-minimized");
-    badge.style.setProperty("--promo-height", "auto");
-    const expandedHeight = badge.getBoundingClientRect().height;
-    badge.style.setProperty("--promo-height", `${expandedHeight}px`);
     badge.setAttribute("aria-expanded", "true");
-
     window.setTimeout(() => {
       if (badge.isConnected && !badge.classList.contains("is-expanded-by-user")) {
-        collapsePromo(badge);
+        badge.classList.add("is-minimized");
         badge.setAttribute("aria-expanded", "false");
       }
     }, 5000);
   });
 }
 
-// Collapse the whole badge in one height transition; the text does not run
-// a competing max-height animation.
-function collapsePromo(badge) {
-  const currentHeight = badge.getBoundingClientRect().height;
-  badge.style.setProperty("--promo-height", `${currentHeight}px`);
-  badge.getBoundingClientRect(); // Commit the starting height before changing state.
-  badge.classList.add("is-minimized");
-  badge.style.setProperty("--promo-height", "42px");
-}
-
-function expandPromo(badge) {
-  const currentHeight = badge.getBoundingClientRect().height;
-  badge.style.setProperty("--promo-height", `${currentHeight}px`);
-  badge.getBoundingClientRect(); // Commit the collapsed height before measuring full text.
-  badge.classList.remove("is-minimized");
-  badge.style.setProperty("--promo-height", "auto");
-  const expandedHeight = badge.getBoundingClientRect().height;
-  badge.style.setProperty("--promo-height", `${currentHeight}px`);
-  badge.getBoundingClientRect(); // Establish the start point for the transition.
-  badge.style.setProperty("--promo-height", `${expandedHeight}px`);
-}
 
 // Tap/click the promotion badge to expand or minimize it.
 // Tapping the property image restores the full promotion message.
 function togglePromo(event, badge) {
   event.stopPropagation();
   const willExpand = badge.classList.contains("is-minimized");
-
-  if (willExpand) {
-    expandPromo(badge);
-  } else {
-    collapsePromo(badge);
-  }
-
+  badge.classList.toggle("is-minimized", !willExpand);
   badge.classList.toggle("is-expanded-by-user", willExpand);
   badge.setAttribute("aria-expanded", String(willExpand));
 }
@@ -233,7 +202,7 @@ function expandPromoOnPropertyImage(event) {
   const image = event.currentTarget;
   const badge = image.querySelector(".promo-badge");
   if (!badge) return;
-  expandPromo(badge);
+  badge.classList.remove("is-minimized");
   badge.classList.add("is-expanded-by-user");
   badge.setAttribute("aria-expanded", "true");
 }
