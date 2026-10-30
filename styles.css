@@ -908,69 +908,74 @@
 
 
 
-/* GOLDENDOME PROMOTION BADGE — SMOOTH TWO-WAY ANIMATION */
+
+/* GOLDENDOME PROMOTION BADGE — FIXED LABEL POSITION */
 
 .property-card .promo-badge {
-  cursor: pointer;
+  position: absolute;
   display: flex;
   flex-direction: column !important;
-  align-items: flex-start;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
   overflow: hidden;
   width: fit-content;
   max-width: calc(100% - 28px);
+  padding: 9px 11px !important;
 
   transition:
     max-width 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    padding 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    gap 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    padding 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Expanded promotion text */
+/* PROMOTION stays fixed while the badge expands */
+.property-card .promo-badge strong {
+  position: absolute !important;
+  top: 9px !important;
+  left: 11px !important;
+  display: block !important;
+  flex: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  transform: none !important;
+}
+
+/* Promotion description */
 .property-card .promo-badge span {
   display: block !important;
   flex: 0 1 auto;
   width: max-content;
   max-width: 500px;
   max-height: 200px;
+  margin-top: 13px !important;
   opacity: 1;
   overflow: hidden;
 
   transition:
-    flex-basis 0.8s cubic-bezier(0.22, 1, 0.36, 1),
     max-width 0.8s cubic-bezier(0.22, 1, 0.36, 1),
     max-height 0.8s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.55s ease,
     margin 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Minimized badge */
 .property-card .promo-badge.is-minimized {
-  flex-direction: column !important;
-  align-items: flex-start !important;
   justify-content: flex-start !important;
   max-width: 92px !important;
   min-height: 30px !important;
-  padding: 7px 10px !important;
+  padding: 9px 11px !important;
   gap: 0 !important;
   border-radius: 4px !important;
 }
-.property-card .promo-badge strong {
-  display: block !important;
-  flex: 0 0 auto !important;
-  margin: 0 !important;
-  line-height: 1.2 !important;
-  transform: none !important;
-}
 
-/* Keep PROMOTION label visible */
+/* Keep the label at the exact same coordinates */
 .property-card .promo-badge.is-minimized strong {
-  display: block !important;
-  font-size: 9px !important;
-  line-height: 1.2 !important;
-  letter-spacing: 1px !important;
-  white-space: nowrap !important;
+  top: 9px !important;
+  left: 11px !important;
 }
 
-/* Collapse promotion text smoothly */
+/* Collapse description */
 .property-card .promo-badge.is-minimized span {
   flex: 0 1 0px !important;
   max-width: 0 !important;
@@ -978,6 +983,20 @@
   opacity: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+/* Mobile positioning */
+@media (max-width: 700px) {
+  .property-card .promo-badge,
+  .property-card .promo-badge.is-minimized {
+    padding: 7px 8px !important;
+  }
+
+  .property-card .promo-badge strong,
+  .property-card .promo-badge.is-minimized strong {
+    top: 7px !important;
+    left: 8px !important;
+  }
 }
 
 /* Keyboard accessibility */
