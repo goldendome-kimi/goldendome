@@ -949,19 +949,23 @@ transition:
   transform: none !important;
 }
 
-/* PROMOTION DESCRIPTION — SINGLE LINE */
+
+/* PROMOTION DESCRIPTION — SHOW FULL TEXT */
 .property-card .promo-badge span {
   display: block !important;
-  flex: 0 0 auto !important;
+  flex: 0 1 auto !important;
   width: 100% !important;
   max-width: 100% !important;
   max-height: 150px;
   margin: 0 !important;
   padding: 0 !important;
-  overflow: hidden;
+  overflow: visible !important;
   opacity: 1;
-  white-space: nowrap !important;
-  text-overflow: ellipsis;
+  white-space: normal !important;
+  text-overflow: clip !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-height: 1.45 !important;
 
   transition:
     max-height 0.7s cubic-bezier(0.22, 1, 0.36, 1),
