@@ -29,6 +29,11 @@ const properties = [
 
 let galleryIndex = 0;
 
+// PROPERTY COMPARISON
+const selectedCompareIds = new Set();
+const MAX_COMPARE_PROPERTIES = 3;
+
+
 
 const money = n =>
   n
@@ -321,6 +326,15 @@ ${p.plotDetails && p.plotDetails.length ? `
           >
             ENQUIRE ON WHATSAPP
           </a>
+
+          <button
+            type="button"
+            class="button compare-modal-button"
+            onclick="toggleCompare(${p.id})"
+            id="modalCompareButton"
+          >
+            ${selectedCompareIds.has(p.id) ? "✓ ADDED TO COMPARE" : "+ ADD TO COMPARE"}
+          </button>
         </div>
       </div>
 
@@ -402,6 +416,177 @@ ${p.floorPlanGroups && p.floorPlanGroups.length ? `
   if (closeBtn) closeBtn.focus();
 }
 
+
+function ensureCompareUI() {
+  if (!document.getElementById("compareDock")) {
+    const dock = document.createElement("div");
+    dock.id = "compareDock";
+    dock.className = "compare-dock";
+    dock.innerHTML = `
+      <div class="compare-dock-info">
+        <strong><span id="compareCount">0</span> properties selected</strong>
+        <span id="compareNames">Add properties to compare</span>
+      </div>
+      <div class="compare-dock-actions">
+        <button type="button" onclick="clearCompare()">Clear</button>
+        <button type="button" class="compare-now" onclick="openCompareModal()" id="compareNowButton" disabled>Compare Now</button>
+      </div>
+    `;
+    document.body.appendChild(dock);
+  }
+
+  if (!document.getElementById("compareModal")) {
+    const overlay = document.createElement("div");
+    overlay.id = "compareModal";
+    overlay.className = "compare-modal";
+    overlay.setAttribute("aria-hidden", "true");
+    overlay.innerHTML = `
+      <div class="compare-modal-box" role="dialog" aria-modal="true" aria-labelledby="compareTitle">
+        <button type="button" class="compare-close" onclick="closeCompareModal()" aria-label="Close comparison">×</button>
+        <p class="eyebrow">PROPERTY COMPARISON</p>
+        <h2 id="compareTitle">Compare Properties</h2>
+        <div id="compareContent"></div>
+      </div>
+    `;
+    overlay.addEventListener("click", event => {
+      if (event.target === overlay) closeCompareModal();
+    });
+    document.body.appendChild(overlay);
+  }
+}
+
+function updateCompareDock() {
+  const dock = document.getElementById("compareDock");
+  if (!dock) return;
+
+  const selected = properties.filter(p => selectedCompareIds.has(p.id));
+  document.getElementById("compareCount").textContent = selected.length;
+  document.getElementById("compareNames").textContent = selected.length
+    ? selected.map(p => p.name + " · " + p.type).join("  |  ")
+    : "Add properties to compare";
+
+  const compareButton = document.getElementById("compareNowButton");
+  compareButton.disabled = selected.length < 2;
+  compareButton.textContent = selected.length < 2
+    ? "Select 2 properties"
+    : `Compare Now (${selected.length})`;
+
+  dock.classList.toggle("visible", selected.length > 0);
+}
+
+function toggleCompare(id) {
+  const property = properties.find(p => p.id === id);
+  if (!property) return;
+
+  if (selectedCompareIds.has(id)) {
+    selectedCompareIds.delete(id);
+  } else {
+    if (selectedCompareIds.size >= MAX_COMPARE_PROPERTIES) {
+      alert("You can compare up to 3 properties at a time.");
+      return;
+    }
+    selectedCompareIds.add(id);
+  }
+
+  updateCompareDock();
+
+  const modalButton = document.getElementById("modalCompareButton");
+  if (modalButton) {
+    const currentId = Number(modalButton.getAttribute("onclick").match(/\d+/)?.[0]);
+    if (currentId === id) {
+      modalButton.textContent = selectedCompareIds.has(id)
+        ? "✓ ADDED TO COMPARE"
+        : "+ ADD TO COMPARE";
+      modalButton.classList.toggle("selected", selectedCompareIds.has(id));
+    }
+  }
+}
+
+function clearCompare() {
+  selectedCompareIds.clear();
+  updateCompareDock();
+  const modalButton = document.getElementById("modalCompareButton");
+  if (modalButton) {
+    modalButton.textContent = "+ ADD TO COMPARE";
+    modalButton.classList.remove("selected");
+  }
+}
+
+function compareValue(value) {
+  return value === undefined || value === null || value === "" ? "—" : value;
+}
+
+function openCompareModal() {
+  const selected = properties.filter(p => selectedCompareIds.has(p.id));
+  if (selected.length < 2) return;
+
+  const rows = [
+    ["Starting Price", p => p.price ? "$" + Number(p.price).toLocaleString("en-US") : "Enquire"],
+    ["Location", p => p.location],
+    ["Property Type", p => p.type],
+    ["Land Area", p => p.landArea],
+    ["Total Floor Area", p => p.floorArea],
+    ["Bedrooms", p => p.bed],
+    ["Bathrooms", p => p.bath],
+    ["Car Porch", p => p.carPorch == null ? "—" : `${p.carPorch} ${p.carPorch === 1 ? "Car" : "Cars"}`],
+    ["Tenure", p => p.tenure],
+    ["Availability", p => p.status],
+    ["Available Plots", p => p.plotDetails?.length ? formatPlotAvailability(p) : (p.availablePlots ?? "—")],
+    ["Promotion", p => p.promo || "—"],
+    ["Development Status", p => p.detailStatus || p.status],
+    ["Next Stage", p => p.nextStage || "—"]
+  ];
+
+  document.getElementById("compareContent").innerHTML = `
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Property Details</th>
+            ${selected.map(p => `
+              <th>
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                <strong>${p.name}</strong>
+                <span>${p.type}</span>
+                <button type="button" onclick="removeComparedProperty(${p.id})">Remove</button>
+              </th>
+            `).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map(([label, getter]) => `
+            <tr>
+              <th>${label}</th>
+              ${selected.map(p => `<td>${compareValue(getter(p))}</td>`).join("")}
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  const modal = document.getElementById("compareModal");
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function removeComparedProperty(id) {
+  selectedCompareIds.delete(id);
+  updateCompareDock();
+  if (selectedCompareIds.size < 2) {
+    closeCompareModal();
+  } else {
+    openCompareModal();
+  }
+}
+
+function closeCompareModal() {
+  const modal = document.getElementById("compareModal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
 function changeGallery(direction){
   if(!window.currentGallery || window.currentGallery.length<2) return;
   galleryIndex=(galleryIndex+direction+window.currentGallery.length)%window.currentGallery.length;
@@ -419,6 +604,11 @@ document.getElementById("modal").addEventListener("click",e=>{
   if(e.target.id==="modal") closeModal();
 });
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape") closeModal();
+  if(e.key==="Escape") {
+    closeCompareModal();
+    closeModal();
+  }
 });
+ensureCompareUI();
+updateCompareDock();
 populateFilters();renderProperties();
