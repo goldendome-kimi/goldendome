@@ -907,18 +907,38 @@
 
 
 
-/* PROMOTION BADGE: auto-minimize after 5 seconds; tap to expand */
+
+/* PROMOTION BADGE: smooth auto-minimize and expand animation */
 .property-card .promo-badge {
   cursor: pointer;
-  transition: padding .25s ease, max-width .25s ease, min-height .25s ease,
-              background-color .25s ease, border-radius .25s ease;
+  overflow: hidden;
+  width: fit-content;
+  transition:
+    max-width 0.45s ease,
+    padding 0.45s ease,
+    min-height 0.45s ease,
+    background-color 0.3s ease,
+    border-radius 0.3s ease;
 }
 
+/* Promotion text: smoothly fade and collapse */
+.property-card .promo-badge span {
+  display: block !important;
+  max-width: 500px;
+  max-height: 200px;
+  overflow: hidden;
+  opacity: 1;
+  transition:
+    max-width 0.4s ease,
+    max-height 0.4s ease,
+    opacity 0.25s ease;
+}
+
+/* Minimized badge */
 .property-card .promo-badge.is-minimized {
   flex-direction: row !important;
   align-items: center !important;
   justify-content: center !important;
-  width: auto !important;
   max-width: 92px !important;
   min-height: 30px !important;
   padding: 7px 10px !important;
@@ -935,8 +955,14 @@
   white-space: nowrap !important;
 }
 
+/* Hide the promotion message smoothly */
 .property-card .promo-badge.is-minimized span {
-  display: none !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden;
 }
 
 .property-card .promo-badge:focus-visible {
@@ -944,8 +970,11 @@
   outline-offset: 3px;
 }
 
+/* Respect reduced-motion settings */
 @media (prefers-reduced-motion: reduce) {
-  .property-card .promo-badge {
+  .property-card .promo-badge,
+  .property-card .promo-badge span {
     transition: none !important;
   }
 }
+
