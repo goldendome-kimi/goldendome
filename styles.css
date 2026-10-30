@@ -1191,6 +1191,11 @@
     max-height: 32px !important;
     min-height: 32px !important;
     clip-path: inset(0 calc(100% - 116px) 0 0);
+    display: flex !important;
+flex-direction: column !important;
+align-items: flex-start !important;
+justify-content: center !important;
+text-align: left !important;
   }
 
   .property-card .promo-badge strong {
