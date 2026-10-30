@@ -916,7 +916,7 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  justify-content: flex-start !important;
+  justify-content: center !important;
 
 width: 240px !important;
   min-width: 0 !important;
@@ -942,7 +942,7 @@ transition:
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-  text-align: center !important;
+ text-align: left !important;
   font-size: 9px !important;
   line-height: 1.2 !important;
   letter-spacing: 1.2px !important;
