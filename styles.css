@@ -1199,8 +1199,9 @@ text-align: left !important;
   }
 
   .property-card .promo-badge strong {
-    font-size: 9px !important;
-  }
+    position: relative !important;
+  top: 5px !important;
+}
 
   .property-card .promo-badge span {
     font-size: 10px !important;
