@@ -1055,7 +1055,7 @@
   opacity: 1 !important;
   transition:
     max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.1s ease 0.65s !important;
+    opacity 0.12s ease 0.45s !important;
 }
 .property-card .promo-badge.is-minimized span {
   opacity: 0 !important;
@@ -1416,3 +1416,124 @@
     max-height: 110px !important;
   }
 }
+#compareModal .compare-table th,
+#compareModal .compare-table td {
+  box-sizing: border-box !important;
+  padding: 12px 14px !important;
+  border: 0 !important;
+  border-right: 1px solid #eee9df !important;
+  border-bottom: 1px solid #eee9df !important;
+  color: #344239 !important;
+  background: #fffefa !important;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  overflow-wrap: anywhere !important;
+  opacity: 1 !important;
+}
+
+#compareModal .compare-table thead th {
+  padding-top: 14px !important;
+  padding-bottom: 16px !important;
+  background: #f5f2eb !important;
+  vertical-align: top !important;
+}
+
+#compareModal .compare-table thead th:first-child,
+#compareModal .compare-table tbody th {
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+}
+
+#compareModal .compare-table thead th:not(:first-child) {
+  width: 250px !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+}
+
+#compareModal .compare-table tbody th {
+  color: #667168 !important;
+  background: #f8f6f1 !important;
+  font-weight: 600 !important;
+}
+
+#compareModal .compare-table thead th img {
+  display: block !important;
+  width: 100% !important;
+  height: 112px !important;
+  max-height: 112px !important;
+  margin: 0 0 10px !important;
+  object-fit: cover !important;
+  border-radius: 3px !important;
+}
+
+#compareModal .compare-table thead th strong {
+  display: block !important;
+  margin: 0 0 4px !important;
+  color: #1d2d24 !important;
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+}
+
+#compareModal .compare-table thead th span {
+  display: block !important;
+  margin: 0 0 9px !important;
+  color: #737c74 !important;
+  font-size: 10px !important;
+}
+
+#compareModal .compare-table thead th button {
+  padding: 5px 9px !important;
+  border: 1px solid #c8b17f !important;
+  border-radius: 3px !important;
+  background: transparent !important;
+  color: #6f5932 !important;
+  font-size: 9px !important;
+}
+
+#compareModal .compare-table thead th button:hover {
+  background: #1c2c23 !important;
+  color: #ead9b6 !important;
+}
+
+#compareModal .compare-table tr:last-child th,
+#compareModal .compare-table tr:last-child td {
+  border-bottom: 0 !important;
+}
+
+#compareModal .compare-table th:last-child,
+#compareModal .compare-table td:last-child {
+  border-right: 0 !important;
+}
+
+@media (max-width: 700px) {
+  #compareModal.compare-modal {
+    align-items: flex-start !important;
+    padding: 10px !important;
+  }
+
+  #compareModal .compare-modal-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: calc(100vh - 20px) !important;
+    padding: 42px 14px 18px !important;
+  }
+
+  #compareModal .compare-modal-box h2 {
+    font-size: 28px !important;
+  }
+
+  #compareModal table.compare-table {
+    min-width: 640px !important;
+  }
+
+  #compareModal .compare-table thead th img {
+    height: 100px !important;
+    max-height: 100px !important;
+  }
+}
+
