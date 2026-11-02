@@ -238,7 +238,7 @@ function openModal(id) {
   const areaName = p.name.replace(/\s+\d+.*$/, "") || p.name;
   const neighbourhoodQuery = encodeURIComponent(`${areaName}, ${p.location}, Brunei`);
   const neighbourhoodMap = hasCoordinates
-    ? `https://maps.google.com/maps?q=${areaLat},${areaLng}&z=13&output=embed`
+    ? `https://maps.google.com/maps?ll=${areaLat},${areaLng}&z=13&output=embed`
     : `https://maps.google.com/maps?q=${neighbourhoodQuery}&z=13&output=embed`;
   const googleMapsExploreUrl = hasCoordinates
     ? `https://www.google.com/maps/search/${encodeURIComponent("places near " + areaName + ", " + p.location + ", Brunei")}/@${areaLat},${areaLng},14z`
