@@ -215,7 +215,24 @@ function openModal(id) {
   window.currentGallery = p.gallery || [p.image];
   galleryIndex = 0;
 
-  const maps = `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`;
+  // Use rounded coordinates and a broad map window only. Never expose the stored plot coordinates.
+  const areaLat = Number(p.lat.toFixed(2));
+  const areaLng = Number(p.lng.toFixed(2));
+  const mapBox = [
+    (areaLng - 0.018).toFixed(4),
+    (areaLat - 0.012).toFixed(4),
+    (areaLng + 0.018).toFixed(4),
+    (areaLat + 0.012).toFixed(4)
+  ].join(",");
+  const neighbourhoodMap = `https://www.openstreetmap.org/export/embed.html?bbox=${mapBox}&layer=mapnik`;
+  const locationMessage = `Hi Kimi, I'm interested in ${p.name} (${p.type}). Could you please share the exact property location and directions for viewing?`;
+  const locationWhatsApp = `https://wa.me/6738211222?text=${encodeURIComponent(locationMessage)}`;
+  const nearbyCategories = [
+    { icon: "🛍", title: "Shopping & daily essentials", note: "Ask us about nearby shops and supermarkets" },
+    { icon: "🎓", title: "Schools & education", note: "Ask us about nearby schools" },
+    { icon: "✚", title: "Healthcare", note: "Ask us about nearby clinics and healthcare" },
+    { icon: "⛽", title: "Petrol stations", note: "Ask us about nearby fuel stations" }
+  ];
 
   document.getElementById("modalContent").innerHTML = `
     <div class="modal-grid">
@@ -314,8 +331,13 @@ ${p.plotDetails && p.plotDetails.length ? `
         ` : ""}
 
         <div class="modal-actions">
-          <a class="button dark" href="${maps}" target="_blank" rel="noopener">
-            📍 VIEW LOCATION
+          <a
+            class="button gold"
+            href="${locationWhatsApp}"
+            target="_blank"
+            rel="noopener"
+          >
+            <span aria-hidden="true">☏</span> REQUEST EXACT LOCATION
           </a>
 
           <a
@@ -336,6 +358,42 @@ ${p.plotDetails && p.plotDetails.length ? `
             ${selectedCompareIds.has(p.id) ? "✓ ADDED TO COMPARE" : "+ ADD TO COMPARE"}
           </button>
         </div>
+
+        <section class="neighbourhood-section" aria-label="Approximate neighbourhood location">
+          <div class="neighbourhood-heading">
+            <div>
+              <span class="location-kicker">THE SURROUNDING AREA</span>
+              <h3>Location & neighbourhood</h3>
+              <p>${p.name.split(" ").slice(0, -1).join(" ") || p.name}, ${p.location}</p>
+            </div>
+            <span class="approximate-tag">Approximate area</span>
+          </div>
+
+          <div class="neighbourhood-map-wrap">
+            <iframe
+              class="neighbourhood-map"
+              title="Approximate neighbourhood map for ${p.name}"
+              src="${neighbourhoodMap}"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <div class="map-privacy-note">General neighbourhood view · Exact property position is not shown</div>
+          </div>
+
+          <div class="nearby-heading">
+            <h4>Nearby facilities</h4>
+            <span>Explore the wider area</span>
+          </div>
+          <div class="nearby-facilities">
+            ${nearbyCategories.map(item => `
+              <div class="nearby-facility">
+                <span class="nearby-icon" aria-hidden="true">${item.icon}</span>
+                <span><strong>${item.title}</strong><small>${item.note}</small></span>
+              </div>
+            `).join("")}
+          </div>
+          <p class="facility-disclaimer">Facilities shown are categories to help you explore the area, not verified distances or specific venues. Contact our team for recommendations around this property.</p>
+        </section>
       </div>
 
     </div>
