@@ -208,6 +208,22 @@ function expandPromoOnPropertyImage(event) {
 }
 
 
+/*
+ * EDIT NEARBY FACILITIES HERE
+ * Add a numbered property ID block for each listing.
+ * distance examples: "2.5 km" | duration examples: "5 min drive"
+ * Replace the placeholder values with verified details.
+ */
+const nearbyFacilitiesByProperty = {
+  1: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+  // Copy the block above and change 1 to another property ID, e.g. 2, 3, 4.
+};
+
 function openModal(id) {
   const p = properties.find(x => x.id === id);
   if (!p) return;
@@ -229,6 +245,12 @@ function openModal(id) {
     : `https://www.google.com/maps/search/${neighbourhoodQuery}`;
   const locationMessage = `Hi Kimi, I'm interested in ${p.name} (${p.type}). Could you please share the exact property location and directions for viewing?`;
   const locationWhatsApp = `https://wa.me/6738211222?text=${encodeURIComponent(locationMessage)}`;
+  const nearbyFacilities = nearbyFacilitiesByProperty[p.id] || [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ];
 
   document.getElementById("modalContent").innerHTML = `
     <div class="modal-grid">
@@ -328,15 +350,6 @@ ${p.plotDetails && p.plotDetails.length ? `
 
         <div class="modal-actions">
           <a
-            class="button gold"
-            href="${locationWhatsApp}"
-            target="_blank"
-            rel="noopener"
-          >
-            <span aria-hidden="true">☏</span> REQUEST EXACT LOCATION
-          </a>
-
-          <a
             class="button dark"
             href="https://wa.me/6738211222?text=${encodeURIComponent("Hi Kimi, I'm interested in " + p.name + ". Please send me the latest details and availability.")}"
             target="_blank"
@@ -376,12 +389,18 @@ ${p.plotDetails && p.plotDetails.length ? `
               allowfullscreen
             ></iframe>
 
-            <div class="google-map-search" aria-label="Neighbourhood search">
+            <form class="google-map-search" role="search" onsubmit="event.preventDefault(); searchNeighbourhoodPlace();">
               <span class="map-search-icon" aria-hidden="true">⌕</span>
-              <span>${areaName}</span>
-            </div>
-
-            <a class="google-map-show-more" href="${googleMapsExploreUrl}" target="_blank" rel="noopener">Show more</a>
+              <input
+                id="neighbourhoodPlaceSearch"
+                type="search"
+                value="${areaName}"
+                placeholder="Search another place"
+                aria-label="Search another place on the map"
+                autocomplete="off"
+              >
+              <button type="submit" aria-label="Search map">⌕</button>
+            </form>
 
             <div class="google-map-place-card">
               <img src="${p.image}" alt="${p.name}" loading="lazy">
@@ -405,11 +424,34 @@ ${p.plotDetails && p.plotDetails.length ? `
             <div class="google-map-privacy">General neighbourhood only · Exact property location shared on request</div>
           </div>
 
-          <div class="nearby-heading">
-            <h4>Explore nearby places</h4>
-            <a href="${googleMapsExploreUrl}" target="_blank" rel="noopener">View on Google Maps ↗</a>
+          <div class="map-location-request">
+            <a
+              class="button gold request-location-button"
+              href="${locationWhatsApp}"
+              target="_blank"
+              rel="noopener"
+            >
+              <span aria-hidden="true">☏</span> REQUEST EXACT LOCATION
+            </a>
           </div>
-          <p class="facility-disclaimer">Nearby places and facilities are displayed by Google Maps where available. Contact our team for the exact property location and viewing directions.</p>
+
+          <div class="nearby-heading">
+            <h4>Nearby facilities</h4>
+            <a href="${googleMapsExploreUrl}" target="_blank" rel="noopener">View area on Google Maps ↗</a>
+          </div>
+          <div class="nearby-facilities">
+            ${nearbyFacilities.map(item => `
+              <div class="nearby-facility">
+                <span class="nearby-icon" aria-hidden="true">${item.icon}</span>
+                <span class="nearby-facility-info">
+                  <strong>${item.name}</strong>
+                  <small>${item.distance}</small>
+                </span>
+                <span class="nearby-facility-time">${item.duration}</span>
+              </div>
+            `).join("")}
+          </div>
+          <p class="facility-disclaimer">Distances and travel times are editable for each property. Travel times are estimates and may vary with traffic.</p>
         </section>
       </div>
 
@@ -660,6 +702,22 @@ function closeCompareModal() {
   if (!modal) return;
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
+}
+
+function searchNeighbourhoodPlace() {
+  const input = document.getElementById("neighbourhoodPlaceSearch");
+  const frame = document.getElementById("neighbourhoodGoogleMap");
+  const marker = document.querySelector(".google-map-property-pin");
+  if (!input || !frame) return;
+
+  const query = input.value.trim();
+  if (!query) {
+    input.focus();
+    return;
+  }
+
+  frame.src = `https://maps.google.com/maps?q=${encodeURIComponent(query + ", Brunei")}&z=13&output=embed`;
+  if (marker) marker.style.display = "none";
 }
 
 function changeNeighbourhoodZoom(direction) {
