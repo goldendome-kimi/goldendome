@@ -1816,44 +1816,65 @@
 }
 .google-map-search button:hover { background: #f1f3f4; }
 
-/* Google Maps-style property marker */
+/* Large Google Maps-style property marker with a centered solid house icon. */
 .google-map-property-pin {
-  width: 126px;
-  height: 126px;
-  background: #222222;
-  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transform: translateY(-12px);
+  width: 126px;
+  height: 142px;
+  transform: translate(-50%, -100%);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  box-shadow: none;
 }
-
-/* Pointed bottom */
+.google-map-property-pin::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 16px;
+  border-radius: 50%;
+  background: #202124;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+}
 .google-map-property-pin::after {
   content: "";
   position: absolute;
-  bottom: -9px;
+  z-index: 0;
+  bottom: 8px;
   left: 50%;
-  width: 24px;
-  height: 24px;
-  background: #222222;
+  width: 20px;
+  height: 20px;
   transform: translateX(-50%) rotate(45deg);
-  border-radius: 3px;
+  border-radius: 0 0 4px 0;
+  background: #202124;
 }
-
-/* White house icon */
-.google-map-property-pin span {
-  position: relative;
+.google-map-house-icon {
+  position: absolute;
   z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 55px;
-  line-height: 1;
-  transform: translateY(-2px);
+  top: calc((100% - 16px) / 2);
+  left: 50%;
+  display: block;
+  width: 54px;
+  height: 54px;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+@media (max-width: 700px) {
+  .google-map-property-pin { width: 104px; height: 118px; }
+  .google-map-property-pin::before { bottom: 14px; }
+  .google-map-property-pin::after { bottom: 7px; width: 18px; height: 18px; }
+  .google-map-house-icon {
+    top: calc((100% - 14px) / 2);
+    width: 46px;
+    height: 46px;
+  }
 }
 
 /* Center the location request and size it like the modal Add to Compare button. */
@@ -1923,14 +1944,4 @@
 @media(max-width:700px) {
   .nearby-facilities { grid-template-columns: 1fr; }
   .nearby-facility { min-height: 64px; padding: 10px 11px; }
-}
-@media (max-width: 600px) {
-  .google-map-property-pin {
-    width: 90px;
-    height: 90px;
-  }
-
-  .google-map-property-pin span {
-    font-size: 40px;
-  }
 }

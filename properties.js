@@ -412,7 +412,7 @@ ${p.plotDetails && p.plotDetails.length ? `
             </div>
 
             <div class="google-map-property-pin" aria-label="Approximate neighbourhood marker">
-              <span aria-hidden="true">⌂</span>
+              <svg class="google-map-house-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.1 2.7 10.8a1.25 1.25 0 0 0 1.6 1.9l.7-.6v7.1A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.8-1.8v-7.1l.7.6a1.25 1.25 0 1 0 1.6-1.9L12 3.1Zm-1.8 16v-5.2h3.6v5.2h-3.6Z" fill="currentColor"/></svg>
             </div>
 
             <div class="google-map-controls" aria-label="Map controls">
