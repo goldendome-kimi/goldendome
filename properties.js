@@ -215,24 +215,20 @@ function openModal(id) {
   window.currentGallery = p.gallery || [p.image];
   galleryIndex = 0;
 
-  // Use rounded coordinates and a broad map window only. Never expose the stored plot coordinates.
-  const areaLat = Number(p.lat.toFixed(2));
-  const areaLng = Number(p.lng.toFixed(2));
-  const mapBox = [
-    (areaLng - 0.018).toFixed(4),
-    (areaLat - 0.012).toFixed(4),
-    (areaLng + 0.018).toFixed(4),
-    (areaLat + 0.012).toFixed(4)
-  ].join(",");
-  const neighbourhoodMap = `https://www.openstreetmap.org/export/embed.html?bbox=${mapBox}&layer=mapnik`;
+  // Approximate neighbourhood only: round coordinates before embedding so the exact plot pin is never published.
+  const hasCoordinates = Number.isFinite(Number(p.lat)) && Number.isFinite(Number(p.lng));
+  const areaLat = hasCoordinates ? Number(Number(p.lat).toFixed(2)) : null;
+  const areaLng = hasCoordinates ? Number(Number(p.lng).toFixed(2)) : null;
+  const areaName = p.name.replace(/\s+\d+.*$/, "") || p.name;
+  const neighbourhoodQuery = encodeURIComponent(`${areaName}, ${p.location}, Brunei`);
+  const neighbourhoodMap = hasCoordinates
+    ? `https://maps.google.com/maps?q=${areaLat},${areaLng}&z=13&output=embed`
+    : `https://maps.google.com/maps?q=${neighbourhoodQuery}&z=13&output=embed`;
+  const googleMapsExploreUrl = hasCoordinates
+    ? `https://www.google.com/maps/search/${encodeURIComponent("places near " + areaName + ", " + p.location + ", Brunei")}/@${areaLat},${areaLng},14z`
+    : `https://www.google.com/maps/search/${neighbourhoodQuery}`;
   const locationMessage = `Hi Kimi, I'm interested in ${p.name} (${p.type}). Could you please share the exact property location and directions for viewing?`;
   const locationWhatsApp = `https://wa.me/6738211222?text=${encodeURIComponent(locationMessage)}`;
-  const nearbyCategories = [
-    { icon: "🛍", title: "Shopping & daily essentials", note: "Ask us about nearby shops and supermarkets" },
-    { icon: "🎓", title: "Schools & education", note: "Ask us about nearby schools" },
-    { icon: "✚", title: "Healthcare", note: "Ask us about nearby clinics and healthcare" },
-    { icon: "⛽", title: "Petrol stations", note: "Ask us about nearby fuel stations" }
-  ];
 
   document.getElementById("modalContent").innerHTML = `
     <div class="modal-grid">
@@ -364,35 +360,56 @@ ${p.plotDetails && p.plotDetails.length ? `
             <div>
               <span class="location-kicker">THE SURROUNDING AREA</span>
               <h3>Location & neighbourhood</h3>
-              <p>${p.name.split(" ").slice(0, -1).join(" ") || p.name}, ${p.location}</p>
+              <p>${areaName}, ${p.location}</p>
             </div>
             <span class="approximate-tag">Approximate area</span>
           </div>
 
-          <div class="neighbourhood-map-wrap">
+          <div class="google-map-frame">
             <iframe
+              id="neighbourhoodGoogleMap"
               class="neighbourhood-map"
-              title="Approximate neighbourhood map for ${p.name}"
+              title="Google Maps showing the approximate ${areaName} neighbourhood"
               src="${neighbourhoodMap}"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
             ></iframe>
-            <div class="map-privacy-note">General neighbourhood view · Exact property position is not shown</div>
+
+            <div class="google-map-search" aria-label="Neighbourhood search">
+              <span class="map-search-icon" aria-hidden="true">⌕</span>
+              <span>${areaName}</span>
+            </div>
+
+            <a class="google-map-show-more" href="${googleMapsExploreUrl}" target="_blank" rel="noopener">Show more</a>
+
+            <div class="google-map-place-card">
+              <img src="${p.image}" alt="${p.name}" loading="lazy">
+              <div class="google-map-place-copy">
+                <strong>${areaName}</strong>
+                <span>Neighbourhood</span>
+              </div>
+              <small>Approx. area</small>
+            </div>
+
+            <div class="google-map-property-pin" aria-label="Approximate neighbourhood marker">
+              <span aria-hidden="true">⌂</span>
+            </div>
+
+            <div class="google-map-controls" aria-label="Map controls">
+              <button type="button" onclick="changeNeighbourhoodZoom(1)" aria-label="Zoom in">+</button>
+              <button type="button" onclick="changeNeighbourhoodZoom(-1)" aria-label="Zoom out">−</button>
+            </div>
+
+            <a class="google-map-expand" href="${googleMapsExploreUrl}" target="_blank" rel="noopener" aria-label="Open neighbourhood in Google Maps">↗</a>
+            <div class="google-map-privacy">General neighbourhood only · Exact property location shared on request</div>
           </div>
 
           <div class="nearby-heading">
-            <h4>Nearby facilities</h4>
-            <span>Explore the wider area</span>
+            <h4>Explore nearby places</h4>
+            <a href="${googleMapsExploreUrl}" target="_blank" rel="noopener">View on Google Maps ↗</a>
           </div>
-          <div class="nearby-facilities">
-            ${nearbyCategories.map(item => `
-              <div class="nearby-facility">
-                <span class="nearby-icon" aria-hidden="true">${item.icon}</span>
-                <span><strong>${item.title}</strong><small>${item.note}</small></span>
-              </div>
-            `).join("")}
-          </div>
-          <p class="facility-disclaimer">Facilities shown are categories to help you explore the area, not verified distances or specific venues. Contact our team for recommendations around this property.</p>
+          <p class="facility-disclaimer">Nearby places and facilities are displayed by Google Maps where available. Contact our team for the exact property location and viewing directions.</p>
         </section>
       </div>
 
@@ -643,6 +660,15 @@ function closeCompareModal() {
   if (!modal) return;
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
+}
+
+function changeNeighbourhoodZoom(direction) {
+  const frame = document.getElementById("neighbourhoodGoogleMap");
+  if (!frame) return;
+  const match = frame.src.match(/[?&]z=(\\d+)/);
+  const currentZoom = match ? Number(match[1]) : 13;
+  const nextZoom = Math.max(10, Math.min(18, currentZoom + direction));
+  frame.src = frame.src.replace(/([?&]z=)\\d+/, `$1${nextZoom}`);
 }
 
 function changeGallery(direction){
