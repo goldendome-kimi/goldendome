@@ -431,7 +431,7 @@ ${p.plotDetails && p.plotDetails.length ? `
               target="_blank"
               rel="noopener"
             >
-              <span aria-hidden="true">☏</span> REQUEST EXACT LOCATION
+              REQUEST EXACT LOCATION
             </a>
           </div>
 

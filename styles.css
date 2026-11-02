@@ -1838,12 +1838,21 @@
   font-size: 31px;
 }
 
+/* Center the location request and size it like the modal Add to Compare button. */
 .map-location-request {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   margin: 13px 0 5px;
 }
 .request-location-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto !important;
+  min-height: 42px !important;
+  padding: 11px 16px !important;
+  font-size: 9px !important;
+  letter-spacing: .25px;
   background: var(--gold) !important;
   border: 1px solid var(--gold-dark) !important;
   color: var(--forest) !important;
@@ -1856,7 +1865,7 @@
   .google-map-search { width: calc(100% - 72px); }
   .google-map-search input { font-size: 12px; }
   .map-location-request { margin-top: 11px; }
-  .request-location-button { width: 100%; }
+  .request-location-button { width: auto !important; }
 }
 
 
