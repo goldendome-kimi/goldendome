@@ -389,6 +389,7 @@ ${p.plotDetails && p.plotDetails.length ? `
                 >
                 
               <div class="google-map-privacy">General neighbourhood only · Exact property location shared on request</div>
+              </div>
             ` : `
               <iframe
                 id="neighbourhoodGoogleMap"
