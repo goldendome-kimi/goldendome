@@ -224,6 +224,37 @@ const nearbyFacilitiesByProperty = {
   // Copy the block above and change 1 to another property ID, e.g. 2, 3, 4.
 };
 
+// NEIGHBOURHOOD MAP IMAGES
+// Replace each filename with your own image filename.
+// Upload each image into the same folder as this JavaScript file.
+const neighbourhoodMapImages = {
+  1: "JunjonganMap.webp",
+  2: "DanauMap.webp",
+  3: "KasatMap.webp",
+  4: "KasatMap.webp",
+  5: "Mentiri5230Map.webp",
+  6: "Mentiri5230Map.webp",
+  7: "Mentiri6469Map.webp",
+  8: "Mentiri6469Map.webp",
+  9: "Mentiri6470Map.webp",
+  10: "SengkaraiMap.webp",
+  11: "LambakKananMap.webp",
+  12: "MasinMap.webp",
+  13: "Lumapas11261Map.webp",
+  14: "JangsakMap.webp",
+  15: "SgTilongMap.webp",
+  16: "TanjungBunutMap.webp",
+  17: "TanjungBunutMap.webp",
+  18: "JerudongMap.webp",
+  19: "JerudongMap.webp",
+  20: "SubokMap.webp",
+  21: "Lumapas43756Map.webp",
+  22: "BeribiMap.webp",
+  23: "TanjungBunutMap.webp",
+  24: "TanjungBunutMap.webp",
+  25: "SgTilongMap.webp"
+};
+
 function openModal(id) {
   const p = properties.find(x => x.id === id);
   if (!p) return;
@@ -231,18 +262,7 @@ function openModal(id) {
   window.currentGallery = p.gallery || [p.image];
   galleryIndex = 0;
 
-  // Approximate neighbourhood only: round coordinates before embedding so the exact plot pin is never published.
-  const hasCoordinates = Number.isFinite(Number(p.lat)) && Number.isFinite(Number(p.lng));
-  const areaLat = hasCoordinates ? Number(Number(p.lat).toFixed(2)) : null;
-  const areaLng = hasCoordinates ? Number(Number(p.lng).toFixed(2)) : null;
   const areaName = p.name.replace(/\s+\d+.*$/, "") || p.name;
-  const neighbourhoodQuery = encodeURIComponent(`${areaName}, ${p.location}, Brunei`);
-  const neighbourhoodMap = hasCoordinates
-    ? `https://maps.google.com/maps?ll=${areaLat},${areaLng}&z=13&output=embed`
-    : `https://maps.google.com/maps?q=${neighbourhoodQuery}&z=13&output=embed`;
-  const googleMapsExploreUrl = hasCoordinates
-    ? `https://www.google.com/maps/search/${encodeURIComponent("places near " + areaName + ", " + p.location + ", Brunei")}/@${areaLat},${areaLng},14z`
-    : `https://www.google.com/maps/search/${neighbourhoodQuery}`;
   const locationMessage = `Hi Kimi, I'm interested in ${p.name} (${p.type}). Could you please share the exact property location and directions for viewing?`;
   const locationWhatsApp = `https://wa.me/6738211222?text=${encodeURIComponent(locationMessage)}`;
   const nearbyFacilities = nearbyFacilitiesByProperty[p.id] || [
@@ -378,52 +398,20 @@ ${p.plotDetails && p.plotDetails.length ? `
             <span class="approximate-tag">Approximate area</span>
           </div>
 
-          <div class="google-map-frame ${[15, 25].includes(p.id) ? "map-scroll-viewport" : ""}">
-            ${[15, 25].includes(p.id) ? `
-              <div class="map-scroll-content">
-                <img
-                  class="neighbourhood-map-image"
-                  src="SgTilongMap.webp"
-                  alt="Sg. Tilong neighbourhood map"
-                  loading="lazy"
-                >
-                
-              <div class="google-map-privacy">General neighbourhood only · Exact property location shared on request</div>
-              </div>
-            ` : `
-              <iframe
-                id="neighbourhoodGoogleMap"
-                class="neighbourhood-map"
-                title="Google Maps showing the approximate ${areaName} neighbourhood"
-                src="${neighbourhoodMap}"
+          <div class="google-map-frame map-scroll-viewport">
+            <div class="map-scroll-content">
+              <img
+                class="neighbourhood-map-image"
+                src="${neighbourhoodMapImages[p.id]}"
+                alt="${areaName} neighbourhood map"
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen
-              ></iframe>
-
-              <form class="google-map-search" role="search" onsubmit="event.preventDefault(); searchNeighbourhoodPlace();">
-                <span class="map-search-icon" aria-hidden="true">⌕</span>
-                <input id="neighbourhoodPlaceSearch" type="search" value="${areaName}" placeholder="Search another place" aria-label="Search another place on the map" autocomplete="off">
-                <button type="submit" aria-label="Search map">⌕</button>
-              </form>
-
-              <div class="google-map-place-card">
-                <img src="${p.image}" alt="${p.name}" loading="lazy">
-                <div class="google-map-place-copy"><strong>${areaName}</strong><span>Neighbourhood</span></div>
-                <small>Approx. area</small>
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              >
+              <div class="neighbourhood-map-placeholder" style="display:none;">
+                Add your map image for ${areaName}
               </div>
-
-              <div class="google-map-property-pin" aria-label="Approximate neighbourhood marker">
-                <svg class="google-map-house-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.1 2.7 10.8a1.25 1.25 0 0 0 1.6 1.9l.7-.6v7.1A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.8-1.8v-7.1l.7.6a1.25 1.25 0 1 0 1.6-1.9L12 3.1Zm-1.8 16v-5.2h3.6v5.2h-3.6Z" fill="currentColor"/></svg>
-              </div>
-
-              <div class="google-map-controls" aria-label="Map controls">
-                <button type="button" onclick="changeNeighbourhoodZoom(1)" aria-label="Zoom in">+</button>
-                <button type="button" onclick="changeNeighbourhoodZoom(-1)" aria-label="Zoom out">−</button>
-              </div>
-
-              <div class="google-map-privacy">General neighbourhood only · Exact property location shared on request</div>
-            `}
+            </div>
+            <div class="google-map-privacy">General neighbourhood only · Exact property location shared on request</div>
           </div>
 
           <div class="map-location-request">
@@ -706,31 +694,6 @@ function closeCompareModal() {
   if (!modal) return;
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
-}
-
-function searchNeighbourhoodPlace() {
-  const input = document.getElementById("neighbourhoodPlaceSearch");
-  const frame = document.getElementById("neighbourhoodGoogleMap");
-  const marker = document.querySelector(".google-map-property-pin");
-  if (!input || !frame) return;
-
-  const query = input.value.trim();
-  if (!query) {
-    input.focus();
-    return;
-  }
-
-  frame.src = `https://maps.google.com/maps?q=${encodeURIComponent(query + ", Brunei")}&z=13&output=embed`;
-  if (marker) marker.style.display = "none";
-}
-
-function changeNeighbourhoodZoom(direction) {
-  const frame = document.getElementById("neighbourhoodGoogleMap");
-  if (!frame) return;
-  const match = frame.src.match(/[?&]z=(\\d+)/);
-  const currentZoom = match ? Number(match[1]) : 13;
-  const nextZoom = Math.max(10, Math.min(18, currentZoom + direction));
-  frame.src = frame.src.replace(/([?&]z=)\\d+/, `$1${nextZoom}`);
 }
 
 function changeGallery(direction){
