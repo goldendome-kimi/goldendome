@@ -383,7 +383,7 @@ ${p.plotDetails && p.plotDetails.length ? `
               <div class="map-scroll-content">
                 <img
                   class="neighbourhood-map-image"
-                  src="sg-tilong-neighbourhood-map.png"
+                  src="SgTilongMap.webp"
                   alt="Sg. Tilong neighbourhood map"
                   loading="lazy"
                 >
