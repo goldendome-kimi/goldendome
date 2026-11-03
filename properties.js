@@ -424,7 +424,6 @@ ${p.plotDetails && p.plotDetails.length ? `
                 <button type="button" onclick="changeNeighbourhoodZoom(-1)" aria-label="Zoom out">−</button>
               </div>
 
-              <a class="google-map-expand" href="${googleMapsExploreUrl}" target="_blank" rel="noopener" aria-label="Open neighbourhood in Google Maps">↗</a>
               <div class="google-map-privacy">General neighbourhood only · Exact property location shared on request</div>
             `}
           </div>
@@ -442,19 +441,21 @@ ${p.plotDetails && p.plotDetails.length ? `
 
           <div class="nearby-heading">
             <h4>Nearby facilities</h4>
-            <a href="${googleMapsExploreUrl}" target="_blank" rel="noopener">View area on Google Maps ↗</a>
+            <p>Convenient places around the neighbourhood</p>
           </div>
-          <div class="nearby-facilities">
-            ${nearbyFacilities.map(item => `
-              <div class="nearby-facility">
-                <span class="nearby-icon" aria-hidden="true">${item.icon}</span>
-                <span class="nearby-facility-info">
-                  <strong>${item.name}</strong>
-                  <small>${item.distance}</small>
-                </span>
-                <span class="nearby-facility-time">${item.duration}</span>
-              </div>
-            `).join("")}
+          <div class="nearby-facilities-wrap">
+            <table class="nearby-facilities-table">
+              <thead><tr><th>Facility</th><th>Distance</th><th>Travel time</th></tr></thead>
+              <tbody>
+                ${nearbyFacilities.map(item => `
+                  <tr>
+                    <td><span class="nearby-table-facility"><span class="nearby-icon" aria-hidden="true">${item.icon}</span><strong>${item.name}</strong></span></td>
+                    <td>${item.distance}</td>
+                    <td><span class="nearby-time-pill">${item.duration}</span></td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
           </div>
           <p class="facility-disclaimer">Distances and travel times are editable for each property. Travel times are estimates and may vary with traffic.</p>
         </section>

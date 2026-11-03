@@ -1910,3 +1910,84 @@
 @media (max-width: 700px) {
   .map-scroll-viewport { height: 330px !important; border-radius: 12px; }
 }
+
+
+/* GOLDENDOME — COMPACT LOCATION REQUEST + LUXURY FACILITIES TABLE */
+.map-location-request {
+  display: flex !important;
+  justify-content: flex-start !important;
+  margin: 12px 0 18px !important;
+}
+.request-location-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 38px !important;
+  padding: 10px 16px !important;
+  border-radius: 5px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: .7px !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 2px 7px rgba(23,37,31,.08) !important;
+}
+.request-location-button span { font-size: 13px; line-height: 1; }
+.nearby-heading {
+  display: block !important;
+  margin: 20px 0 11px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid rgba(190,160,105,.35) !important;
+}
+.nearby-heading h4 {
+  margin: 0 0 4px !important;
+  color: var(--forest) !important;
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: 21px !important;
+  font-weight: 500 !important;
+  letter-spacing: .1px !important;
+}
+.nearby-heading p { margin: 0 !important; color: var(--muted) !important; font-size: 10px !important; }
+.nearby-facilities-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e7e0d2;
+  border-radius: 9px;
+  background: #fffefa;
+  box-shadow: 0 5px 18px rgba(32,42,34,.045);
+}
+.nearby-facilities-table {
+  width: 100%;
+  min-width: 430px;
+  border-collapse: collapse;
+  color: #566057;
+  font-size: 11px;
+}
+.nearby-facilities-table thead { background: #f3f0e8; }
+.nearby-facilities-table th {
+  padding: 12px 14px;
+  color: #8b744b;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.nearby-facilities-table td { padding: 12px 14px; border-top: 1px solid #eee9df; vertical-align: middle; }
+.nearby-facilities-table tbody tr:nth-child(even) { background: #fcfbf8; }
+.nearby-facilities-table tbody tr:hover { background: #f8f5ed; }
+.nearby-table-facility { display: inline-flex; align-items: center; gap: 10px; color: var(--forest); }
+.nearby-table-facility strong { font-size: 11px; font-weight: 600; }
+.nearby-icon { display: inline-grid; width: 28px; height: 28px; flex: 0 0 28px; place-items: center; border: 1px solid #e7dcc4; border-radius: 7px; background: #f8f4eb; font-size: 14px; }
+.nearby-time-pill { display: inline-block; padding: 5px 9px; border: 1px solid #e6dcc8; border-radius: 20px; background: #f8f5ed; color: #77633f; font-size: 9px; font-weight: 700; white-space: nowrap; }
+.facility-disclaimer { margin-top: 9px !important; font-size: 9px !important; }
+@media(max-width:700px) {
+  .request-location-button { width: auto !important; min-height: 36px !important; padding: 9px 13px !important; font-size: 9px !important; }
+  .nearby-heading { align-items: initial !important; flex-direction: initial !important; }
+  .nearby-facilities-table { min-width: 420px; }
+  .nearby-facilities-table th, .nearby-facilities-table td { padding: 10px 11px; }
+}
