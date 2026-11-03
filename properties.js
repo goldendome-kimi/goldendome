@@ -378,50 +378,55 @@ ${p.plotDetails && p.plotDetails.length ? `
             <span class="approximate-tag">Approximate area</span>
           </div>
 
-          <div class="google-map-frame">
-            <iframe
-              id="neighbourhoodGoogleMap"
-              class="neighbourhood-map"
-              title="Google Maps showing the approximate ${areaName} neighbourhood"
-              src="${neighbourhoodMap}"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen
-            ></iframe>
-
-            <form class="google-map-search" role="search" onsubmit="event.preventDefault(); searchNeighbourhoodPlace();">
-              <span class="map-search-icon" aria-hidden="true">⌕</span>
-              <input
-                id="neighbourhoodPlaceSearch"
-                type="search"
-                value="${areaName}"
-                placeholder="Search another place"
-                aria-label="Search another place on the map"
-                autocomplete="off"
-              >
-              <button type="submit" aria-label="Search map">⌕</button>
-            </form>
-
-            <div class="google-map-place-card">
-              <img src="${p.image}" alt="${p.name}" loading="lazy">
-              <div class="google-map-place-copy">
-                <strong>${areaName}</strong>
-                <span>Neighbourhood</span>
+          <div class="google-map-frame ${[15, 25].includes(p.id) ? "map-scroll-viewport" : ""}">
+            ${[15, 25].includes(p.id) ? `
+              <div class="map-scroll-content">
+                <img
+                  class="neighbourhood-map-image"
+                  src="sg-tilong-neighbourhood-map.png"
+                  alt="Sg. Tilong neighbourhood map"
+                  loading="lazy"
+                >
+                <div class="google-map-property-pin" aria-label="Approximate neighbourhood marker">
+                  <svg class="google-map-house-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.1 2.7 10.8a1.25 1.25 0 0 0 1.6 1.9l.7-.6v7.1A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.8-1.8v-7.1l.7.6a1.25 1.25 0 1 0 1.6-1.9L12 3.1Zm-1.8 16v-5.2h3.6v5.2h-3.6Z" fill="currentColor"/></svg>
+                </div>
               </div>
-              <small>Approx. area</small>
-            </div>
+              <div class="google-map-privacy">General neighbourhood only · Exact property location shared on request</div>
+            ` : `
+              <iframe
+                id="neighbourhoodGoogleMap"
+                class="neighbourhood-map"
+                title="Google Maps showing the approximate ${areaName} neighbourhood"
+                src="${neighbourhoodMap}"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
 
-            <div class="google-map-property-pin" aria-label="Approximate neighbourhood marker">
-              <svg class="google-map-house-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.1 2.7 10.8a1.25 1.25 0 0 0 1.6 1.9l.7-.6v7.1A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.8-1.8v-7.1l.7.6a1.25 1.25 0 1 0 1.6-1.9L12 3.1Zm-1.8 16v-5.2h3.6v5.2h-3.6Z" fill="currentColor"/></svg>
-            </div>
+              <form class="google-map-search" role="search" onsubmit="event.preventDefault(); searchNeighbourhoodPlace();">
+                <span class="map-search-icon" aria-hidden="true">⌕</span>
+                <input id="neighbourhoodPlaceSearch" type="search" value="${areaName}" placeholder="Search another place" aria-label="Search another place on the map" autocomplete="off">
+                <button type="submit" aria-label="Search map">⌕</button>
+              </form>
 
-            <div class="google-map-controls" aria-label="Map controls">
-              <button type="button" onclick="changeNeighbourhoodZoom(1)" aria-label="Zoom in">+</button>
-              <button type="button" onclick="changeNeighbourhoodZoom(-1)" aria-label="Zoom out">−</button>
-            </div>
+              <div class="google-map-place-card">
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                <div class="google-map-place-copy"><strong>${areaName}</strong><span>Neighbourhood</span></div>
+                <small>Approx. area</small>
+              </div>
 
-            <a class="google-map-expand" href="${googleMapsExploreUrl}" target="_blank" rel="noopener" aria-label="Open neighbourhood in Google Maps">↗</a>
-            <div class="google-map-privacy">General neighbourhood only · Exact property location shared on request</div>
+              <div class="google-map-property-pin" aria-label="Approximate neighbourhood marker">
+                <svg class="google-map-house-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.1 2.7 10.8a1.25 1.25 0 0 0 1.6 1.9l.7-.6v7.1A1.8 1.8 0 0 0 6.8 21h10.4a1.8 1.8 0 0 0 1.8-1.8v-7.1l.7.6a1.25 1.25 0 1 0 1.6-1.9L12 3.1Zm-1.8 16v-5.2h3.6v5.2h-3.6Z" fill="currentColor"/></svg>
+              </div>
+
+              <div class="google-map-controls" aria-label="Map controls">
+                <button type="button" onclick="changeNeighbourhoodZoom(1)" aria-label="Zoom in">+</button>
+                <button type="button" onclick="changeNeighbourhoodZoom(-1)" aria-label="Zoom out">−</button>
+              </div>
+
+              <a class="google-map-expand" href="${googleMapsExploreUrl}" target="_blank" rel="noopener" aria-label="Open neighbourhood in Google Maps">↗</a>
+              <div class="google-map-privacy">General neighbourhood only · Exact property location shared on request</div>
+            `}
           </div>
 
           <div class="map-location-request">
