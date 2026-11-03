@@ -1991,3 +1991,111 @@
   .nearby-facilities-table { min-width: 420px; }
   .nearby-facilities-table th, .nearby-facilities-table td { padding: 10px 11px; }
 }
+
+
+/* =========================================================
+   GOLDENDOME — MOBILE MODAL WIDTH + TABLE RESPONSIVENESS FIX
+   Keeps desktop layout unchanged.
+   ========================================================= */
+@media (max-width: 700px) {
+  html, body { max-width: 100%; overflow-x: hidden !important; }
+  #modal.modal {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding: 10px !important;
+    overflow-x: hidden !important;
+    overscroll-behavior-x: none;
+  }
+  #modal .modal-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 58px 16px 22px !important;
+    overflow-x: hidden !important;
+    border-radius: 12px !important;
+  }
+  #modal .modal-grid,
+  #modal .modal-gallery,
+  #modal .modal-property-info,
+  #modal .neighbourhood-section,
+  #modal .modal-floor-plan,
+  #modal .modal-site-development {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  #modal .modal-photo,
+  #modal .modal-gallery img,
+  #modal .modal-site-development img,
+  #modal .floor-plan-item img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto;
+    object-fit: contain !important;
+  }
+  #modal .modal-photo { height: 230px !important; object-fit: cover !important; }
+  #modal .gallery-thumbs,
+  #modal .plot-details-table,
+  #modal .plot-table-scroll {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  #modal .property-details { width: 100% !important; min-width: 0 !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  #modal .property-details > div { min-width: 0 !important; overflow-wrap: anywhere; }
+  #modal .modal-actions { width: 100% !important; min-width: 0 !important; }
+  #modal .modal-actions .button { min-width: 0 !important; }
+
+  /* Compact luxury facility rows: no sideways scrolling on phones. */
+  #modal .nearby-facilities-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  #modal .nearby-facilities-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+  }
+  #modal .nearby-facilities-table thead { display: none !important; }
+  #modal .nearby-facilities-table tbody tr {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+    width: 100% !important;
+    padding: 10px 12px !important;
+    border-top: 1px solid #eee9df !important;
+    background: #fffefa !important;
+  }
+  #modal .nearby-facilities-table tbody tr:nth-child(even) { background: #fcfbf8 !important; }
+  #modal .nearby-facilities-table td {
+    display: block !important;
+    min-width: 0 !important;
+    padding: 5px 3px !important;
+    border: 0 !important;
+    overflow-wrap: anywhere !important;
+    white-space: normal !important;
+  }
+  #modal .nearby-facilities-table td:first-child { grid-column: 1 / -1 !important; padding-bottom: 7px !important; }
+  #modal .nearby-facilities-table td:nth-child(2)::before,
+  #modal .nearby-facilities-table td:nth-child(3)::before {
+    display: block;
+    margin-bottom: 3px;
+    color: #9b8357;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  #modal .nearby-facilities-table td:nth-child(2)::before { content: "Distance"; }
+  #modal .nearby-facilities-table td:nth-child(3)::before { content: "Travel time"; }
+  #modal .nearby-table-facility { display: flex !important; align-items: center !important; gap: 9px !important; }
+  #modal .nearby-table-facility strong { font-size: 11px !important; line-height: 1.35 !important; }
+  #modal .nearby-icon { width: 27px !important; height: 27px !important; flex-basis: 27px !important; }
+  #modal .nearby-time-pill { white-space: normal !important; padding: 4px 7px !important; font-size: 8px !important; }
+  #modal .facility-disclaimer { overflow-wrap: anywhere !important; }
+}
