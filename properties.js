@@ -216,94 +216,94 @@ function expandPromoOnPropertyImage(event) {
  */
 const nearbyFacilitiesByProperty = {
   1: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "3.3 KM", duration: "3-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "4.5 KM", duration: "5-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "6.4 KM", duration: "8-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "3.3 KM", duration: "3-Min Drive" }
   ],
    2: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "3.4 KM", duration: "7-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "950 M", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "1.8 KM", duration: "3-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "3.3 KM", duration: "4-Min Drive" }
   ],
    3: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "700 M", duration: "1-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "750 M", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "6.7 KM", duration: "13-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "12.7 KM", duration: "20-Min Drive" }
   ],
    4: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "700 M", duration: "1-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "750 M", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "6.7 KM", duration: "13-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "12.7 KM", duration: "20-Min Drive" }
   ],
    5: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "650 M", duration: "2-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "600 M", duration: "1-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "2.6 KM", duration: "5-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "2.4 KM", duration: "4-Min Drive" }
   ],
    6: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "650 M", duration: "2-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "600 M", duration: "1-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "2.6 KM", duration: "5-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "2.4 KM", duration: "4-Min Drive" }
   ],
    7: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "750 M", duration: "2-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "800 M", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "800 M", duration: "2-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "600 M", duration: "1-Min Drive" }
   ],
    8: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "750 M", duration: "2-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "800 M", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "800 M", duration: "2-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "600 M", duration: "1-Min Drive" }
   ],
    9: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "750 M", duration: "2-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "800 M", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "800 M", duration: "2-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "600 M", duration: "1-Min Drive" }
   ],
    10: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "3.4 KM", duration: "7-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "2.9 KM", duration: "6-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "4.1 KM", duration: "8-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "2.1 KM", duration: "5-Min Drive" }
   ],
    11: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "2.4 KM", duration: "5-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "1.2 KM", duration: "4-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "2.4 KM", duration: "6-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "3.6 KM", duration: "7-Min Drive" }
   ],
    12: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "750 M", duration: "3-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "550 M", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "5.1 KM", duration: "8-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "2.7 KM", duration: "5-Min Drive" }
   ],
    13: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "240 M", duration: "1-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "1.1 KM", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "5.3 KM", duration: "7-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "2.7 KM", duration: "4-Min Drive" }
   ],
    14: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "2.3 KM", duration: "5-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "1.3 KM", duration: "3-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "2.3 KM", duration: "5-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "2.4 KM", duration: "5-Min Drive" }
   ],
    15: [
-    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
-    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
-    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
-    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "2.8 KM", duration: "6-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "1.3 KM", duration: "5-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "2.8 KM", duration: "6-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "3.4 KM", duration: "8-Min Drive" }
   ],
    16: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "2.3 KM", duration: "5-Min Drive" },
