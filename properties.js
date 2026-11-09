@@ -4,7 +4,7 @@ const properties = [
   {id:3,name:"Kasat 23735",location:"Brunei-Muara",type:"Detached Bungalow",price:149900,landArea:"0.100 - 0.115 AC",floorArea:"1,348.93 - 1,390.94 Sq. Ft",bed:3,bath:2,carPorch:2,tenure:"Tanah Kekal",status:"Sold Out",availablePlots:0,lat:4.827175,lng:114.947002,image:"Kasat1.webp",gallery:["Kasat1.webp","Kasat2.webp"],description:"Detached bungalow homes in Kasat.",features:["3 bedrooms","2 bathrooms","Carporch for 2 cars","Tanah Kekal"],notes:"Sold Out. Price shown is the previous starting price."},
   {id:4,name:"Kasat 23737",location:"Brunei-Muara",type:"Detached Bungalow",price:149900,landArea:"0.100 - 0.115 AC",floorArea:"1,348.93 - 1,390.94 Sq. Ft",bed:3,bath:2,carPorch:2,tenure:"Tanah Kekal",status:"Sold Out",availablePlots:0,lat:4.827175,lng:114.947002,image:"Kasat2.webp",gallery:["Kasat2.webp","Kasat1.webp"],description:"Detached bungalow homes in Kasat.",features:["3 bedrooms","2 bathrooms","Carporch for 2 cars","Tanah Kekal"],notes:"Sold Out. Price shown is the previous starting price."},
   {id:5,name:"Mentiri 5230",location:"Brunei-Muara",type:"Semi-Detached Double Storey",price:237000,landArea:"0.067 - 0.076 AC",floorArea:"2,219.74 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"6 Units Left",detailStatus:"Pending Borang C Submission",availablePlots:6,plotRange:"3-8",plotDetails: [{ plot: 3, landArea: "0.074 AC", floorArea: "2,219.74 Sq. Ft" },{ plot: 4, landArea: "0.072 AC", floorArea: "2,219.74 Sq. Ft" },{ plot: 5, landArea: "0.072 AC", floorArea: "2,219.74 Sq. Ft" },{ plot: 6, landArea: "0.072 AC", floorArea: "2,219.74 Sq. Ft" },{ plot: 7, landArea: "0.076 AC", floorArea: "2,219.74 Sq. Ft" },{ plot: 8, landArea: "0.067 AC", floorArea: "2,219.74 Sq. Ft" }],lat:4.976681,lng:115.018974,image:"Mentiri5230SemiD2.webp",floorPlans:["Mentiri5230SemiDGF.webp","Mentiri5230SemiDFF.webp"],siteDevelopment: "Mentiri5230SDP.webp",gallery:["Mentiri5230SemiD2.webp","Mentiri5230SemiD1.webp","Mentiri5230SemiD3.webp","Mentiri5230SemiD4.webp"],description:"Semi-detached double-storey homes in Mentiri with generous family living spaces.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","6 units available"],nextStage:"Start Construction"},
-  {id:6,name:"Mentiri 5230",location:"Brunei-Muara",type:"Detached Double Storey",price:278000,landArea:"0.112 AC",floorArea:"2,555.67 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Pending Borang C Submission",availablePlots:1,plotNumbers: [12],plotDetails: [{ plot: 12, landArea: "0.112 AC", floorArea: "2487.32 Sq. Ft" }],lat:4.976681,lng:115.018974,image:"Mentiri5230Detached2.webp",gallery:["Mentiri5230Detached2.webp","Mentiri5230Detached1.webp"],description:"The detached double-storey option at Mentiri 5230.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"],nextStage:"Start Construction"},
+  {id:6,name:"Mentiri 5230",location:"Brunei-Muara",type:"Detached Double Storey",price:278000,landArea:"0.112 AC",floorArea:"2,555.67 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Pending Borang C Submission",availablePlots:1,plotNumbers: [12],plotDetails: [{ plot: 12, landArea: "0.112 AC", floorArea: "2555.67 Sq. Ft" }],lat:4.976681,lng:115.018974,image:"Mentiri5230Detached2.webp",gallery:["Mentiri5230Detached2.webp","Mentiri5230Detached1.webp"],description:"The detached double-storey option at Mentiri 5230.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"],nextStage:"Start Construction"},
   {id:7,name:"Mentiri 6469",location:"Brunei-Muara",type:"Detached Double Storey",price:249900,landArea:"0.107 AC",floorArea:"2,490.12 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Sold Out",availablePlots:0,lat:4.960988,lng:115.020595,image:"Mentiri64691.webp",gallery:["Mentiri64691.webp","Mentiri64692.webp"],description:"Detached double-storey homes in Mentiri 6469.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal"],notes:"Sold Out. Price shown is the previous starting price."},
   {id:8,name:"Mentiri 6469",location:"Brunei-Muara",type:"Semi-Detached Double Storey",price:239000,landArea:"0.080 AC",floorArea:"2,487.32 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Start Piling",availablePlots:1,promo:"Free water tank and water pump",plotNumbers: [2],plotDetails: [{ plot: 2, landArea: "0.080 AC", floorArea: "2487.32 Sq. Ft" }],lat:4.960988,lng:115.020595,image:"Mentiri64693.webp",floorPlans:["Mentiri6469SemiDGF.webp","Mentiri6469SemiDFF.webp"],siteDevelopment: "Mentiri6469SDP.webp",gallery:["Mentiri64693.webp","Mentiri64694.webp"],description:"The last semi-detached double-storey unit at Mentiri 6469.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Free water tank and water pump.","Last unit"],nextStage:"Start Construction"},
   {id:9,name:"Mentiri 6470",location:"Brunei-Muara",type:"Detached Double Storey",price:245000,landArea:"0.085 AC",floorArea:"2,424.19 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Pending Borang C Submission",availablePlots:1,promo:"Free water tank and water pump",plotNumbers: ["C"],plotDetails: [{ plot: "C", landArea: "0.085 AC", floorArea: "2424.19 Sq. Ft" }],lat:4.960988,lng:115.020595,image:"Mentiri64702.webp",floorPlans:["Mentiri6470GF.webp","Mentiri6470FF.webp"],siteDevelopment: "Mentiri6470SDP.webp",gallery:["Mentiri64702.webp","Mentiri64701.webp"],description:"Detached double-storey homes at Mentiri 6470.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Free water tank and water pump.","Last unit"],nextStage:"Start Construction"},
@@ -220,145 +220,145 @@ const nearbyFacilitiesByProperty = {
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    2: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    3: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    4: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    5: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    6: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    7: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    8: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    9: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    10: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    11: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    12: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    13: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    14: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    15: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    16: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    17: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    18: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    19: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    20: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    21: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
     { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
-  ]
+  ],
    22: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "2.1 KM", duration: "4-Min Drive" },
     { icon: "🎓", name: "Schools", distance: "850 M", duration: "2-Min Drive" },
     { icon: "✚", name: "Clinics & healthcare", distance: "2.8 KM", duration: "5-Min Drive" },
     { icon: "⛽", name: "Petrol stations", distance: "2.8 KM", duration: "5-Min Drive" }
-  ]
+  ],
    23: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "2.3 KM", duration: "5-Min Drive" },
     { icon: "🎓", name: "Schools", distance: "1.3 KM", duration: "3-Min Drive" },
     { icon: "✚", name: "Clinics & healthcare", distance: "2.3 KM", duration: "5-Min Drive" },
     { icon: "⛽", name: "Petrol stations", distance: "2.4 KM", duration: "5-Min Drive" }
-  ]
+  ],
    24: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "2.3 KM", duration: "5-Min Drive" },
     { icon: "🎓", name: "Schools", distance: "1.3 KM", duration: "3-Min Drive" },
     { icon: "✚", name: "Clinics & healthcare", distance: "2.3 KM", duration: "5-Min Drive" },
     { icon: "⛽", name: "Petrol stations", distance: "2.4 KM", duration: "5-Min Drive" }
-  ]
+  ],
    25: [
     { icon: "🛍", name: "Shopping & supermarkets", distance: "2.8 KM", duration: "6-Min Drive" },
     { icon: "🎓", name: "Schools", distance: "1.3 KM", duration: "5-Min Drive" },
