@@ -221,6 +221,150 @@ const nearbyFacilitiesByProperty = {
     { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
     { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
   ]
+   2: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   3: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   4: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   5: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   6: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   7: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   8: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   9: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   10: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   11: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   12: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   13: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   14: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   15: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   16: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   17: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   18: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   19: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   20: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   21: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "Add distance", duration: "Add travel time" },
+    { icon: "🎓", name: "Schools", distance: "Add distance", duration: "Add travel time" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "Add distance", duration: "Add travel time" },
+    { icon: "⛽", name: "Petrol stations", distance: "Add distance", duration: "Add travel time" }
+  ]
+   22: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "2.1 KM", duration: "4-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "850 M", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "2.8 KM", duration: "5-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "2.8 KM", duration: "5-Min Drive" }
+  ]
+   23: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "2.3 KM", duration: "5-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "1.3 KM", duration: "3-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "2.3 KM", duration: "5-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "2.4 KM", duration: "5-Min Drive" }
+  ]
+   24: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "2.3 KM", duration: "5-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "1.3 KM", duration: "3-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "2.3 KM", duration: "5-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "2.4 KM", duration: "5-Min Drive" }
+  ]
+   25: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "2.8 KM", duration: "6-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "1.3 KM", duration: "5-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "2.8 KM", duration: "6-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "3.4 KM", duration: "8-Min Drive" }
+  ]
   // Copy the block above and change 1 to another property ID, e.g. 2, 3, 4.
 };
 
