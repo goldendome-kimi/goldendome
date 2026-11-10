@@ -67,6 +67,32 @@ function formatPlotAvailability(p) {
 }
 
 
+function getDevelopmentCategory(p) {
+  const detail = String(p.detailStatus || "").toLowerCase();
+  const availability = String(p.status || "").toLowerCase();
+
+  if (availability.includes("sold out") || Number(p.availablePlots) === 0) {
+    return "sold";
+  }
+  if (detail.includes("in construction") || detail.includes("piling done") || detail.includes("start piling")) {
+    return "construction";
+  }
+  if (detail.includes("completed") || detail.includes("ready to move")) {
+    return "completed";
+  }
+  // Submission, approval and pre-construction stages remain Proposed.
+  return "proposed";
+}
+
+function getDevelopmentCategoryLabel(category) {
+  return ({
+    proposed: "PROPOSED STAGE",
+    construction: "UNDER CONSTRUCTION",
+    completed: "COMPLETED / READY",
+    sold: "SOLD"
+  })[category] || "PROPOSED STAGE";
+}
+
 function populateFilters(){
   const loc=document.getElementById("locationFilter"), type=document.getElementById("typeFilter");
   [...new Set(properties.map(p=>p.location))].sort().forEach(v=>loc.insertAdjacentHTML("beforeend",`<option>${v}</option>`));
@@ -77,12 +103,14 @@ function renderProperties(){
   const loc = document.getElementById("locationFilter").value;
   const type = document.getElementById("typeFilter").value;
   const max = Number(document.getElementById("priceFilter").value || 0);
+  const development = document.getElementById("developmentFilter")?.value || "";
   const sort = document.getElementById("sortFilter")?.value || "available";
 
   let filtered = properties.filter(p =>
     (!loc || p.location === loc) &&
     (!type || p.type === type) &&
-    (!max || !p.price || p.price <= max)
+    (!max || !p.price || p.price <= max) &&
+    (!development || getDevelopmentCategory(p) === development)
   );
 
   // SORT PROPERTIES
@@ -134,6 +162,9 @@ function renderProperties(){
       : ""
   }
 </span>
+        <span class="development-badge development-${getDevelopmentCategory(p)}">
+          ${getDevelopmentCategoryLabel(getDevelopmentCategory(p))}
+        </span>
 
         ${p.promo ? `<span class="promo-badge" role="button" tabindex="0" aria-expanded="true" onclick="togglePromo(event, this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePromo(event,this)}"><strong>PROMOTION</strong><span>${p.promo}</span></span>` : ""}
 
@@ -503,7 +534,8 @@ ${p.plotDetails && p.plotDetails.length ? `
         </div>
 
         <div class="property-status">
-          <p><strong>Status:</strong> ${p.detailStatus || p.status}</p>
+          <p><strong>Development Category:</strong> ${getDevelopmentCategoryLabel(getDevelopmentCategory(p))}</p>
+          <p><strong>Development Details:</strong> ${p.detailStatus || p.status}</p>
         </div>
 
         ${p.nextStage ? `

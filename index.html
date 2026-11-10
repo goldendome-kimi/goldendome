@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261103-map-layout-fix-2">
+  <link rel="stylesheet" href="styles.css?v=20261110-development-filter-1">
 </head>
 <body>
   <header class="topbar">
@@ -55,6 +55,7 @@
         <div class="search-heading"><span class="eyebrow">PROPERTY FINDER</span><strong>Find your next home</strong><p>Filter the listings to find a property that fits your needs.</p></div>
         <label class="filter-field"><span>Location</span><select id="locationFilter"><option value="">All locations</option></select></label>
         <label class="filter-field"><span>Property type</span><select id="typeFilter"><option value="">All property types</option></select></label>
+         <label class="filter-field"><span>Development status</span><select id="developmentFilter" onchange="renderProperties()"><option value="">All development stages</option><option value="proposed">Proposed Stage</option><option value="construction">Under Construction</option><option value="completed">Completed / Ready</option><option value="sold">Sold</option></select></label>
         <label class="filter-field"><span>Maximum budget</span><select id="priceFilter"><option value="">Any price</option><option value="150000">Up to $150,000</option><option value="200000">Up to $200,000</option><option value="250000">Up to $250,000</option><option value="300000">Up to $300,000</option><option value="400000">Up to $400,000</option><option value="500000">Up to $500,000</option></select></label>
         <label class="filter-field"><span>Sort by</span><select id="sortFilter" onchange="renderProperties()"><option value="available">Available first</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A–Z</option><option value="sold">Fewest units first</option></select></label>
         <button class="button dark search-button" type="button" onclick="renderProperties()">Search Properties <span aria-hidden="true">→</span></button>
@@ -104,7 +105,7 @@
   <footer class="footer"><div class="container footer-inner"><a class="footer-brand" href="#top">GOLDENDOME<span>PROPERTY COLLECTION</span></a><p>© 2026 Goldendome. Property information and availability are subject to change. Please contact us to confirm the latest details.</p><a href="#top" class="back-top">Back to top ↑</a></div></footer>
 
   <div id="modal" class="modal" aria-hidden="true"><div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="close" type="button" onclick="closeModal()" aria-label="Close property details">×</button><div id="modalContent"></div></div></div>
-  <script src="properties.js?v=20261103-map-layout-fix-2"></script>
+  <script src="properties.js?v=20261110-development-filter-1"></script>
   <script>
     // Small navigation enhancement; property data and listing functions remain in properties.js.
     const menuToggle = document.getElementById('menuToggle');
