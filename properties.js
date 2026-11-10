@@ -401,7 +401,7 @@ const nearbyFacilitiesByProperty = {
     { icon: "🎓", name: "Schools", distance: "750 M", duration: "2-Min Drive" },
     { icon: "✚", name: "Clinics & healthcare", distance: "6.3 KM", duration: "9-Min Drive" },
     { icon: "⛽", name: "Petrol stations", distance: "7.2 KM", duration: "9-Min Drive" }
-    }
+    ]
   // Copy the block above and change 1 to another property ID, e.g. 2, 3, 4.
 };
 
