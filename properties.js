@@ -157,11 +157,7 @@ function renderProperties(){
 
         
 <span class="status ${p.status === "Sold Out" ? "sold" : "available"}">
-  ${p.status}${
-    p.plotDetails && p.plotDetails.length
-      ? ` · Plot ${p.plotDetails.map(x => x.plot).join(", ")}`
-      : ""
-  }
+  ${p.status}
 </span>
         <span class="development-badge development-${getDevelopmentCategory(p)}">
           ${getDevelopmentCategoryLabel(getDevelopmentCategory(p))}
