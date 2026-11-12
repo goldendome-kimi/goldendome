@@ -25,6 +25,7 @@ const properties = [
   {id:24,name:"Tanjung Bunut 1200",location:"Brunei-Muara",type:"Detached Double Storey",price:430000,landArea:"0.184 AC",floorArea:"Approx. 2610 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Completed and Pending OP Submission",availablePlots:1,plotNumbers: [1],plotDetails: [{ plot: 1, landArea: "0.184 AC", floorArea: "2610 Sq. Ft" }],lat:4.8843056,lng:114.8596944,image:"TanjungBunutUnit1.webp",floorPlans:["TanjungBunutDetachedGF.webp","TanjungBunutDetachedFF.webp"],siteDevelopment: "TanjungBunutSDP.webp",gallery:["TanjungBunutUnit1.webp","TanjungBunutUnit1-1.webp"],description:"Spacious double-storey detached house in Tanjung Bunut, offering generous living areas and a comfortable layout—ideal for families seeking space, privacy, and convenience.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Pending OP Submission","Last Unit"]},
   {id:25,name:"Sg. Tilong 4172",location:"Brunei-Muara",type:"Detached Double Storey",price:368000,landArea:"0.096 AC",floorArea:"3000 Sq. Ft",bed:6,bath:6,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"In Construction",availablePlots:1,plotNumbers: [12],plotDetails: [{ plot: 12, landArea: "0.096 AC", floorArea: "3000 Sq. Ft" }],lat:4.959338,lng:114.969489,image:"SGTilong1.webp",floorPlans:["SgTilongBGF.webp","SgTilongBFF.webp"],siteDevelopment: "SgTilongSDP.webp",gallery:["SGTilong1.webp"],description:"Detached double-storey homes in Sg. Tilong.",features:["6 bedrooms","6 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"]},
   {id:26,name:"Junjongan 23611",location:"Brunei-Muara",type:"Detached Bungalow",price:145000,landArea:"0.072 - 0.095 AC",floorArea:"Approx. 1190 Sq. Ft",bed:4,bath:3,tenure:"Tanah Kekal",status:"3 Units Left",detailStatus:"Pending TCP Approval",availablePlots:3,plotNumbers: ["B", "C", "D"],plotDetails: [{ plot: "B", landArea: "0.095 AC", floorArea: "1190 Sq. Ft" },{ plot: "C", landArea: "0.095 AC", floorArea: "1190 Sq. Ft" },{ plot: "D", landArea: "0.072 AC", floorArea: "1190 Sq. Ft" }],lat:4.813001,lng:114.850888,image:"Junjongan23611.webp",siteDevelopment: "Junjongan23611SDP.webp",gallery:["Junjongan23611.webp"],description:"Detached bungalow homes in Junjongan designed for comfortable family living.",floorPlanGroups: [{title: "Type A",plans: [{ label: "Ground Floor", image: "Junjongan23611AGF.webp" },{ label: "First Floor", image: "Junjongan23611AFF.webp" }]}, {title: "Type B",plans: [{ label: "Ground Floor", image: "Junjongan23611BGF.webp" },{ label: "First Floor", image: "Junjongan23611BFF.webp" }]}],features:["4 bedrooms","3 bathrooms","Tanah Kekal","3 units left"],nextStage:"Start Construction"},
+  {id:27,name:"Sg Liang 6294",location:"Belait",type:"Detached Link Double Storey",price:208000,landArea:"0.072 - 0.10 AC",floorArea:"Approx. 2058 Sq. Ft",bed:4,bath:3,tenure:"Tanah Kekal",status:"15 Units Left",detailStatus:"Piling Done",availablePlots:15,plotNumbers: ["A", "B", "E", "F", "I", "J", "K", "L", "O", "P", "R", "U", "V", "W", "X"],plotDetails: [{ plot: "A", landArea: "0.095 AC", floorArea: "2058 Sq. Ft" },{ plot: "B", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "E", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "F", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "I", landArea: "0.095 AC", floorArea: "2058 Sq. Ft" },{ plot: "J", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "K", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "L", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "O", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "P", landArea: "0.10 AC", floorArea: "2058 Sq. Ft" },{ plot: "R", landArea: "0.073 AC", floorArea: "2058 Sq. Ft" },{ plot: "U", landArea: "0.073 AC", floorArea: "2058 Sq. Ft" },{ plot: "V", landArea: "0.073 AC", floorArea: "2058 Sq. Ft" },{ plot: "W", landArea: "0.073 AC", floorArea: "2058 Sq. Ft" },{ plot: "X", landArea: "0.091 AC", floorArea: "2058 Sq. Ft" }],lat:4.686056,lng:114.499096,image:"SgLiang6294-1.webp",floorPlans:["SgLiang6294GF.webp","SgLiang6294FF.webp"],siteDevelopment: "SgLiang6294SDP.webp",gallery:["SgLiang6294-1.webp","SgLiang6294-2.webp","SgLiang6294-3.webp","SgLiang6294-4.webp","SgLiang6294-5.webp"],description:"An exclusive development of detached-linked homes, designed for privacy, comfort, and modern living.",features:["4 bedrooms","3 bathrooms","Tanah Kekal","15 units left"],nextStage:"Start Construction"},
 ]
 
 let galleryIndex = 0;
@@ -401,6 +402,12 @@ const nearbyFacilitiesByProperty = {
     { icon: "🎓", name: "Schools", distance: "750 M", duration: "2-Min Drive" },
     { icon: "✚", name: "Clinics & healthcare", distance: "6.3 KM", duration: "9-Min Drive" },
     { icon: "⛽", name: "Petrol stations", distance: "7.2 KM", duration: "9-Min Drive" }
+    ],
+  27: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "700 M", duration: "1-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "1.4 KM", duration: "3-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "1.3 KM", duration: "3-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "6.8 KM", duration: "8-Min Drive" }
     ]
   // Copy the block above and change 1 to another property ID, e.g. 2, 3, 4.
 };
@@ -434,7 +441,8 @@ const neighbourhoodMapImages = {
   23: "TanjungBunutMap.webp",
   24: "TanjungBunutMap.webp",
   25: "SgTilongMap.webp",
-  26: "Junjongan23611Map.webp"
+  26: "Junjongan23611Map.webp",
+  27: "SgLiang6294Map.webp"
 };
 
 function openModal(id) {
