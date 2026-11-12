@@ -2142,3 +2142,43 @@
     font-size: 7px;
   }
 }
+/* MOBILE FIX — ALIGN UNITS LEFT AND DEVELOPMENT STAGE BADGES */
+@media (max-width: 700px) {
+
+  .property-card .property-image .status {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    right: auto !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: fit-content !important;
+    max-width: calc(100% - 20px) !important;
+    min-height: 28px !important;
+    box-sizing: border-box !important;
+
+    margin: 0 !important;
+    padding: 5px 9px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  .property-card .property-image .development-badge {
+    position: absolute !important;
+    top: 45px !important;
+    left: 10px !important;
+    right: auto !important;
+
+    width: fit-content !important;
+    max-width: calc(100% - 20px) !important;
+    box-sizing: border-box !important;
+
+    margin: 0 !important;
+    padding: 5px 9px !important;
+    line-height: 1.2 !important;
+  }
+
+}
