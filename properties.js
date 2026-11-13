@@ -405,6 +405,12 @@ const nearbyFacilitiesByProperty = {
     { icon: "🎓", name: "Schools", distance: "1.4 KM", duration: "3-Min Drive" },
     { icon: "✚", name: "Clinics & healthcare", distance: "1.3 KM", duration: "3-Min Drive" },
     { icon: "⛽", name: "Petrol stations", distance: "6.8 KM", duration: "8-Min Drive" }
+    ],
+  28: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "700 M", duration: "1-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "750 M", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "6.7 KM", duration: "13-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "12.7 KM", duration: "20-Min Drive" }
     ]
   // Copy the block above and change 1 to another property ID, e.g. 2, 3, 4.
 };
@@ -439,7 +445,8 @@ const neighbourhoodMapImages = {
   24: "TanjungBunutMap.webp",
   25: "SgTilongMap.webp",
   26: "Junjongan23611Map.webp",
-  27: "SgLiang6294Map.webp"
+  27: "SgLiang6294Map.webp",
+  28: "KasatMap.webp"
 };
 
 function openModal(id) {
