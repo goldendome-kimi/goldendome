@@ -28,6 +28,7 @@ const properties = [
   {id:27,name:"Sg Liang 6294",location:"Belait",type:"Detached Link Double Storey",price:208000,landArea:"0.072 - 0.10 AC",floorArea:"Approx. 2058 Sq. Ft",bed:4,bath:3,tenure:"Tanah Kekal",status:"15 Units Left",detailStatus:"Piling Done",availablePlots:15,plotNumbers: ["A", "B", "E", "F", "I", "J", "K", "L", "O", "P", "R", "U", "V", "W", "X"],plotDetails: [{ plot: "A", landArea: "0.095 AC", floorArea: "2058 Sq. Ft" },{ plot: "B", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "E", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "F", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "I", landArea: "0.095 AC", floorArea: "2058 Sq. Ft" },{ plot: "J", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "K", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "L", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "O", landArea: "0.072 AC", floorArea: "2058 Sq. Ft" },{ plot: "P", landArea: "0.10 AC", floorArea: "2058 Sq. Ft" },{ plot: "R", landArea: "0.073 AC", floorArea: "2058 Sq. Ft" },{ plot: "U", landArea: "0.073 AC", floorArea: "2058 Sq. Ft" },{ plot: "V", landArea: "0.073 AC", floorArea: "2058 Sq. Ft" },{ plot: "W", landArea: "0.073 AC", floorArea: "2058 Sq. Ft" },{ plot: "X", landArea: "0.091 AC", floorArea: "2058 Sq. Ft" }],lat:4.686056,lng:114.499096,image:"SgLiang6294-1.webp",floorPlans:["SgLiang6294GF.webp","SgLiang6294FF.webp"],siteDevelopment: "SgLiang6294SDP.webp",gallery:["SgLiang6294-1.webp","SgLiang6294-2.webp","SgLiang6294-3.webp","SgLiang6294-4.webp","SgLiang6294-5.webp"],description:"An exclusive development of detached-linked homes, designed for privacy, comfort, and modern living.",features:["4 bedrooms","3 bathrooms","Tanah Kekal","15 units left"],nextStage:"Start Construction"},
   {id:28,name:"Kasat 23738",location:"Brunei-Muara",type:"Detached Bungalow",price:148000,landArea:"0.116 AC",floorArea:"1,338.49 Sq. Ft",bed:3,bath:2,carPorch:2,tenure:"Tanah Kekal",status:"2 Units Left",detailStatus:"Pending TCP Approval",availablePlots:2,plotNumbers: [1],plotDetails: [{ plot: 1, landArea: "0.116 AC", floorArea: "1338.49 Sq. Ft" },{ plot: 3, landArea: "0.116 AC", floorArea: "1338.49 Sq. Ft" }],lat:4.827175,lng:114.947002,image:"Kasat1.webp",floorPlans:["KasatFP.webp"],siteDevelopment: "KasatSDP.webp",gallery:["Kasat1.webp"],description:"Detached bungalow homes in Kasat.",features:["3 bedrooms","2 bathrooms","Carporch for 2 cars","Tanah Kekal","2 units left"],nextStage:"Start Construction"},
   {id:29,name:"Sengkarai 14832",location:"Tutong",type:"Terrace Double Storey",price:158000,landArea:"0.04 - 0.044 AC",floorArea:"Approx. 1700 Sq. Ft",bed:3,bath:3,carPorch:2,tenure:"Tanah Kekal",status:"4 Units Left",detailStatus:"Borang C Approved",availablePlots:4,promo:"Free SPA, Electric & Water Meter, Lights & Ceiling Fans, Modern Kitchen Upgrade",plotNumbers: ["C", "F", "D", "E"],plotDetails: [{ plot: "C", landArea: "0.04 AC", floorArea: "1700 Sq. Ft" },{ plot: "F", landArea: "0.04 AC", floorArea: "1700 Sq. Ft" },{ plot: "D", landArea: "0.044 AC", floorArea: "1700 Sq. Ft" },{ plot: "E", landArea: "0.044 AC", floorArea: "1700 Sq. Ft" }],lat:4.809194,lng:114.651359,image:"Sengkarai14832-01.webp",gallery:["Sengkarai14832-01.webp"],description:"2-Storey Terrace in Sengkarai.",features:["3 bedrooms","3 bathrooms","Carporch for 2 cars","Tanah Kekal","4 units left"],nextStage:"Start Construction"},
+  {id:30,name:"Sengkarai 14831",location:"Tutong",type:"Detached Double Storey",price:243000,landArea:"0.108 AC",floorArea:"Approx. 1940 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Borang C Approved",availablePlots:1,promo:"Free SPA, Lights & Ceiling Fans, Modern Kitchen Upgrade",plotNumbers: ["B"],plotDetails: [{ plot: "B", landArea: "0.108 AC", floorArea: "1940 Sq. Ft" }],lat:4.809194,lng:114.651359,image:"Sengkarai14831-01.webp",gallery:["Sengkarai14831-01.webp"],description:"Detached double-storey homes at Sengkarai.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"],nextStage:"Start Construction"},
 ]
 
 let galleryIndex = 0;
@@ -418,6 +419,12 @@ const nearbyFacilitiesByProperty = {
     { icon: "🎓", name: "Schools", distance: "400 M", duration: "1-Min Drive" },
     { icon: "✚", name: "Clinics & healthcare", distance: "1.8 KM", duration: "3-Min Drive" },
     { icon: "⛽", name: "Petrol stations", distance: "1.7 KM", duration: "3-Min Drive" }
+    ],
+  30: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "1 KM", duration: "1-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "400 M", duration: "1-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "1.8 KM", duration: "3-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "1.7 KM", duration: "3-Min Drive" }
     ]
   // Copy the block above and change 1 to another property ID, e.g. 2, 3, 4.
 };
@@ -454,7 +461,9 @@ const neighbourhoodMapImages = {
   26: "Junjongan23611Map.webp",
   27: "SgLiang6294Map.webp",
   28: "KasatMap.webp",
-  29: "Sengkarai14382Map.webp"
+  29: "Sengkarai14382Map.webp",
+  30: "Sengkarai14382Map.webp"
+
 };
 
 function openModal(id) {
