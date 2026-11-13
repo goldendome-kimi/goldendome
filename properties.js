@@ -30,6 +30,7 @@ const properties = [
   {id:29,name:"Sengkarai 14832",location:"Tutong",type:"Terrace Double Storey",price:158000,landArea:"0.04 - 0.044 AC",floorArea:"Approx. 1700 Sq. Ft",bed:3,bath:3,carPorch:2,tenure:"Tanah Kekal",status:"4 Units Left",detailStatus:"Borang C Approved",availablePlots:4,promo:"Free SPA, Electric & Water Meter, Lights & Ceiling Fans, Modern Kitchen Upgrade",plotNumbers: ["C", "F", "D", "E"],plotDetails: [{ plot: "C", landArea: "0.04 AC", floorArea: "1700 Sq. Ft" },{ plot: "F", landArea: "0.04 AC", floorArea: "1700 Sq. Ft" },{ plot: "D", landArea: "0.044 AC", floorArea: "1700 Sq. Ft" },{ plot: "E", landArea: "0.044 AC", floorArea: "1700 Sq. Ft" }],lat:4.809194,lng:114.651359,image:"Sengkarai14832-01.webp",gallery:["Sengkarai14832-01.webp"],description:"2-Storey Terrace in Sengkarai.",features:["3 bedrooms","3 bathrooms","Carporch for 2 cars","Tanah Kekal","4 units left"],nextStage:"Start Construction"},
   {id:30,name:"Sengkarai 14831",location:"Tutong",type:"Detached Double Storey",price:243000,landArea:"0.108 AC",floorArea:"Approx. 1940 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Borang C Approved",availablePlots:1,promo:"Free SPA, Lights & Ceiling Fans, Modern Kitchen Upgrade",plotNumbers: ["B"],plotDetails: [{ plot: "B", landArea: "0.108 AC", floorArea: "1940 Sq. Ft" }],lat:4.809194,lng:114.651359,image:"Sengkarai14831-01.webp",gallery:["Sengkarai14831-01.webp"],description:"Detached double-storey homes at Sengkarai.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"],nextStage:"Start Construction"},
   {id:31,name:"Sengkarai 14831",location:"Tutong",type:"Detached Bungalow",price:189000,landArea:"0.088 - 0.101 AC",floorArea:"Approx. 1432 Sq. Ft",bed:3,bath:3,carPorch:2,tenure:"Tanah Kekal",status:"2 Units Left",detailStatus:"Borang C Approved",availablePlots:2,promo:"Free SPA, Electric & Water Meter, Lights & Ceiling Fans",plotNumbers: ["C", "D"],plotDetails: [{ plot: "C", landArea: "0.101 AC", floorArea: "1432 Sq. Ft" },{ plot: "D", landArea: "0.088 AC", floorArea: "1432 Sq. Ft" }],lat:4.809194,lng:114.651359,image:"Sengkarai14831-02.webp",gallery:["Sengkarai14831-02.webp"],description:"Detached bungalow homes at Sengkarai.",features:["3 bedrooms","3 bathrooms","Carporch for 2 cars","Tanah Kekal","2 units left"],nextStage:"Start Construction"},
+  {id:32,name:"Telisai 8177",location:"Tutong",type:"Semi-Detached Double Storey",price:189000,landArea:"0.084 AC",floorArea:"Approx. 1870 Sq. Ft",bed:4,bath:3,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"In Construction",availablePlots:1,plotNumbers: ["B"],plotDetails: [{ plot: "B", landArea: "0.084 AC", floorArea: "1870 Sq. Ft" }],lat:4.728634,lng:114.552754,image:"Telisai8177-01.webp",gallery:["Telisai8177-01.webp"],description:"Semi-Detached Double Storey homes at Telisai.",features:["4 bedrooms","3 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"]},
 ]
 
 let galleryIndex = 0;
@@ -432,6 +433,12 @@ const nearbyFacilitiesByProperty = {
     { icon: "🎓", name: "Schools", distance: "400 M", duration: "1-Min Drive" },
     { icon: "✚", name: "Clinics & healthcare", distance: "1.8 KM", duration: "3-Min Drive" },
     { icon: "⛽", name: "Petrol stations", distance: "1.7 KM", duration: "3-Min Drive" }
+    ],
+  32: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "1.8 KM", duration: "3-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "1.2 KM", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "1.4 KM", duration: "2-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "170 M", duration: "1-Min Drive" }
     ]
   // Copy the block above and change 1 to another property ID, e.g. 2, 3, 4.
 };
@@ -470,7 +477,9 @@ const neighbourhoodMapImages = {
   28: "KasatMap.webp",
   29: "Sengkarai14382Map.webp",
   30: "Sengkarai14382Map.webp",
-  31: "Sengkarai14382Map.webp"
+  31: "Sengkarai14382Map.webp",
+  32: "Telisai8177Map.webp"
+
 };
 
 function openModal(id) {
