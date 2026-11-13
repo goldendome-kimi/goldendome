@@ -469,7 +469,7 @@ const neighbourhoodMapImages = {
   27: "SgLiang6294Map.webp",
   28: "KasatMap.webp",
   29: "Sengkarai14382Map.webp",
-  30: "Sengkarai14382Map.webp"
+  30: "Sengkarai14382Map.webp",
   31: "Sengkarai14382Map.webp"
 };
 
