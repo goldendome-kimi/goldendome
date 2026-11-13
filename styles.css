@@ -2049,55 +2049,67 @@
   #modal .modal-actions { width: 100% !important; min-width: 0 !important; }
   #modal .modal-actions .button { min-width: 0 !important; }
 
-  /* Compact luxury facility rows: no sideways scrolling on phones. */
+  
+  /* MOBILE — KEEP NEARBY FACILITIES SAME AS DESKTOP */
+
   #modal .nearby-facilities-wrap {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    overflow: hidden !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
   }
+
   #modal .nearby-facilities-table {
     width: 100% !important;
-    min-width: 0 !important;
-    table-layout: fixed !important;
+    min-width: 430px !important;
+    table-layout: auto !important;
     border-collapse: collapse !important;
   }
-  #modal .nearby-facilities-table thead { display: none !important; }
+
+  #modal .nearby-facilities-table thead {
+    display: table-header-group !important;
+  }
+
   #modal .nearby-facilities-table tbody tr {
-    display: grid !important;
-    grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
-    width: 100% !important;
-    padding: 10px 12px !important;
-    border-top: 1px solid #eee9df !important;
-    background: #fffefa !important;
-  }
-  #modal .nearby-facilities-table tbody tr:nth-child(even) { background: #fcfbf8 !important; }
-  #modal .nearby-facilities-table td {
-    display: block !important;
-    min-width: 0 !important;
-    padding: 5px 3px !important;
+    display: table-row !important;
+    width: auto !important;
+    padding: 0 !important;
     border: 0 !important;
-    overflow-wrap: anywhere !important;
+  }
+
+  #modal .nearby-facilities-table th {
+    display: table-cell !important;
+    padding: 10px 11px !important;
+    white-space: nowrap !important;
+  }
+
+  #modal .nearby-facilities-table td {
+    display: table-cell !important;
+    min-width: 0 !important;
+    padding: 10px 11px !important;
+    border-top: 1px solid #eee9df !important;
     white-space: normal !important;
+    overflow-wrap: normal !important;
+    vertical-align: middle !important;
   }
-  #modal .nearby-facilities-table td:first-child { grid-column: 1 / -1 !important; padding-bottom: 7px !important; }
-  #modal .nearby-facilities-table td:nth-child(2)::before,
-  #modal .nearby-facilities-table td:nth-child(3)::before {
-    display: block;
-    margin-bottom: 3px;
-    color: #9b8357;
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+
+  #modal .nearby-facilities-table td::before {
+    display: none !important;
+    content: none !important;
   }
-  #modal .nearby-facilities-table td:nth-child(2)::before { content: "Distance"; }
-  #modal .nearby-facilities-table td:nth-child(3)::before { content: "Travel time"; }
-  #modal .nearby-table-facility { display: flex !important; align-items: center !important; gap: 9px !important; }
-  #modal .nearby-table-facility strong { font-size: 11px !important; line-height: 1.35 !important; }
-  #modal .nearby-icon { width: 27px !important; height: 27px !important; flex-basis: 27px !important; }
-  #modal .nearby-time-pill { white-space: normal !important; padding: 4px 7px !important; font-size: 8px !important; }
-  #modal .facility-disclaimer { overflow-wrap: anywhere !important; }
+
+  #modal .nearby-table-facility {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 9px !important;
+  }
+
+  #modal .nearby-time-pill {
+    white-space: nowrap !important;
+  }
+
 }
 
 
@@ -2182,3 +2194,45 @@
   }
 
 }
+
+/* GOLDENDOME — MOBILE PROPERTY FINDER LAYOUT */
+
+@media (max-width: 700px) {
+
+  .search-panel {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .search-heading {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Development status takes a full row */
+  .search-panel > .filter-field:nth-child(4) {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Sort by — left column */
+  .search-panel > .filter-field:nth-child(6) {
+    grid-column: 1 !important;
+    grid-row: 4 !important;
+  }
+
+  /* Maximum budget — right column */
+  .search-panel > .filter-field:nth-child(5) {
+    grid-column: 2 !important;
+    grid-row: 4 !important;
+  }
+
+  /* Keep Maximum budget on one line */
+  .search-panel > .filter-field:nth-child(5) > span {
+    white-space: nowrap !important;
+  }
+
+  .search-button {
+    grid-column: 1 / -1 !important;
+  }
+}
+
