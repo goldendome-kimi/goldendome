@@ -503,7 +503,7 @@ const neighbourhoodMapImages = {
   26: "Junjongan23611Map.webp",
   27: "SgLiang6294Map.webp",
   28: "KasatMap.webp",
-  29: "Sengkarai14382Map.webp",
+  29: "Sengkarai14832Map.webp",
   30: "Sengkarai14832Map.webp",
   31: "Sengkarai14832Map.webp",
   32: "Telisai8177Map.webp",
