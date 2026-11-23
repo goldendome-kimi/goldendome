@@ -2236,3 +2236,32 @@
   }
 }
 
+
+/* PROPERTY IMAGE DISCLAIMER — shown below the gallery in View Details */
+.property-image-disclaimer {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-left: 2px solid var(--gold-dark);
+  background: var(--cream);
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.property-image-disclaimer strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--forest);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .45px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .property-image-disclaimer {
+    margin-top: 10px;
+    padding: 9px 10px;
+    font-size: 10px;
+  }
+}
