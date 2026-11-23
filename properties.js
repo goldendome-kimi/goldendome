@@ -546,6 +546,11 @@ function openModal(id) {
           alt="${p.name}"
         >
 
+        <p class="property-image-disclaimer">
+          <strong>For illustration purposes only.</strong>
+          All images and visuals are artistically rendered and intended for illustrative purposes, not an exact representation of the actual property.
+        </p>
+
         ${(p.gallery || [p.image]).length > 1 ? `
           <button class="gallery-prev" onclick="changeGallery(-1)">‹</button>
           <button class="gallery-next" onclick="changeGallery(1)">›</button>
@@ -553,11 +558,6 @@ function openModal(id) {
             <span id="galleryCount">1 / ${(p.gallery || [p.image]).length}</span>
           </div>
         ` : ""}
-
-        <p class="property-image-disclaimer">
-          <strong>For illustration purposes only.</strong>
-          All images and visuals are artistically rendered and intended for illustrative purposes, not an exact representation of the actual property.
-        </p>
       </div>
 
       <!-- RIGHT: PROPERTY DETAILS -->
