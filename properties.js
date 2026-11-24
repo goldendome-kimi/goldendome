@@ -35,6 +35,7 @@ const properties = [
   {id:34,name:"Selayun 38536",location:"Brunei-Muara",type:"Semi-Detached Double Storey",price:225000,landArea:"0.061 - 0.086 AC",floorArea:"Approx. 2000 Sq. Ft",bed:4,bath:5,carPorch:2,tenure:"Tanah Kekal",status:"2 Units Left",detailStatus:"Pending ABCi Approval",availablePlots:2,promo:"Free SPA, Electric & Water Meter, Lights & Ceiling Fans",plotNumbers: [2, 3],plotDetails: [{ plot: 2, landArea: "0.061 AC", floorArea: "2000 Sq. Ft" },{ plot: 3, landArea: "0.086 AC", floorArea: "2000 Sq. Ft" }],lat:4.905404,lng:114.851737,image:"Selayun38536-01.webp",gallery:["Selayun38536-01.webp"],description:"Semi-detached double storey homes at Selayun.",features:["4 bedrooms","5 bathrooms","Carporch for 2 cars","Tanah Kekal","2 units left"],nextStage:"-"},
   {id:35,name:"Selayun 84473",location:"Brunei-Muara",type:"Detached Double Storey",price:230000,landArea:"0.06 AC",floorArea:"Approx. 1634 Sq. Ft",bed:4,bath:4,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Pending TCP Approval",availablePlots:1,promo:"Free SPA, Electric & Water Meter, Lights & Ceiling Fans",plotNumbers: [1],plotDetails: [{ plot: 1, landArea: "0.06 AC", floorArea: "1634 Sq. Ft" }],lat:4.904749,lng:114.852142,image:"Selayun84473-01.webp",gallery:["Selayun84473-01.webp"],description:"Detached double storey homes at Selayun.",features:["4 bedrooms","4 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"],nextStage:"Start Construction"},
   {id:36,name:"Selayun 84473",location:"Brunei-Muara",type:"Detached Double Storey",price:225000,landArea:"0.085 AC",floorArea:"Approx. 1538 Sq. Ft",bed:4,bath:5,carPorch:2,tenure:"Tanah Kekal",status:"Last Unit Left",detailStatus:"Pending TCP Approval",availablePlots:1,promo:"Free SPA, Electric & Water Meter, Lights & Ceiling Fans",plotNumbers: [1],plotDetails: [{ plot: 1, landArea: "0.085 AC", floorArea: "1538 Sq. Ft" }],lat:4.904749,lng:114.852142,image:"Selayun84473-02.webp",gallery:["Selayun84473-02.webp"],description:"Detached double storey homes at Selayun.",features:["4 bedrooms","5 bathrooms","Carporch for 2 cars","Tanah Kekal","Last unit"],nextStage:"Start Construction"},
+  {id:37,name:"Kasat 23854",location:"Brunei-Muara",type:"Detached Bungalow",price:139000,landArea:"0.098 AC",floorArea:"1217.93 Sq. Ft",bed:3,bath:2,carPorch:2,tenure:"Tanah Kekal",status:"3 Units Left",detailStatus:"Proposed",availablePlots:3,plotNumbers: ["C", "D", "E"],plotDetails: [{ plot: "C", landArea: "0.098 AC", floorArea: "1217.93 Sq. Ft" },{ plot: "D", landArea: "0.098 AC", floorArea: "1217.93 Sq. Ft" },{ plot: "E", landArea: "0.098 AC", floorArea: "1217.93 Sq. Ft" }],lat:4.830457,lng:114.948287,image:"Kasat23854.webp",floorPlans:["Kasat23854FP.webp"],siteDevelopment: "Kasat23854SDP.webp",gallery:["Kasat23854.webp"],description:"Detached bungalow homes in Kasat.",features:["3 bedrooms","2 bathrooms","Carporch for 2 cars","Tanah Kekal","3 units left"],nextStage:"Proposed"},
 ]
 
 let galleryIndex = 0;
@@ -467,6 +468,12 @@ const nearbyFacilitiesByProperty = {
     { icon: "🎓", name: "Schools", distance: "1.6 KM", duration: "3-Min Drive" },
     { icon: "✚", name: "Clinics & healthcare", distance: "2.1 KM", duration: "5-Min Drive" },
     { icon: "⛽", name: "Petrol stations", distance: "2.7 KM", duration: "5-Min Drive" }
+    ],
+  37: [
+    { icon: "🛍", name: "Shopping & supermarkets", distance: "700 M", duration: "1-Min Drive" },
+    { icon: "🎓", name: "Schools", distance: "750 M", duration: "2-Min Drive" },
+    { icon: "✚", name: "Clinics & healthcare", distance: "6.7 KM", duration: "13-Min Drive" },
+    { icon: "⛽", name: "Petrol stations", distance: "12.7 KM", duration: "20-Min Drive" }
     ]
   // Copy the block above and change 1 to another property ID, e.g. 2, 3, 4.
 };
@@ -510,7 +517,8 @@ const neighbourhoodMapImages = {
   33: "Baong72547Map.webp",
   34: "Selayun38536Map.webp",
   35: "Selayun84473Map.webp",
-  36: "Selayun84473Map.webp"
+  36: "Selayun84473Map.webp",
+  37: "Kasat23854Map.webp"
 
 
 
